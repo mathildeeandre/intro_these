@@ -1,0 +1,188 @@
+\newcommand{\sujet}[1]{\renewcommand{\sujet}{#1}}
+\newcommand{\auteur}[1]{\renewcommand{\auteur}{#1}}
+\newcommand{\encadrant}[1]{\renewcommand{\encadrant}{#1}}
+\makeatletter
+\renewcommand{\tableofcontents}{%
+  \@starttoc{toc}%
+}
+\makeatother
+\newcommand{\chapminitoc}{%
+  \begingroup
+  \etocsettocstyle{\small}{}
+  \localtableofcontents
+  \endgroup
+}
+\newcommand{\objectif}[1]{%
+\vspace{.1cm}
+\begin{singlespace}
+\tikzstyle{titlebox}=[rectangle,inner sep=10pt,inner ysep=10pt,draw=curcolor,draw]%
+\tikzstyle{title}=[fill=white]%
+\bigskip\noindent\begin{tikzpicture}
+\node[titlebox] (box){%
+    \begin{minipage}{0.88\textwidth}
+#1
+    \end{minipage}
+};
+\node[title] at (box.north west) {\color{curcolor}  Abstract};
+\end{tikzpicture}\bigskip%
+\vspace{.1cm}
+\chapminitoc
+\end{singlespace}
+\newpage
+}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{} \vskip .5\baselineskip \par}
+
+\newcommand{\T}[1]{T\textsubscript{#1}}
+
+
+%%% Macro pour la mise en forme de la liste des publiations
+\newcommand{\Myprod}[3]{ % sans DOI
+\begin{singlespace}
+  \noindent {#1}. "\textit{{#2}}". {#3}. \par\vspace{0.6em}
+\end{singlespace}}
+
+\newcommand{\MyprodwithDOI}[4]{ % avec DOI
+\begin{singlespace}
+  \noindent {#1}. "\textit{{#2}}". {#3}.\par
+ \noindent {DOI: \href{https://doi.org/#4}{#4}} \par\vspace{0.6em}
+\end{singlespace}}
+
+% Chapitre sans mise en forme particulière (remerciements, conclusion
+\newcommand{\addchapnonumber}[1]{
+\phantomsection
+\addtocounter{chapter}{1}
+\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}
+\markboth{#1}{#1}
+\setcounter{section}{1}
+}
+
+%%% Macro pour mise en forme de l'abstract et résumé avec mots clés
+\newcommand{\AddResumeAbstract}{
+\chapter{Résumé}
+
+\thefrabstract
+\vskip 2em \noindent\makebox[\linewidth]{\rule{.5\linewidth}{0.4pt}}
+\vfill
+\noindent \textbf{Mots clés :}
+\thefrkeywords
+
+\chapter{Abstract}
+
+\theenabstract
+\vskip 2em \noindent\makebox[\linewidth]{\rule{.5\linewidth}{0.4pt}}
+\vfill
+\noindent\textbf{Keywords :}
+\theenkeywords
+}
+
+\makeatletter
+\newcommand{\mytag}[2]{%
+  \text{#1}%
+  \@bsphack
+  \begingroup
+    \@onelevel@sanitize\@currentlabelname
+    \edef\@currentlabelname{%
+      \expandafter\strip@period\@currentlabelname\relax.\relax\@@@%
+    }%
+    \protected@write\@auxout{}{%
+      \string\newlabel{#2}{%
+        {#1}%
+        {\thepage}%
+        {\@currentlabelname}%
+        {\@currentHref}{}%
+      }%
+    }%
+  \endgroup
+  \@esphack
+}
+\makeatother
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\usepackage[shortlabels]{enumitem}
+\newlist{mathlist}{enumerate}{5}
+\setlist[mathlist]{label={\textup{(\roman*)}}}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{propdef}[thm]{Definition/Proposition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}{Assumption}
+\renewcommand{\theassumption}{\Roman{assumption}}
+\newtheorem{algo}[thm]{Algorithm}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{notation}[thm]{Notation}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+\renewcommand{\thethm}{\arabic{section}.\arabic{thm}}
+\allowdisplaybreaks[1]
+
+\renewcommand{\arraystretch}{1.5}
+\newcommand{\norm}[2][]{#1\lVert #2 #1\rVert}
+\newcommand{\abs}[2][]{#1\lvert #2 #1\rvert}
+\newcommand{\floor}[2][]{#1\lfloor #2 #1\rfloor}
+\renewcommand{\rho}{\varrho}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\ppac}[1]{\llbracket#1\rrbracket}
+\DeclareMathOperator{\R}{\mathbb{R}}
+
+
+\usepackage{setspace}
+\makeatletter
+\newcommand{\oset}[3][0.1ex]{%
+  \mathrel{\mathop{#3}\limits^{
+    \vbox to#1{\kern-2\ex@
+    \hbox{$\scriptstyle#2$}\vss}}}}
+\makeatother
+\makeatletter
+\newcommand*{\transpose}{%
+  {\mathpalette\@transpose{}}%
+}
+\newcommand*{\@transpose}[2]{%
+  % #1: math style
+  % #2: unused
+  \raisebox{\depth}{$\m@th#1\intercal$}%
+}
+\makeatother
+
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\baselinestretch}{1.05}
+\renewcommand{\arraystretch}{1.2}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\rho}{\varrho}
+\DeclareMathOperator{\Var}{Var}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\ie}{\textit{i.e.}\ }
+\newcommand{\eg}{\textit{e.g.}\ }
+\newcommand{\viz}{\textit{viz.}\ }
+\newcommand{\cf}{\textit{cf.}\ }
+\newcommand{\iid}{i.i.d.\ }
+\DeclareMathOperator{\Poi}{\mathrm{Poi}}
+\newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
+\newcommand{\anc}[1]{\overset\leftarrow{#1}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\Prob}{\mathbb{P}}
+\DeclareMathOperator{\Cte}{C^{\textit{st}}}
+\renewcommand{\figurename}{Fig.}
+\newcommand{\ma}[1]{\textcolor{violet}{\ \textbf{MA:} #1}}
+\newcommand{\jj}[1]{\textcolor{brown}{\textbf{JJD:} #1}}
+\newcommand{\jjn}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\ffr}[1]{\textcolor{orange}{\textbf{F}: #1}}
+
+\newcommand{\es}[1]{\textcolor{red}{ES: #1}}
+
+\newcommand{\esn}[1]{\textcolor{red}{#1}}

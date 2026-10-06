@@ -1,0 +1,25 @@
+# Ignorer tous les fichiers .log
+*.log
+*.aux
+*.json
+*.thm
+*.toc
+*.pdf
+*.DS_Store
+*.out
+*.acn
+*.ist
+*.mtc*
+*.maf
+*.glo
+*.bcf
+backup/
+*.synctex.gz
+*.bbl
+*.nav
+*.snm
+*.xml
+*.blg
+*.fls
+*.synctex*
+*.fdb_latexmk
