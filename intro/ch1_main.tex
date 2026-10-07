@@ -54,7 +54,7 @@ $\nu(t)$ to be distributed as a multinomial random vector:
 Biological problems are usually modeled as continuous-time phenomena. 
 The continuous-time analogue of the Wright-Fisher model is the Moran model. This is a continuous-time Markov chain in which individuals reproduce at independent exponential times, and each offspring replaces a uniformly chosen individual in the population. 
 
-The Moran model extends naturally to non-binary reproduction events, in which a single individual can produce multiple offspring at once, replacing a random number of individuals in the population.  This model has been studied for instance in~\citet{etheridge_coalescent_2010,birkner_measure-valued_2009}. The evolution of the population is given by a resampling mechanism: each $d$-uplet of individuals dies after an exponential holding time with rate $\lambda_d$, one individual of the $d$-uplet is replaced by $d$ copies of themselves. This is called the $\Lambda$-Moran model, and it is the continuous-time analogue of the $\Lambda$-Cannings model.
+The Moran model extends naturally to non-binary reproduction events, in which a single individual can produce multiple offspring at once, replacing a random number of individuals in the population.  This model has been studied for instance in~\citet{etheridge_coalescent_2010,birkner_measure-valued_2009}. The evolution of the population is given by a resampling mechanism: each $d$-uplet of individuals dies after an exponential holding time with some positive rate $\lambda_d$. Upon death, one individual of the $d$-uplet is replaced by $d$ copies of themselves. This is called the $\Lambda$-Moran model.
 
 
 \subsection{Universal scaling limits}
@@ -78,9 +78,9 @@ More generally, if we track the frequency of $k\geq 2$ neutral alleles in a popu
 Adding selection to Cannings model with finite variance leads to a drift term in the Wright-Fisher diffusion, while modifying the variance of the offspring distribution changes the diffusion coefficient. 
 \paragraph{Retrospective limit: neutral coalescent theory.}
 An alternative way to describe the allelic composition of a population is to
-sample individuals uniformly from the population at some fixed ``present'' time, and to trace their ancestral relationships backward in time, locating the most recent common ancestor. 
+sample individuals uniformly from the population at some fixed ``present'' time $t$, and to trace their ancestral relationships backward in time, locating the most recent common ancestor. 
 This backward-in-time approach is called coalescent theory.
-Tracking the ancestral lineages yields an (ultra)metric structure on the space of trees, equipped with the following \emph{genetic distance}
+Tracking the ancestral lineages yields an (ultra)metric structure on the space of individuals alive at time $t$, equipped with the following \emph{genetic distance}
 Fix $t>0$ and $k\geq 1$. We recall that ${\cal N}_t$ denotes the set of individuals alive at time $t$.
 For any pair $u,v \in{\cal N}_t$ with $u\neq v$, we denote
 by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time to the death of their most recent common ancestor, see Figure~\ref{fig:distance_gen}.
@@ -134,9 +134,9 @@ Thus, the shape of the genealogies determines how many mutations we see and how 
 \medskip
 
 \paragraph{Exchangeable coalescents.}
-In particular, the genealogy of the Wright--Fisher diffusion is described by a continuous-time Markov chain on the space of partitions of $\{1,\ldots,n\}$ called the Kingman coalescent. It was introduced by Kingman in 1982~\cite{Kingman:1982aa}.
+In particular, the limiting genealogy of the Moran Model is described by a continuous-time Markov chain on the space of partitions of $\{1,\ldots,n\}$ called the Kingman coalescent. It was introduced by Kingman in 1982~\cite{Kingman:1982aa}.
 
-The Kingman coalescent with rate $r$ is the partition-valued process started from the singleton partition and such that if there are $n$ blocks remaining in the partition, each pair of blocks is equipped with a random clock distributed as an exponential random variable with mean $1/r$, and merge upon ringing. 
+The Kingman coalescent with rate $r$ is the partition-valued process started from the singleton partition and such that each pair of blocks merge at rate $r$. 
 Thus, the block-counting process is the decreasing integer-valued process with transitions
 \[
 n\ \longrightarrow\ n-1 \qquad \text{at rate}\quad r\binom{n}{2}.
@@ -148,14 +148,14 @@ and is linked to the pairwise merging rate of the coalescent, and thus to the va
 r\ =\  \E\big[\nu_1(t)(\nu_1(t)-1)\big]\ \eqqcolon\ \frac{1}{N_e}.
 \]
 
-However, if the variance of the offspring distribution is infinite, then the Kingman coalescent is no longer the correct inference model the genetic diversity of the population. 
-We say that a probability distribution $L$ with values in $\R_+$ is heavy-tailed if it has a power-law tail, \ie there exists $\alpha \in (1,2)$ such that
+However, if the variance of the offspring distribution is infinite, then the Kingman coalescent can no longer be a good estimate for the genealogies of the population. Notably, we say that a probability distribution $L$ with values in $\R_+$ is heavy-tailed if its tail probability $\Prob(L > x)$ decays slower than any exponential as $x\to\infty$
+
+In particular, it has a power-law tail if there exists $\alpha \in (1,2)$ such that
 \[
 \Prob(L > x)\ \sim\ C x^{-\alpha} \quad \textit{as}\quad x\ \to\ \infty.
 \]
 
-If the offspring distribution of individuals in a Cannings model is heavy tailed, then a single
-individual can, with non-negligible probability, produce a positive fraction of the whole next generation.
+If the offspring distribution per individual in a Cannings model is heavy-tailed, then a single individual can, with non-negligible probability, produce a positive fraction of the whole next generation.
 Zooming out, these large birth events create big families who persist in the large population limit. Looking at the genealogies, individuals at present are likely to descend from these large families, so that the diversity of the population is reduced and the genealogy of the population is no longer described by a binary tree like the Kingman coalescent, but rather by a tree with multiple mergers. 
 
 Pitman~\cite{Pitman:1999aa} and Sagitov~\cite{sagitov1999general} characterized the class of exchangeable coalescent processes admitting multiple mergers. That is, merging events involving several blocks, but at most one merger event at a time. Given a finite measure $\Lambda$ on $[0,1]$, the $\Lambda$-coalescent is the Markov chain on the space of partitions of $\{1,\ldots,n\}$ with the following dynamics:
@@ -163,11 +163,14 @@ Pitman~\cite{Pitman:1999aa} and Sagitov~\cite{sagitov1999general} characterized 
 \[
 \lambda_{b,k}\ =\ \int_0^1 x^{k-2} (1-x)^{b-k}\, \Lambda(dx),
 \]
-independently of the other groups.  Taking $\Lambda = \delta_0$ in the above display recovers the Kingman coalescent. In the beginning of the century, Möhle and Sagitov~\cite{mohle_classification_2001,Mohle_Sagitov} provided the exact conditions on the offspring distribution of a Cannings model under which its genealogy, once suitably rescaled, converges to a $\Lambda$-coalescent. Thereby, they classified the possible scaling limits of the genealogies in exchangeable populations with fixed size.
+independently of the other groups.  Taking $\Lambda = \delta_0$ in the above display recovers the Kingman coalescent. In the beginning of the century, Möhle and Sagitov~\cite{mohle_classification_2001,Mohle_Sagitov} provided the exact conditions on the offspring distribution of a Cannings model under which its genealogy, once suitably rescaled, converges to a $\Lambda$-coalescent. 
+In particular, if the law of $\nu_1$ has a power tail with parameter $\alpha$, then the genealogies converge to a $\Lambda$-coalescent with measure $\Lambda=\mathrm{Beta}(1-\alpha, \alpha)$.
+Thereby, they classified the possible scaling limits of the genealogies in exchangeable populations with fixed size.
 
 \paragraph{Duality}
-The forward-in-time (Wright-Fisher diffusion) and backward-in-time (Kingman coalescent)
-descriptions of a neutral population are linked by a moment duality formula. 
+The Wright--Fisher diffusion and the Kingman coalescent can be seen as being two sides of the same coin: both describe a scaling limit in the Moran and Wright--Fisher population models, respectively forward and backward-in-time. More generally, if the neutral fractions in a population model are shown to converge forward-in-time to the Wright--Fisher diffusion, it is expected for the genealogies to converge to the Kingman coalescent, and if they converge to a $\Lambda$-Fleming--Viot, then the genealogies should converge to exchangeable coalescent with multiple merges. This heuristic has been rigorously established only within certain classes of models, such as Cannings models~\cite{mohle_convergence_1998,Mohle_Sagitov}.
+
+The forward and backward descriptions of neutral exchangeable populations are linked by a \emph{moment duality} formula. 
 Duality is a fundamental concept in mathematics and takes different forms. The underlying idea is to control a complex object by using a simpler one, which potentially takes values in a different space.  
 
 When it comes to population models, Markovian duality is a powerful tool to connect two stochastic processes. In particular, it often relates the forward-in-time evolution of allele frequencies  to a backward-in-time process describing genealogical quantities, for example the number of ancestral lineages. The moment duality between Wright-Fisher diffusion and Kingman's coalescent is certainly the most famous instance of duality in population genetics.
@@ -208,16 +211,17 @@ non-equivalent, definitions of $N_e$ (inbreeding, variance, eigenvalue,
 coalescent effective size) have since been developed; see the reviews of
 Charlesworth \cite{charlesworth_effective_2009,charlesworth_how_2022}.
 
-\subsection{Neutral models in practise}
+\subsection{Neutral models in practice}
 Neutral models and the whole class of unstructured, exchangeable models presented in the last paragraphs all rest on idealizations, constant population size, panmixia and neutrality of reproduction. Essentially, no natural population satisfies these assumptions exactly.
 
 
 In applied population genetics, the neutral theory is the principal inferential tool.
 
 \paragraph{Inferring genealogies from data}
-Site-Frequency spectrum (SFS)
-Tells something about the shape of the tree but not on the length of the branches
-\cite{griffiths_ancestral_2001} outlines statistical and coalescent methods to reconstruct the evolutionary history of DNA sequences.
+\begin{itemize}
+\item Site-Frequency spectrum (SFS): tells something about the shape of the tree but not on the length of the branches
+\item \cite{griffiths_ancestral_2001} outlines statistical and coalescent methods to reconstruct the evolutionary history of DNA sequences.
+\end{itemize}
 
 In particular, phylodynamics treats the Kingman coalescent as the default tree-generating model to reconstruct a phylogeny from sampled gene sequences. Inverting it allows to infer the demographic history of a population according to the following observation: 
 Under the Kingman coalescent, if during the $i^{th}$ inter-coalescence interval, $n_i$ lineages are present, then the expected length of the interval is $2N_e(t)/\binom{n_i}{2}$. The effective population size at time $t$ can be read directly off the observed branch lengths of the tree (see figure~\ref{fig:skyline_plot}). This method is called the \emph{skyline plot} and was introduced by \cite{pybus_integrated_2000}. This method, and its Bayesian variants, is used routinely to reconstruct the demographic history of viral epidemics and other rapidly evolving pathogens \citep{pybus_evolutionary_2009,ho_skyline-plot_2011}, none of which reproduce according to literal Wright-Fisher dynamics. It works because, as recalled above, the Kingman coalescent is the common scaling limit of every Cannings model with finite offspring variance, so the $N_e$ it returns remains a meaningful summary of genetic diversity regardless of the true, unknown reproduction mechanism within the population. 
@@ -228,7 +232,7 @@ Under the Kingman coalescent, if during the $i^{th}$ inter-coalescence interval,
 \caption{Reconstruction of the tree from the Skyline plot, figure from~\cite{ho_skyline-plot_2011}}
 \label{fig:skyline_plot}
 \end{figure}
-The approach only breaks down when reproduction is itself strongly skewed, epidemic superspreading, selective sweeps, oversampling, which produce multifurcating genealogies that the almost surely binary Kingman coalescent cannot generate; here it is again a simple, exchangeable model, the $\Lambda$-coalescent, that is used to extend the skyline plot and recover the ability to infer demographic history \citep{hoscheit_multifurcating_2019}. 
+The approach breaks down when reproduction is itself strongly skewed, epidemic superspreading, selective sweeps, oversampling, which produce multifurcating genealogies that the almost surely binary Kingman coalescent cannot generate; here it is again a simple, exchangeable model, the $\Lambda$-coalescent, that is used to extend the skyline plot and recover the ability to infer demographic history \citep{hoscheit_multifurcating_2019}. 
 
 
 Exchangeable coalescents (Kingman, $\Lambda$-coalescents) and neutral models are the standard null hypothesis for modeling complex populations.
@@ -242,7 +246,7 @@ We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Ki
 \paragraph{Motivation of the PhD thesis.}
 We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
 
-Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same Object by a drift term. Likewise, it is well established by Donsker's theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
+Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by Donsker's theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
 
 
 In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright-Fisher diffusion and $\Lambda$-coalescents.
@@ -351,10 +355,7 @@ terms of a spatial version of the $\Lambda$-coalescent. There is convergence of 
     \]
     where the $(L^{(i,t)})_{i, t\in \N}$ are \iid copies of the random variable $L$. 
 \end{defn}
-In this thesis, Galton--Watson processes will sometimes be abbreviated by GW. We will also work under the classical assumption that the mean number of offspring per individual is finite, that is
-\[
-\sum_{n\in \N} n\Prob(L=n)\ <\ \infty.
-\]
+In this thesis, Galton--Watson processes will sometimes be abbreviated by GW. We will also work under the classical assumption that the mean number of offspring per individual is finite, that is $\E[L]<\infty$.
 \paragraph{Multitype branching processes.}
 Let $E$ denote a finite type space.
 
@@ -369,7 +370,7 @@ The multitype Galton--Watson model is defined from a fixed family of distributio
   us fix some $Z_0\in \mathbb{N}^{E}$.
 
     The mulitype Galton--Watson process with offspring
-  distributions $(\mathcal{L}_x)_{x\in \mathcal{X}}$ and started from
+  distributions $(\mathcal{L}_x)_{x\in E}$ and started from
   $Z_0$ is defined as a sequence of $\mathbb{N}^{E}$-valued
   random variables $(Z_t)_{y\geq 0}$ satisfying the induction:
   \[
@@ -401,7 +402,7 @@ The mean matrix $M$ introduced in the above display is non-negative. It can be s
     \[
     Mh\ =\ \rho h,\quad \tilde h M \ =\ \rho\tilde h,\quad \langle \tilde h, h\rangle \ =\ \langle \tilde h, 1\rangle\ =\ 1.
     \]
-Moreover, it holds coordinate-wise that
+Moreover, it holds that
 \[
 \lim_{n\to\infty}\ \rho^{-n}M^n \ =\ h\tilde h^{\transpose},
 \]
