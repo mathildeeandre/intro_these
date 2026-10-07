@@ -10,10 +10,10 @@
 
 Population genetics studies how the genetic composition of a population changes
 over generations under the combined effect of reproduction, random sampling and,
-possibly, selection. Genetic drift denotes the  change in the frequency of an existing allele in a population due to chance. The simplest setting in which this question can be posed
+possibly, selection. In population genetics, \emph{genetic drift} refers to the change in the frequency of an existing allele in a population due to chance. The simplest setting in which this question can be posed
 rigorously is that of a \emph{well-mixed} population with fixed size and in which
 every individual is, at each generation, equally likely to be the parent of any
-other individual. This model serves as the basis to Motoo Kimura's so-called neutral theory of molecular evolution~\cite{kimura_evolutionary_1968}. He made the claim, which sparked a big controversy at the time, that most mutations are neutral, so that genetic diversity would be mostly explained by randomness and not by selection.
+other individual. This model is called the Wright--Fisher model~\citep{wright_evolution_1931,fisher_genetical_1930} and serves as the basis to Motoo Kimura's so-called neutral theory of molecular evolution~\cite{kimura_evolutionary_1968}. Kimura made the claim, which sparked a big controversy at the time, that most mutations are neutral. His assumption entails that the genetic diversity observed in nature would be mostly explained by randomness, and not by Darwin's natural selection.
 The central question was the following:\\
 \\
 \emph{Can we explain all the observed polymorphism in natural populations without needing to invoke natural selection?}
@@ -78,8 +78,9 @@ More generally, if we track the frequency of $k\geq 2$ neutral alleles in a popu
 Adding selection to Cannings model with finite variance leads to a drift term in the Wright-Fisher diffusion, while modifying the variance of the offspring distribution changes the diffusion coefficient. 
 \paragraph{Retrospective limit: neutral coalescent theory.}
 An alternative way to describe the allelic composition of a population is to
-sample individuals uniformly from the population at a fixed time, and to trace their ancestral relationships backward in time, locating the most recent common ancestor. 
-This process yields a metric structure on the space of ultrametric trees, equipped with the following \emph{genetic distance}:
+sample individuals uniformly from the population at some fixed ``present'' time, and to trace their ancestral relationships backward in time, locating the most recent common ancestor. 
+This backward-in-time approach is called coalescent theory.
+Tracking the ancestral lineages yields an (ultra)metric structure on the space of trees, equipped with the following \emph{genetic distance}
 Fix $t>0$ and $k\geq 1$. We recall that ${\cal N}_t$ denotes the set of individuals alive at time $t$.
 For any pair $u,v \in{\cal N}_t$ with $u\neq v$, we denote
 by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time to the death of their most recent common ancestor, see Figure~\ref{fig:distance_gen}.
@@ -126,7 +127,10 @@ $\{1,\dots, k\}$ satisfying that
 \]
 This partition-valued process encodes the subforest spanned by the sample $(U_i)_{i \leq k}$. 
 
-\ma{link with genetic diversity}
+
+In neutral models of population genetics, the standard statement is the following:
+conditional on a genealogy, neutral mutations are superimposed independently on its branches according to Poisson processes with rate proportional to the branches' length~\cite{donnelly_coalescents_1995, griffiths_genealogy_2003}. 
+Thus, the shape of the genealogies determines how many mutations we see and how frequent they are. Long branches imply more diversity, while shallow branching points imply that many individuals share a recent common ancestor, which in turn means that there is low diversity in the population. 
 \medskip
 
 \paragraph{Exchangeable coalescents.}
@@ -175,7 +179,7 @@ $X_t \in [0,1]$ the frequency of an allele at time $t$ in the Wright--Fisher dif
 \]
  We refer to \cite{etheridge_mathematical_2011,ethier_1986, mohle_concept_1999, carinci_dualities_2015, cordero_bernstein_2026, blath_separation_2021,etheridge_coalescent_2010} for other forms of dualities in population genetics.
 
- 
+However, there is no general method allowing us to deduce the formal distribution of the coalescent directly from the forward-in-time dynamics. For most models, as highlighted in~\cite{Julie_Zsofia}, it remains a technical challenge.
  
 \section{Central questions in applied population genetics}
 
@@ -291,6 +295,13 @@ multitype exchangeable coalescents in which the deme sizes are themselves random
 
 \subsection{Regulated populations in finite type spaces}
 Meta-population models are very restrictive when it comes to describing real populations. In particular, we observe that there is no demography: the population size is fixed, so that reproduction events of individuals are anti-correlated.
+
+
+When it comes to structured, interacting population models that allows for demography, the picture for the ancestral lineages is less clear. In the countable type space setting,~\cite{Bansaye} studied an individual-based model with density-dependent interaction, and retrieved 
+the empirical distribution of the types along a typical surviving lineage.
+The connection between neutral fractions and ancestral lineages was also used in \citet{forien_ancestral_2022} to study genealogies in a one dimensional PDE model with competition and selection, adapting to a moving environmental optimum.
+An individual-based model version of the SDE model of~\cite{forien_ancestral_2022} was studied in~\cite{meleard-tran}. They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
+ Genealogies of interacting particle systems have been studied in many specific models using other methods, for instance we cite~\cite{alison_m_etheridge_looking_2024} where the authors used a lookdown construction to derive the genealogy of a birth-death process in a spatial structure, regulated by local interactions. We also point out \cite{etheridge_genealogies_2022} who studied a diploid individual-based spatial (one dimensional) Moran model with interactions and cooperation (allee effect). They proved using a heuristic that the genealogy of the model converges to a Kingman coalescent.
 \paragraph{Density dependence and constrained populations}
 
 \ma{decribe model and assumptions}
