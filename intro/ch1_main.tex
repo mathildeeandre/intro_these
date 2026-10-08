@@ -1,6 +1,4 @@
-\begin{refsegment}
-    
-\chapter{Introduction}\label{chp1_intro}
+  \chapter{Introduction}\label{chp1_intro}
 \objectif{On universality in population genetics}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9,18 +7,21 @@
 \section{Modeling complex populations with simple objects}
 
 Population genetics studies how the genetic composition of a population changes
-over generations under the combined effect of reproduction, random sampling and,
-possibly, selection. In population genetics, \emph{genetic drift} refers to the change in the frequency of an existing allele in a population due to chance. The simplest setting in which this question can be posed
-rigorously is that of a \emph{well-mixed} population with fixed size and in which
-every individual is, at each generation, equally likely to be the parent of any
-other individual. This model is called the Wright--Fisher model~\citep{wright_evolution_1931,fisher_genetical_1930} and serves as the basis to Motoo Kimura's so-called neutral theory of molecular evolution~\cite{kimura_evolutionary_1968}. Kimura made the claim, which sparked a big controversy at the time, that most mutations are neutral. His assumption entails that the genetic diversity observed in nature would be mostly explained by randomness, and not by Darwin's natural selection.
-The central question was the following:\\
+over generations under the combined effect of reproduction, random sampling and selection. 
+The origins of discipline traces back to the early 19th century, when Lamarck~\cite{de_monet_de_lamarck_philosophie_1809} proposed one of the first theories of evolution, based on the inheritance of characteristics acquired during an organism's lifetime. 20 years later, Darwin developed a different explanation after an expedition in South America during which he observed the diversity of species and their geographical variation. In the late 1830s, he formulated the theory of natural selection as the main driver of the transformation and diversification of species~\cite{darwin_origin_1859}. 
+
+In the 1960s, Motoo Kimura~\cite{kimura_evolutionary_1968} argued that the vast majority of mutations are neutral. According to this view, the genetic diversity observed in nature is shaped mainly by chance rather than by Darwinian natural selection. As a consequence, variation at the molecular level is governed by \emph{genetic drift}, which refers to the random change in the frequency of an allele in a population from one generation to the next.
+The central question, which sparked a big controversy at the time, was the following:\\
 \\
 \emph{Can we explain all the observed polymorphism in natural populations without needing to invoke natural selection?}
 \\
+\\
+This was the beginning of the so-call \textit{neutral theory of molecular evolution}, which provides the evolutionary framework on which many of the models used today are based.
 
-This section recalls the classical descriptions of neutral, purely conservative population models, forward in time through models of reproduction, and backward in
-time through genealogies, and the universal objects, the Wright-Fisher diffusion
+The simplest setting in which this question can be posed
+rigorously is that of a \emph{well-mixed} population with fixed size and in which every individual is, at each generation, equally likely to be the parent of any other individual. This model is called the Wright--Fisher model~\citep{wright_evolution_1931,fisher_genetical_1930} and serves as the basis to Kimura's neutral theory~\cite{kimura_evolutionary_1968}. 
+
+This section recalls the classical descriptions of neutral, purely conservative population models, forward in time through models of reproduction, and backward in time through genealogies, and the universal objects, the Wright-Fisher diffusion
 and the Kingman coalescent, that these descriptions converge to in the large population limit.
 \paragraph{Notations.}
 Throughout this work, we denote by $K$ a large demographic parameter that represents the size (or the order of magnitude of the size) of a population. For both discrete and continuous time models, we will denote by $t$ the time index, which can be either discrete or continuous. We will denote by $\mathcal{N}_t$ the set of individuals in the population at time $t$. The letter $z$ will refer to a notion of density (either allele frequencies or population densities in regulated models). 
@@ -83,7 +84,7 @@ This backward-in-time approach is called coalescent theory.
 Tracking the ancestral lineages yields an (ultra)metric structure on the space of individuals alive at time $t$, equipped with the following \emph{genetic distance}
 Fix $t>0$ and $k\geq 1$. We recall that ${\cal N}_t$ denotes the set of individuals alive at time $t$.
 For any pair $u,v \in{\cal N}_t$ with $u\neq v$, we denote
-by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time to the death of their most recent common ancestor, see Figure~\ref{fig:distance_gen}.
+by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time to the death of their most recent common ancestor, see Figure~\ref{fig:distance_gen_intro}.
 
 \begin{figure}[h!]
     \centering
@@ -109,7 +110,7 @@ by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time
 
 \end{tikzpicture}}
     \caption{Genealogical distances between individuals $u,v,w\in {\cal N}_t$. The pink particle is the most recent common ancestor of $u$ and $v$.}
-    \label{fig:distance_gen}
+    \label{fig:distance_gen_intro}
 \end{figure}
 
 %In the case  
@@ -142,11 +143,12 @@ Thus, the block-counting process is the decreasing integer-valued process with t
 n\ \longrightarrow\ n-1 \qquad \text{at rate}\quad r\binom{n}{2}.
 \]
 
-The genetic diversity of the population is captured by the notion of the \emph{effective population size}, which determines the rate at which genetic variation is lost due to random sampling effects. It is denoted by $N_e$, 
-and is linked to the pairwise merging rate of the coalescent, and thus to the variance of the offspring distribution in the forward-in-time model through the formula
+The pairwise merging rate is linked to the scaling limit of the variance of the forward in time Wright--Fisher model through the formula
 \[
-r\ =\  \E\big[\nu_1(t)(\nu_1(t)-1)\big]\ \eqqcolon\ \frac{1}{N_e}.
+r\ =\  \E\big[\nu_1(t)(\nu_1(t)-1)\big].
 \]
+The genetic diversity of the population is captured by this pairwise merging rate of the coalescent, and thus to the variance of the offspring distribution in the forward-in-time model. We will develop this notion of  \emph{effective population size} in the next section. 
+
 
 However, if the variance of the offspring distribution is infinite, then the Kingman coalescent can no longer be a good estimate for the genealogies of the population. Notably, we say that a probability distribution $L$ with values in $\R_+$ is heavy-tailed if its tail probability $\Prob(L > x)$ decays slower than any exponential as $x\to\infty$
 
@@ -186,30 +188,40 @@ However, there is no general method allowing us to deduce the formal distributio
  
 \section{Central questions in applied population genetics}
 
-\subsection{Genetic diversity and the effective population size}
-Introduction by \cite{wright_evolution_1931}
-\cite{charlesworth_effective_2009,charlesworth_how_2022}
-\cite{zahle_stepping_2005}: Effective population size in coalescents
-
- Buri's experiment~\cite{buri_gene_1956} testing the Wright--Fisher model for random genetic drift against the variance in allele frequencies observed on drosophila.
-
-Evolutionary processes are greatly influenced by the demography of populations.
-The \emph{Effective Population Size} (which is classically denoted by $N_e$) refers to the number of individuals that effectively participates in producing the next generation. Generally, the effective size of a population is considerably less than its census size. 
+\subsection{Lewontin's paradox and the effective population size}
 
 
-\paragraph{Lewontin's paradox}
+Genetic drift was demonstrated experimentally in the PhD thesis of Buri~\cite{buri_gene_1956}, who followed populations of \emph{Drosophila melanogaster}. Over 19 generations, allele frequencies drifted randomly, and many populations ended up fixed for one allele or the other. Importantly, the observed loss of heterozygosity was faster than predicted by the Wright--Fisher model for random. This means that the populations behaved as if they were smaller. This result illustrates a great paradox in population genetics.
 
-Neutral theory and the class of unstructured exchangeable models assume that in a population of size $N$, diversity results from an equilibrium between new mutations arising at a constant rate $\mu$ and genetic drift that purge them at a rate $1/N$, predicting an equilibrium value proportional to $N\mu$. The discrepancy between the neutralist's expectation and the much lower observed levels of genetic diversity is known as the Lewontin paradox.
+\paragraph{Lewontin's paradox of genetic diversity}
+Neutral theory and the class of unstructured exchangeable models assume that in a population of size $N$, diversity results from an equilibrium between new mutations arising at a constant rate $\mu$ and genetic drift that purge them at a rate $1/N$. Thus, according to neutral models, the predicted quantitative  value for genetic diversity at equilibrium should be proportional to $N\mu$. The discrepancy between the neutralist's expectation and the much lower observed levels of genetic diversity in real populations is known as the Lewontin paradox~\cite{lewontin_genetic_1974, leffler_revisiting_2012}.
 
-Wright
-\cite{wright_evolution_1931} proposed to account for such discrepancies, and
-more generally for any departure from the idealized Wright-Fisher setting, by
-introducing an \emph{effective population size} $N_e$: the size of an idealized
-well-mixed Wright-Fisher population whose rate of genetic drift, measured for instance by the pairwise coalescence time or by the rate of loss of
-heterozygosity, matches that of the population under study. Several,
-non-equivalent, definitions of $N_e$ (inbreeding, variance, eigenvalue,
-coalescent effective size) have since been developed; see the reviews of
-Charlesworth \cite{charlesworth_effective_2009,charlesworth_how_2022}.
+
+\paragraph{The effective population size}
+Wright \cite{wright_evolution_1931} proposed to account for such discrepancies, and more generally for any departure from the idealized Wright-Fisher setting, by
+introducing an \emph{effective population size}, which is classically denoted by $N_e$ in the litterature.
+The effective Population Size captures the number of individuals that effectively participates in producing the next generation. It reflects how much genetic drift a real population experiences, hence its rate of loss of genetic variability. It accounts for parameters such as demographic fluctuations, variance in reproductive success, population structure, sex ratio, linked selection, etc. These parameters greatly influence evolutionary processes.
+ Generally, the effective size of a population is considerably less than its census size,  with a $1:1$ ratio only in the special case of an ``ideal'' panmictic population, in which variation among individuals in reproductive success is completely random. 
+
+Lewontin's paradox illustrates why the effective population size, rather than the number of individuals, is the relevant quantity in evolutionary biology for understanding genetic diversity (even if it should be pointed out that $N_e$ is not sufficient to resolve the paradox, as can be seen \eg in~\citet{buffalo_quantifying_2021}). It has been widely used across scientific fields and has received considerable attention over the past decades. Estimating $N_e$ is crucial for conservation and biodiversity monitoring, \eg to classify and protect endangered species. Populations with low genetic diversity are more vulnerable to disease, climate change, and other stressors, and may be at risk of extinction even when their census size is large~\cite{mergeay_importance_2026, frankham_effective_1995}.
+However, it does not have a universal and constant in time definition: it was initially introduced in the 1930s by Sewall Wright~\cite{wright_evolution_1931} as follows:
+\\
+\\
+\textit{
+  ``The number of surviving offspring left by different parents may vary tremendously either through selection or merely accidental causes, a condition which tends to reduce the effective N far below the actual number of parents or even of grandparents.''
+}--\citet{wright_evolution_1931}
+\\
+\\
+From this definition, $N_e$ is the size of an idealized well-mixed Wright--Fisher population whose rate of genetic drift, measured for instance by the pairwise coalescence time or by the rate of loss of heterozygosity, matches that of the population under study. 
+
+Several, non-equivalent, definitions of $N_e$ have since been developed. 
+For example, using the change of inbreeding (see~\citet{crow_inbreeding_1988}), the variance in reproductive success, 
+the coalescent rate of lineages backward in time (see~\citet{Kingman:1982aa}), the linkage disequilibrium (that is, the nonrandom association between alleles at different loci~\cite{slatkin_linkage_2008}), the sibling relationships among sampled individuals, etc.
+We refer to Charlesworth~\cite{charlesworth_effective_2009,charlesworth_how_2022} and Waples~\cite{waples_what_2022,waples_idiots_2025} for reviews over the different definitions of this concept. To each definition of $N_e$ corresponds a principle of inferring it.
+In Chapter~\ref{chp3_singletype} and Chapter~\ref{chp4_multitype} of this thesis, we will use the definition of $N_e$ that relates to coalescent theory: the pairwise merging rate $r$ of linages in a Kingman coalescent relates to the effective population size through
+\[
+r\ =\ \frac{1}{N_e}.
+\]
 
 \subsection{Neutral models in practice}
 Neutral models and the whole class of unstructured, exchangeable models presented in the last paragraphs all rest on idealizations, constant population size, panmixia and neutrality of reproduction. Essentially, no natural population satisfies these assumptions exactly.
@@ -224,7 +236,7 @@ In applied population genetics, the neutral theory is the principal inferential 
 \end{itemize}
 
 In particular, phylodynamics treats the Kingman coalescent as the default tree-generating model to reconstruct a phylogeny from sampled gene sequences. Inverting it allows to infer the demographic history of a population according to the following observation: 
-Under the Kingman coalescent, if during the $i^{th}$ inter-coalescence interval, $n_i$ lineages are present, then the expected length of the interval is $2N_e(t)/\binom{n_i}{2}$. The effective population size at time $t$ can be read directly off the observed branch lengths of the tree (see figure~\ref{fig:skyline_plot}). This method is called the \emph{skyline plot} and was introduced by \cite{pybus_integrated_2000}. This method, and its Bayesian variants, is used routinely to reconstruct the demographic history of viral epidemics and other rapidly evolving pathogens \citep{pybus_evolutionary_2009,ho_skyline-plot_2011}, none of which reproduce according to literal Wright-Fisher dynamics. It works because, as recalled above, the Kingman coalescent is the common scaling limit of every Cannings model with finite offspring variance, so the $N_e$ it returns remains a meaningful summary of genetic diversity regardless of the true, unknown reproduction mechanism within the population. 
+Under the Kingman coalescent, if during the $i^{th}$ inter-coalescence interval, $n_i$ lineages are present, then the expected length of the interval is $N_e(t)/\binom{n_i}{2}$. The effective population size at time $t$ can be read directly off the observed branch lengths of the tree (see figure~\ref{fig:skyline_plot}). This method is called the \emph{skyline plot} and was introduced by \cite{pybus_integrated_2000}. This method, and its Bayesian variants, is used routinely to reconstruct the demographic history of viral epidemics and other rapidly evolving pathogens \citep{pybus_evolutionary_2009,ho_skyline-plot_2011}, none of which reproduce according to literal Wright-Fisher dynamics. It works because, as recalled above, the Kingman coalescent is the common scaling limit of every Cannings model with finite offspring variance, so the $N_e$ it returns remains a meaningful summary of genetic diversity regardless of the true, unknown reproduction mechanism within the population. 
 
 \begin{figure}[h!]
     \centering
@@ -261,21 +273,22 @@ In light of the preceding paragraph, this thesis is motivated by a single conjec
 Our aim in Chapter~\ref{chp3_singletype} and~\ref{chp4_multitype} is to move toward this statement and to identify general conditions under which the genetic diversity of a population can be described by a rescaling of neutral models, even when its ecology is complex. Specifically, we ask when a structured, interacting population still behaves on the coalescent timescale as though it were well mixed, with some effective size $N_e$.
 
 \section{Understanding the play of ecology in genetic diversity}
+A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. If ecology is not taken into account, a structured population can thus mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}). 
 
-A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. If ecology is not taken into account, a structured population can thus mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding~\cite{mazet_importance_2016}. 
+Movement of population can take several forms across species. For example, one can think of the seasonal migrations observed in some populations, in particular within birds (barnacle geese, storks, but also salmons). Movement can also be initiated by density-denpendent competition and the need to explore new inhabitats in search of resources. 
 
 Within interacting populations, the homogeneization principle allowing to describe the population using neutral models and some effective parameters is only established in
-full generality for a very restricted class of models called meta-population models. Extending these results to more involved structured models presents notable challenges.
+full generality for a very restricted class of models called \emph{meta-population} models. Extending these results to more involved structured models presents notable challenges.
 \subsection{State of the art: meta-populations models}
-\cite{etheridge_mathematical_2011}
-\paragraph{Wright-Fisher with migration}
-Wright's island model \cite{wright_isolation_1943} (migration on the complete graph or $\Z^2$, discrete approximation of spatially structured models)
-\paragraph{Stepping-stone models}
+Meta-population models refer to models of population with constant size (hence no demography) and a finite type structure. We give a few examples of such celebrated models, and refer to~\citet{etheridge_mathematical_2011} for a broader review.
+ 
+\paragraph{Prospective picture: island models}
+Wright-Fisher with migration: Wright's island model \cite{wright_isolation_1943} (migration on the complete graph or $\Z^2$, discrete approximation of spatially structured models)
+Stepping-stone models:
 Diffusion approximation in each deme~\cite{kimura_stepping_1964}
 As in the monotype Cannings model, the population size is fixed on each site. Thus, a birth on one site has to coincide with a death on another
 site.
-\subsubsection*{Genealogies}
-\paragraph{Structured coalescent}
+\paragraph{Retrospective picture: the structured coalescent}
 The genealogical counterpart of the stepping-stone and island models is the
 structured coalescent: lineages ancestral to a sample coalesce, at rate
 depending on the local deme size, only when they occupy the same deme, and
@@ -292,7 +305,8 @@ multitype exchangeable coalescents in which the deme sizes are themselves random
 
 
 \paragraph{Universality, collapse of the structure}
-\cite{nordborg_separation_2002}: effective coalescence rate in fast migration regime, decorrelation of timescales.
+\cite{nordborg_separation_2002}: effective coalescence rate in fast migration regime, decorellation of timescales.
+\cite{zahle_stepping_2005}
 \cite{nagylaki_strong-migration_1980}: strong migration regime
 \cite{wilkinson-herbots_coalescence_2003}: Conditions on the graph structure to guarantee convergence to the neutral coalescent independently of the migration pattern.
 \cite{Julie_Zsofia} (neutral fractions)
@@ -308,7 +322,7 @@ An individual-based model version of the SDE model of~\cite{forien_ancestral_202
  Genealogies of interacting particle systems have been studied in many specific models using other methods, for instance we cite~\cite{alison_m_etheridge_looking_2024} where the authors used a lookdown construction to derive the genealogy of a birth-death process in a spatial structure, regulated by local interactions. We also point out \cite{etheridge_genealogies_2022} who studied a diploid individual-based spatial (one dimensional) Moran model with interactions and cooperation (allee effect). They proved using a heuristic that the genealogy of the model converges to a Kingman coalescent.
 \paragraph{Density dependence and constrained populations}
 
-\ma{decribe model and assumptions}
+\ma{describe model and assumptions}
 
 In this framework,~\cite{Kurtz:1978aa} established a law of large number for the rescaled count of types in the population, under regularity assumptions 
 \begin{prop}{\citet[Theorem~2.2]{Kurtz:1978aa}}
@@ -395,10 +409,10 @@ so that the \emph{mean matrix} defined coordinate-wise by
 \]
 is well-defined.
 
-The mean matrix $M$ introduced in the above display is non-negative. It can be seen as the transition matrix of a distrete time Markov chain with finite states. It is said to be \emph{irreducible} and \emph{aperiodic} if the Markov chain with transitions $M$ is. Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
+The mean matrix $M$ introduced in the above display is nonnegative. It can be seen as the transition matrix of a discrete time Markov chain with finite states. It is said to be \emph{irreducible} and \emph{aperiodic} if the Markov chain with transitions $M$ is. Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
 
 \begin{thm}[Perron--Frobenius]
-    If $M$ is a non-negative, irreducible and aperiodic matrix, then there exists a principal eigenvalue $\rho>0$, and a unique couple of associated left and right eigenvectors denoted by $h$ and $\tilde h$ such that
+    If $M$ is a nonnegative, irreducible and aperiodic matrix, then there exists a principal eigenvalue $\rho>0$, and a unique couple of associated left and right eigenvectors denoted by $h$ and $\tilde h$ such that
     \[
     Mh\ =\ \rho h,\quad \tilde h M \ =\ \rho\tilde h,\quad \langle \tilde h, h\rangle \ =\ \langle \tilde h, 1\rangle\ =\ 1.
     \]
@@ -413,8 +427,7 @@ where $h\tilde h^{\transpose}$ is the rank-one matrix with entries $(h_x\tilde h
 \subsection{Limit theorems and universal limits}
 Examples of complex multitype branching processes which are
 indistinguishable, under an appropriate rescaling, from a single-type branching process: \cite{horton2024stabilitysubcriticalnonlocalspatial, harris_yaglom_2022, gonzalez_asymptotic_2022, schertzer2023spectral, roberts2021gaussianparticledistributionbranching,FST_Semipushed_2024}
-\subsubsection*{Kesten--Stigum theorem}
-\paragraph{Perron--Frobenius theorem}
+\paragraph{The Perron--Frobenius theorem}
 Extension to more general types: Krein--Rutman, \cite{vere-jones_ergodic_1967} for infinite nonnegative matrices
 \paragraph{Probability of survival}
 Probability of survival in a critical GW: Haldane's formula
@@ -447,17 +460,26 @@ The previous section, as well as the simulations on the branching approximation 
 The rescaled single type (one dimensional) critical Galton--Waston branching process $(\hat{Z})$ with finite offspring's variance $\sigma^2$ converges in distribution to an exponential random variable on the set of non-extinction, as times goes to infinity. Quantitatively, 
 \end{thm}
 
-\paragraph{$L\log L$ condition for uniform integrability.}
+\paragraph{Kesten--Stigum theorem}
+$L\log L$ condition for uniform integrability.
+\begin{thm}
+  XXX
+\end{thm}
 \cite{kesten_limit_1966}
-\paragraph{Ergodicity of the types.}
-\subsubsection*{Spinal constructions}
-\paragraph{\cite{lyons_pemantle_peres_1995} and \cite{kurtz_conceptual_1997}.}
-\paragraph{The interacting $\psi$-spine of \cite{Bansaye}.}
+Ergodicity of the types.
+
+\subsection{Spinal constructions.}
+\paragraph{Many-to-one and many-to-few formulas}
+\begin{itemize}
+\item One spine to prove Kesten--Stigum results: \cite{lyons_pemantle_peres_1995} and \cite{kurtz_conceptual_1997}.
+\item  multiple spines: Construction à la \cite{Harris_Roberts} (growth fragmentation)
+\item faire une liste des constructions spinales dans différents contextes sans rentrer dans les details
+\item Spine in interacting populations:
+The interacting $\psi$-spine of \cite{Bansaye}.
 \cite{Bansaye}: Finite type, spine construction for interacting populations \cite{medous_spinal_2024}: General type spine construction à la Bansaye (also see \cite{kubasch2026empiricaldistributionancestrallineages})\cite{meleard-tran}: 1D model climate change, spine construction for the typical surviving lineage 
-\subsubsection*{Many-to-few formulas and genealogies of Branching processes}
-\paragraph{Construction à la \cite{Harris_Roberts}.}
-fragmentation (plutot faire une liste des constructions spinales dans différents contextes sans rentrer dans les details)
-\paragraph{Moment--based methods.}
+\end{itemize}
+\paragraph{Genealogies of Branching processes through moment methods}
+
 \cite{Foutel_Schertzer}: genealogy of a near-critical GW process. Brownian CPP
 Talk about markov functions/
 do the proof of the $k$-spine change of measure in the noninteracting setting using \cite{rogers_markov_1981}.
@@ -472,7 +494,7 @@ In~\cite{Foutel_Schertzer}, the authors study large-time genealogies of finite s
 
  This moment methodology was extended by Boenkost, Foutel-Rodier and Schertzer in~\cite{boenkost2022genealogy} to nearly critical branching processes in varying environment. In~\cite{boenkost2022genealogy}, they proved using similar spinal approaches and moments that the genealogies still converges, in the Gromov--Hausdorff--Prohorov topology, to a limiting metric space characteried as a time-changed version of the Brownian coalescent point process.
 
-If instead the sample is not pinned to a common time level, for instance if one keeps track of the actual birth times of the sampled individuals along with their genealogical distances, the ultrametric property is lost. In this setting, the natural  limiting object is a genuine tree metric space rather than a coalescent point process. Just like the symmetric random walk, once rescaled, converges to Brownian motion (by Donsker's theorem), the critical Galton--Watson process with finite variance converges to an universal metric space under a suitable time scaling. This limitting tree is called the Continuous Random tree (CRT), and was introduced by~\cite{aldous_continuum_1991}.
+If instead the sample is not pinned to a common time level, for instance if one keeps track of the actual birth times of the sampled individuals along with their genealogical distances, the ultrametric property is lost. In this setting, the natural limiting object is a genuine tree metric space rather than a coalescent point process. Just like the symmetric random walk, once rescaled, converges to Brownian motion (by Donsker's theorem), the critical Galton--Watson process with finite variance converges to a universal metric space under a suitable time scaling. This limiting tree is called the Continuous Random tree (CRT), and was introduced by~\cite{aldous_continuum_1991}.
 
 Moment methods to recover the CRT were also developed in Foutel-Rodier's work~\cite{foutelrodier2024momentapproachconvergencespatial}, where the population is encoded as a ``bi-metric'' measure space carrying both the tree distance and a birth-time mark, and convergence is established in a marked extension of the Gromov-weak topology built to handle exactly this richer, non-ultrametric structure. The limiting object corresponds to the genealogy of a critical Galton--Watson process with finite variance.
 
@@ -480,14 +502,8 @@ Moment methods to recover the CRT were also developed in Foutel-Rodier's work~\c
 \section{Overview of the thesis}
 
 \subsection{Chapter~\ref{chp3_singletype}: Moments of Density-dependent branching processes and their genealogy}
-\subsection{Chapter~\ref{chp4_multitype}: Duality in branching particle models and application to multitype regulated populations}
+\subsection{Chapter~\ref{chp4_multitype}: Genealogies in multitype regulated branching particle models}
 \subsection{Chapter~\ref{chp2_ks_countable}: Sharp $
 L\log L$ condition for supercritical Galton--Watson processes with countable types}
 \subsection{Chapter~\ref{chp5_opening}: Open problems and perspectives}
 
-
-\begin{singlespace}
-\setlength\labelalphawidth{0em}
-\small\printbibliography[  segment=\therefsegment,heading=subbibliography,title=References for the introduction]
-\end{singlespace}
-\end{refsegment}
