@@ -170,7 +170,7 @@ In particular, if the law of $\nu_1$ has a power tail with parameter $\alpha$, t
 Thereby, they classified the possible scaling limits of the genealogies in exchangeable populations with fixed size.
 
 \paragraph{Duality}
-The Wright--Fisher diffusion and the Kingman coalescent can be seen as being two sides of the same coin: both describe a scaling limit in the Moran and Wright--Fisher population models, respectively forward and backward-in-time. More generally, if the neutral fractions in a population model are shown to converge forward-in-time to the Wright--Fisher diffusion, it is expected for the genealogies to converge to the Kingman coalescent, and if they converge to a $\Lambda$-Fleming--Viot, then the genealogies should converge to exchangeable coalescent with multiple merges. This heuristic has been rigorously established only within certain classes of models, such as Cannings models~\cite{mohle_convergence_1998,Mohle_Sagitov}.
+The Wright--Fisher diffusion and the Kingman coalescent can be seen as being two sides of the same coin: both describe a scaling limit in the Moran and Wright--Fisher population models, respectively forward and backward-in-time. More generally, if the neutral fractions in a population model are shown to converge forward-in-time to the Wright--Fisher diffusion, it is expected for the genealogies to converge to the Kingman coalescent, and if they converge to a $\Lambda$-Fleming--Viot, then the genealogies should converge to exchangeable coalescent with multiple mergers. This heuristic has been rigorously established only within certain classes of models, such as Cannings models~\cite{mohle_convergence_1998,Mohle_Sagitov}.
 
 The forward and backward descriptions of neutral exchangeable populations are linked by a \emph{moment duality} formula. 
 Duality is a fundamental concept in mathematics and takes different forms. The underlying idea is to control a complex object by using a simpler one, which potentially takes values in a different space.  
@@ -442,6 +442,9 @@ Yaglom's entrance law: the rescaled single type critical Galton-Waston branching
     \Prob_{Z(0)}(Z(t)>0)\underset{t\to\infty}{\sim}\frac{Z(0)}{t}
 \end{equation}
 \end{lem}
+
+the population grows linearly (by the so-called Yaglom's theorem from~\cite{kesten_galton-watson_1966})
+
 \begin{lem}[Yaglom's exponential law for CSBPs]\label{lem:yaglom}
     Let $Z$ be a critical continuous-time birth-death process. Conditioning on being nonzero, we can derive an exponential entrance law, as time goes to infinity :
     \begin{equation}
