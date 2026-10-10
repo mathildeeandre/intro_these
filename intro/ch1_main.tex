@@ -358,6 +358,10 @@ terms of a spatial version of the $\Lambda$-coalescent. There is convergence of 
 
 
 \section{The branching approach}
+As we emphasized so far, little is known about the genealogies of most regulated, individual-based models used in population dynamics, except in particular cases where the ecology is trivial or when a duality formula links the forward and backward dynamics.
+
+The situation is much better for branching models, such as the multitype Galton--Watson process and continuous-time branching processes. In these branching models, individuals reproduce and move in the type space independently of one another. From the mathematicians' point of view, neglecting all interactions between individuals offers a great simplification that allows to derive precise results for the large population behavior, forward and backwards in times. We briefly introduce some of the branching models that will be used throughout this thesis. We also recall some important limit theorems for branching processes and their genealogies, as well as  methodologies used to derived them, and that will be extended in the next three chapters of this work. 
+
 \subsection{Branching models of population}
 \paragraph{Galton--Watson processes.}
 \cite{athreya_branching_1972}
@@ -404,12 +408,24 @@ The random variable $Z_t(x)$ models the number of type-$y$
 Once again, we assume that the first moment
   $M_{xy}\coloneqq\mathbb{E}[L_{xy}]$ is finite,
 so that the \emph{mean matrix} defined coordinate-wise by
-\[
+\begin{equation}\label{eq:mean_matrix_intro}
 \forall x,y\in E\quad\ M_{xy}\ \coloneqq\  \E\big[L_{xy}\big] 
-\]
+\end{equation}
 is well-defined.
 
-The mean matrix $M$ introduced in the above display is nonnegative. It can be seen as the transition matrix of a discrete time Markov chain with finite states. It is said to be \emph{irreducible} and \emph{aperiodic} if the Markov chain with transitions $M$ is. Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
+\paragraph{Continuous-time branching processes.}
+
+
+
+
+As an example of how the branching approach can simplify an involved problem in population dynamics while still allowing to modeling and make predictions on what should be expected for the behavior of the structured interacting particle system, let us present briefly the spatially structured branching particle system of~\cite{julie_tourniaire_branching_2024}. 
+She studied a branching Brownian motion with a space-dependent branching rate, negative drift and absorption at the origin, in which the drift is tuned so that the number of particles stays roughly constant. This model serves as a toy model for front expansion dynamics. 
+
+
+\subsection{Limit theorems forward in time}
+
+\paragraph{Finite and countable set of types.}
+The mean matrix $M$ introduced in \eg~\eqref{eq:mean_matrix_intro} is nonnegative. It can be seen as the transition matrix of a discrete time Markov chain with finite states. It is said to be \emph{irreducible} and \emph{aperiodic} if the Markov chain with transitions $M$ is. Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
 
 \begin{thm}[Perron--Frobenius]
     If $M$ is a nonnegative, irreducible and aperiodic matrix, then there exists a principal eigenvalue $\rho>0$, and a unique couple of associated left and right eigenvectors denoted by $h$ and $\tilde h$ such that
@@ -422,48 +438,18 @@ Moreover, it holds that
 \]
 where $h\tilde h^{\transpose}$ is the rank-one matrix with entries $(h_x\tilde h_y)_{x,y\in E}$.
 \end{thm}
-\paragraph{Continuous-time branching processes.}
-\paragraph{Feller processes and CSBPs.}
-\subsection{Limit theorems and universal limits}
-Examples of complex multitype branching processes which are
-indistinguishable, under an appropriate rescaling, from a single-type branching process: \cite{horton2024stabilitysubcriticalnonlocalspatial, harris_yaglom_2022, gonzalez_asymptotic_2022, schertzer2023spectral, roberts2021gaussianparticledistributionbranching,FST_Semipushed_2024}
-\paragraph{The Perron--Frobenius theorem}
-Extension to more general types: Krein--Rutman, \cite{vere-jones_ergodic_1967} for infinite nonnegative matrices
-\paragraph{Probability of survival}
-Probability of survival in a critical GW: Haldane's formula
 
-Near critical GW: Kolmogorov estimate
-
-Yaglom's entrance law: the rescaled single type critical Galton-Waston branching process with finite offspring's variance converges in distribution to an exponential random variable on the set of non-extinction, \cite{Yaglom}
-
-\begin{lem}[Extinction estimate of a CSBP]\label{lem:pext_CSBP}
-    Let $Z$ be a continuous-time birth-death branching process (CSBP) with constant birth $(b)$ and death $(d)$ rates. In the critical case $(b=d)$, we have
-\begin{equation}
-    \Prob_{Z(0)}(Z(t)>0)\underset{t\to\infty}{\sim}\frac{Z(0)}{t}
-\end{equation}
-\end{lem}
-
-the population grows linearly (by the so-called Yaglom's theorem from~\cite{kesten_galton-watson_1966})
-
-\begin{lem}[Yaglom's exponential law for CSBPs]\label{lem:yaglom}
-    Let $Z$ be a critical continuous-time birth-death process. Conditioning on being nonzero, we can derive an exponential entrance law, as time goes to infinity :
-    \begin{equation}
-        (\frac{Z(t)}{t}\big\vert Z(t)>0)\overset{d}{\underset{t\to\infty}{\longrightarrow}}\mathcal{E}(1)
-    \end{equation}
-\end{lem}
+Limit theorems for multitype Galton--Watson and multitype continuous-time branching processes rely strongly on the Perron--Frobenius theorem and the triplet of principal eigenvalue and eigenvectors provided by the limiting mean dynamics. 
+For structured branching processes with a more general set of types, 
+the existence of results extending the Perron--Frobenius theorem are also a useful ingredient to deriving the limit dynamics to more general types: Krein--Rutman, \cite{vere-jones_ergodic_1967} for infinite nonnegative matrices
+continuous-time structured branching processes, 
 
 
-The previous section, as well as the simulations on the branching approximation model revealed the near-critical aspect of the studied system. As in the critical case, there exists an asymptotic for the survival probability. 
+As for Cannings models, the finiteness of the variance of the offspring distribution or its power-law divergence has a strong impact on the limiting behaviour. For example, if the process is critical and the variance of the offspring distribution is finite, the Haldane formula gives that the probability of survival of the process is inversely proportional to time, and that on the set of nonextinction, the Yaglom entrance law theorem (see~\cite{Yaglom}) gives that the population grows linearly.
+
+
  
- However for critical branching processes, there is way more to say about the long-time behavior. As a matter of facts, taking a critical branching process $\bm{Z}$ conditioned on being nonzero, any projection of the rescaled process $\bm{Z}_n/n$ converges in distribution to an exponential random variable. This result was first introduced by A.M. Yaglom in \cite{Yaglom} for a unidimensional branching process, and it is reminded hereafter.
- 
- 
-\begin{thm}[Yaglom's entrance law]
-\label{thm:critical_yaglom}
-The rescaled single type (one dimensional) critical Galton--Waston branching process $(\hat{Z})$ with finite offspring's variance $\sigma^2$ converges in distribution to an exponential random variable on the set of non-extinction, as times goes to infinity. Quantitatively, 
-\end{thm}
-
-\paragraph{Kesten--Stigum theorem}
+Kesten--Stigum theorem
 $L\log L$ condition for uniform integrability.
 \begin{thm}
   XXX
@@ -471,8 +457,17 @@ $L\log L$ condition for uniform integrability.
 \cite{kesten_limit_1966}
 Ergodicity of the types.
 
-\subsection{Spinal constructions.}
-\paragraph{Many-to-one and many-to-few formulas}
+\paragraph{Spatially structured models and CSBPs}
+
+\paragraph{Universality.}
+For the critical multitype Galton--Watson process, it is well known that, conditionally on survival, the genealogy of individuals sampled uniformly at a large fixed time converges to the one induced by the Feller diffusion, which its forward-in-time scaling limit~\citep{7_authors_paper}. This limiting genealogy is called the \emph{Brownian coalescent point process} (or CPP), which can be described as a Kingman coalescent run on a random time change. More generally, when the forward dynamics converges to a continuous-state branching process, one expects the sampled genealogy to converge to the corresponding CPP.
+The model of~\cite{julie_tourniaire_branching_2024} falls into this class.
+Its forward limit is a CSBP: an $\alpha$-stable one with $\alpha\in(1,2)$ in the semi-pushed regime, on a timescale $N^{\alpha-1}$, and a Feller diffusion in the fully pushed regime. The genealogy of this particle model was proven to converge, in the fully-pushed regime, to the Brownian CPP by~\cite{schertzer2023spectral}, and in the semi-pushed regime to the genealogy of an $\alpha$-stable CSBP (stable CPP) by~\cite{foutel-rodier_convergence_2024}. Both articles rely on a moment-based methodology to derive convergence of the genealogies.
+
+\subsection{Limit theorems backward-in-time}
+
+\paragraph{Spinal constructions.}
+Many-to-one and many-to-few formulas.
 \begin{itemize}
 \item One spine to prove Kesten--Stigum results: \cite{lyons_pemantle_peres_1995} and \cite{kurtz_conceptual_1997}.
 \item  multiple spines: Construction à la \cite{Harris_Roberts} (growth fragmentation)
@@ -481,7 +476,7 @@ Ergodicity of the types.
 The interacting $\psi$-spine of \cite{Bansaye}.
 \cite{Bansaye}: Finite type, spine construction for interacting populations \cite{medous_spinal_2024}: General type spine construction à la Bansaye (also see \cite{kubasch2026empiricaldistributionancestrallineages})\cite{meleard-tran}: 1D model climate change, spine construction for the typical surviving lineage 
 \end{itemize}
-\paragraph{Genealogies of Branching processes through moment methods}
+\paragraph{Genealogies of Branching processes through moment methods.}
 
 \cite{Foutel_Schertzer}: genealogy of a near-critical GW process. Brownian CPP
 Talk about markov functions/
