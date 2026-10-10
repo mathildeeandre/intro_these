@@ -311,16 +311,16 @@ multitype exchangeable coalescents in which the deme sizes are themselves random
 \cite{wilkinson-herbots_coalescence_2003}: Conditions on the graph structure to guarantee convergence to the neutral coalescent independently of the migration pattern.
 \cite{Julie_Zsofia} (neutral fractions)
 
-\subsection{Regulated populations in finite type spaces}
-Meta-population models are very restrictive when it comes to describing real populations. In particular, we observe that there is no demography: the population size is fixed, so that reproduction events of individuals are anti-correlated.
+\subsection{Density dependence and constrained populations}
+Meta-population models are very restrictive when it comes to describing real populations. In particular, we observe that there is no demography: the population size is fixed, and the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death.
 
 
 When it comes to structured, interacting population models that allows for demography, the picture for the ancestral lineages is less clear. In the countable type space setting,~\cite{Bansaye} studied an individual-based model with density-dependent interaction, and retrieved 
 the empirical distribution of the types along a typical surviving lineage.
 The connection between neutral fractions and ancestral lineages was also used in \citet{forien_ancestral_2022} to study genealogies in a one dimensional PDE model with competition and selection, adapting to a moving environmental optimum.
-An individual-based model version of the SDE model of~\cite{forien_ancestral_2022} was studied in~\cite{meleard-tran}. They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
- Genealogies of interacting particle systems have been studied in many specific models using other methods, for instance we cite~\cite{alison_m_etheridge_looking_2024} where the authors used a lookdown construction to derive the genealogy of a birth-death process in a spatial structure, regulated by local interactions. We also point out \cite{etheridge_genealogies_2022} who studied a diploid individual-based spatial (one dimensional) Moran model with interactions and cooperation (allee effect). They proved using a heuristic that the genealogy of the model converges to a Kingman coalescent.
-\paragraph{Density dependence and constrained populations}
+An individual-based model version of the SDE model of~\cite{forien_ancestral_2022} was studied in~\cite{meleard-tran}.
+
+\paragraph{Regulated populations in finite type spaces.}
 
 \ma{describe model and assumptions}
 
@@ -344,18 +344,20 @@ holds in probability, for every $T>0$.
 \end{prop}
 Moreover, under additional assumptions on the offspring distribution, Kurtz also established a central limit theorem for the fluctuations of the rescaled count of types around the deterministic limit. In particular, he showed that these fluctuations converge to an Ornstein--Uhlenbeck process (see \cite[Theorem 4.4]{Kurtz:1978aa}), at a speed $\sqrt{K}$.
 
-\cite{etheridge_genealogies_2022}
 
-\subsection{Continuous models}
-Wright-Malécot (models in $\R$ and $\R^2$)
+\paragraph{Continuous models.}
+\begin{itemize}
+\item Wright-Malécot (models in $\R$ and $\R^2$)
 \cite{nagylaki_diffusion_1978}: Diffusion model on an unbounded linear type space, derived a relation for correlations between allele frequencies at different locations, but fails in $\R^2$
-\paragraph{The spatial $\Lambda$-Flemning--Viot Process.}
+\item 
+The spatial $\Lambda$-Flemning--Viot Process.
 \cite{barton_new_2010}: Genealogy to a sample can be described in
 terms of a spatial version of the $\Lambda$-coalescent. There is convergence of ancestral lineages to the Kingman coalescent or the non-spatial $\Lambda$-coalescent in some regime of parameters (detailed in \cite[Theorem 3.3]{barton_new_2010})
-\paragraph{Front expansions.}
-\cite{julie_tourniaire_branching_2024}\cite{hallatschek_gene_2008}
-
-
+\item Front expansions, FKPP\cite{hallatschek_gene_2008}
+\item  We also note the work of \cite{etheridge_genealogies_2022}, who considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
+\item One dimensional models: \cite{meleard-tran} (adaptation to a moving optimum, modelization of climate change)  They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
+ \item Genealogies of interacting particle systems have been studied in many specific models using other methods, for instance we cite~\cite{alison_m_etheridge_looking_2024} where the authors used a lookdown construction to derive the genealogy of a birth-death process in a spatial structure, regulated by local interactions.
+\end{itemize}
 
 \section{The branching approach}
 As we emphasized so far, little is known about the genealogies of most regulated, individual-based models used in population dynamics, except in particular cases where the ecology is trivial or when a duality formula links the forward and backward dynamics.
