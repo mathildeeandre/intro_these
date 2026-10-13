@@ -365,19 +365,19 @@ As we emphasized so far, little is known about the genealogies of most regulated
 The situation is much better for branching models, such as the multitype Galton--Watson process and continuous-time branching processes. In these branching models, individuals reproduce and move in the type space independently of one another. From the mathematicians' point of view, neglecting all interactions between individuals offers a great simplification that allows to derive precise results for the large population behavior, forward and backwards in times. We briefly introduce some of the branching models that will be used throughout this thesis. We also recall some important limit theorems for branching processes and their genealogies, as well as  methodologies used to derived them, and that will be extended in the next three chapters of this work. 
 
 \subsection{Branching processes with a finite set of types}
-
 \paragraph{Multitype branching population models.}
-
-\cite{athreya_branching_1972}
-\begin{defn}
+In this paragraph, we rely to the monograph of~\citet*{athreya_branching_1972}.  In a first place, we recall the Single-type Galton--Watson process, introduced by Bienaymé~\cite{Bienayme1845, heyde_studies_1972}, then 30 years later by Galton and Watson~\cite{watson_probability_1875} to study the persistence of noble family names.
+\begin{defn}[Single-type (Bienaymé)--Galton--Watson]
     Let $L$ be an integer valued random variable.
-    Denote by $(Z_t)_{t\geq 0}$ the single-type (Bienaymé)--Galton--Watson process with offspring distribution $L$ is constructed recursively by $Z_0=1$ and for all $n\geq 0$,
+    Denote by $(Z_n)_{n\geq 0}$ the single-type Galton--Watson process with offspring distribution $L$. It is constructed recursively by setting $Z_0=1$ and for all $n\geq 0$,
     \[  
-    Z_{t+1}\ =\ \sum_{i=1}^{Z_t} L^{(i,t)}.
+    Z_{n+1}\ =\ \sum_{i=1}^{Z_n} L^{(i,n)}.
     \]
-    where the $(L^{(i,t)})_{i, t\in \N}$ are \iid copies of the random variable $L$. 
+    where the $(L^{(i,n)})_{i, n\in \N}$ are \iid copies of the random variable $L$. 
 \end{defn}
-In this thesis, Galton--Watson processes will sometimes be abbreviated by GW. We will also work under the classical assumption that the mean number of offspring per individual is finite, that is $\E[L]<\infty$.
+In this thesis, we will work under the classical assumption that the mean number of offspring per individual is finite, that is $\E[L]<\infty$.
+
+\medskip
 
 Adding a type structure, let $E$ denote a finite type space.
 The multitype Galton--Watson model is defined from a fixed family of distributions
@@ -391,17 +391,17 @@ The multitype Galton--Watson model is defined from a fixed family of distributio
     The mulitype Galton--Watson process with offspring
   distributions $(\mathcal{L}_x)_{x\in E}$ and started from
   $Z_0$ is defined as a sequence of $\mathbb{N}^{E}$-valued
-  random variables $(Z_t)_{y\geq 0}$ satisfying the induction:
+  random variables $(Z_n)_{y\geq 0}$ satisfying the induction:
   \[
-    Z_{t+1}\ =\ \sum_{x\in E} \sum_{i=1}^{Z_t(x)} L_t^{(i,t)},
+    Z_{n+1}\ =\ \sum_{x\in E} \sum_{i=1}^{Z_n(x)} L_t^{(i,n)},
     \qquad n\geq 0,
   \]
-  where $(L_x^{(i,t)})_{x\in E, i\geq 1, t\geq 0}$ is a
+  where $(L_x^{(i,n)})_{x\in E, i\geq 1, n\geq 0}$ is a
   collection of independent random variables, with
-  $L_x^{(i,t)}\sim \mathcal{L}_x$.
+  $L_x^{(i,n)}\sim \mathcal{L}_x$.
 \end{defn}
-The random variable $Z_t(x)$ models the number of type-$y$
-  individuals in the $t^{th}$ generation of a population in which
+The random variable $Z_n(x)$ models the number of type-$y$
+  individuals in the $n^{th}$ generation of a population in which
   individuals of any given type $x\in E$ reproduce
   independently of the others with a progeny distributed as the random
   variable $L_x$. 
@@ -414,21 +414,12 @@ so that the \emph{mean matrix} defined coordinate-wise by
 \end{equation}
 is well-defined.
 
-The continuous time version of the multitype Galton--Watson process introduced in Definition~\ref{def:GW} is called a multitype continuous time branching process. Its dynamic needs an additional parameter $q:E\to \R_+$, such that for every $x\in E$, $q_x$ denotes the branching rate of particles with type $x$. After a branching event, the branching particle with type $x$ is replaced, like in the multitype Galton--Watson process, by a vector of typed offsprings distributed according to $\mathcal{L}_x$. The concept of mean matrix is replaced by the rate matrix, with coordinates
-\[
-M_{xy}\ \coloneqq\ q_x\big(\E[L_{xy}]- e_x\big).
-\]
-Denoting the process by $(Z_t)_{t\leq 0}$ and starting from the initial condition $Z_0\in\N^E$,  the mean behavior of the system at time $t$ is given by the nonnegative matrix
-\[
-\E[Z_t]\ =\ Z_0\exp(Mt).
-\]
 
-\paragraph{Limit theorems forward in time.}
 
-The mean matrix $M$ introduced in \eg~\eqref{eq:mean_matrix_intro} is nonnegative. It can be seen as the transition matrix of a discrete time Markov chain with finite states. It is said to be \emph{irreducible} and \emph{aperiodic} if the Markov chain with transitions $M$ is. Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
+The mean matrix $M$ introduced in~\eqref{eq:mean_matrix_intro} is nonnegative. It can be seen as the transition matrix of a discrete time Markov chain with finite states. It is said to be \emph{irreducible} and \emph{aperiodic} if the Markov chain with transitions $M$ is. Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
 
 \begin{thm}[Perron--Frobenius]
-    If $M$ is a nonnegative, irreducible and aperiodic matrix, then there exists a principal eigenvalue $\rho>0$, and a unique couple of associated left and right eigenvectors denoted by $h$ and $\tilde h$ such that
+ If $M$ is a nonnegative, irreducible and aperiodic matrix, then there exists a principal eigenvalue $\rho>0$, and a unique couple of associated left and right eigenvectors denoted by $h$ and $\tilde h$ such that
     \[
     Mh\ =\ \rho h,\quad \tilde h M \ =\ \rho\tilde h,\quad \langle \tilde h, h\rangle \ =\ \langle \tilde h, 1\rangle\ =\ 1.
     \]
@@ -439,6 +430,31 @@ Moreover, it holds that
 where $h\tilde h^{\transpose}$ is the rank-one matrix with entries $(h_x\tilde h_y)_{x,y\in E}$.
 \end{thm}
 
+The multitype Galton--Watson process is said to be respectively \emph{subcritical, critical} or \emph{supercritical} if the principal eigenvalue satisfies $\rho < 1$, $\rho=1$ and $\rho>1$.
+Moreover, the process defined by
+\begin{equation}\label{eq:additive_mart}
+W_n\ \coloneqq\ \varrho^{-n} \langle Z_n, h\rangle
+\end{equation}
+is a nonnegative martingale for the filtration $\mathcal{F}_n=\sigma(Z_p,\ p\leq n)$.
+
+\medskip
+
+The continuous time version of the multitype Galton--Watson process introduced in Definition~\ref{def:GW} is called a multitype continuous time branching process. Its dynamic needs an additional parameter $q:E\to \R_+$, such that for every $x\in E$, $q_x$ denotes the branching rate of particles with type $x$. After a branching event, the branching particle with type $x$ is replaced, like in the multitype Galton--Watson process, by a vector of typed offsprings distributed according to $\mathcal{L}_x$. The concept of mean matrix is replaced by the rate matrix, with coordinates
+\[
+R_{xy}\ \coloneqq\ q_x\big(\E[L_{xy}]- e_x\big).
+\]
+Denoting the process by $(Z_t)_{t\leq 0}$ and starting from the initial condition $Z_0\in\N^E$,  the mean behavior of the system at time $t$ is given by the nonnegative matrix
+\[
+\E[Z_t]\ =\ Z_0\exp(t M),
+\]
+and the Perron--Frobenius applies to the matrix $M=\exp(R)$. In continuous time, the additive martingale is given by $(W_t)_{t \geq 0}$ such that for all $t\geq 0$,
+\[
+W_t\ \coloneqq\ \e^{-\rho t} \langle Z_t, h\rangle,
+\]
+where $\rho \in [-1, +\infty )$ is the principal eigenvalue of the matrix $R$.
+
+\paragraph{Limit theorems forward in time.}
+   
 Limit theorems for multitype Galton--Watson and multitype continuous-time branching processes rely strongly on the Perron--Frobenius theorem and the triplet of principal eigenvalue and eigenvectors provided by the limiting mean dynamics. 
 For structured branching processes with a more general set of types, 
 the existence of results extending the Perron--Frobenius theorem are also a useful ingredient to deriving the limit dynamics to more general types: Krein--Rutman, \cite{vere-jones_ergodic_1967} for infinite nonnegative matrices
@@ -447,48 +463,46 @@ continuous-time structured branching processes,
 
 As for Cannings models, the finiteness of the variance of the offspring distribution or its power-law divergence has a strong impact on the limiting behaviour. For example, if the process is critical and the variance of the offspring distribution is finite, the Haldane formula gives that the probability of survival of the process is inversely proportional to time, and that on the set of nonextinction, the Yaglom entrance law theorem (see~\cite{Yaglom}) gives that the population grows linearly.
 
+\medskip
 
- 
-\paragraph{Kesten--Stigum theorem and spine constructions}
-$L\log L$ condition for uniform integrability.
-\begin{thm}
-  XXX
+When the structured Galton--Watson processes is supercritical, the large population behavior of the process is described precisely by the celebrated Kesten--Stigum theorem~\cite{kesten_limit_1966}.
+
+
+In monotype Galton--Watson processes, the Kesten--Stigum theorem aims at finding conditions for the non-degeneracy of the a.s.\ limit $W$ of the so-called additive martingale of the process introduced in~\eqref{eq:additive_mart}. There results also relate the non-denegeneracy of $W$ to the extinction event of the process, that is
+\[
+\mathrm{Ext}\ \coloneqq\ \{\exists n \geq 0,\ Z_n \ =\ 0\}.
+\]
+In the (finite) multitype setting, the theorem provides in 
+addition some asymptotics for type-distribution, \textit{i.e.} the behavior of $\varrho^{-n}Z(n)$).
+
+More precisely, the following theorem is well-known from the seminal work of~\cite{kesten_limit_1966}.
+\begin{thm}[Kesten--Stigum theorem]
+Let $(Z_n)_{n}$ be multitype branching processes with a finite set of types. If the mean matrix is irreducible and aperiodic, then
+\begin{equation*}
+   \mathbb{E}\bigg[\sum_{x,y\in E}L_{xy}\log_+\big(L_{xy}\big)\bigg]<\infty \ \Longleftrightarrow\  \begin{cases}
+    \mathbb{E}[W]\ =\ \langle Z_0, h\rangle, \\ \mathbb{P}(W>0)\ >\ 0, \\ \{W=0\}\ =\ \mathrm{Ext},\  \text{up to a null-measure set},
+   \end{cases}
+\end{equation*}
+and the three items on the right-hand side are equivalent.
+
+Moreover, they showed that the normalized distribution of the types in the population satisfies almost-surely that
+\[
+\lim_{n\to\infty}\frac{Z_n}{\lVert Z_n\rVert}\ =\ W\tilde{h}.
+\]
 \end{thm}
-\cite{kesten_limit_1966}
-Ergodicity of the types.
+A short and elegant proof of this result was established in~\citet*{kurtz_conceptual_1997}, building on the spinal change of measure developed by the same authors for single type branching processes (see~\citet*{lyons_pemantle_peres_1995}).
 
-One spine to prove Kesten--Stigum results: \cite{lyons_pemantle_peres_1995} and \cite{kurtz_conceptual_1997}. Many-to-one formula
-
-\paragraph{Genealogies of branching processes through moment methods.}
-
- many-to-few formulas.
-\begin{itemize}
-\item  multiple spines: Construction à la \cite{Harris_Roberts} (growth fragmentation)
-\item faire une liste des constructions spinales dans différents contextes sans rentrer dans les details
-\item Spine in interacting populations:
-The interacting $\psi$-spine of \cite{Bansaye}.
-\cite{Bansaye}: Finite type, spine construction for interacting populations \cite{medous_spinal_2024}: General type spine construction à la Bansaye (also see \cite{kubasch2026empiricaldistributionancestrallineages})\cite{meleard-tran}: 1D model climate change, spine construction for the typical surviving lineage 
-\end{itemize}
+In Chapter~\ref{chp2_ks_countable}, we extend these results to Galton--Watson processes on a countable set of types.
+\paragraph{Genealogies of multitype Galton--Watson processes and universal limits.}
 
 
-\cite{Foutel_Schertzer}: genealogy of a near-critical GW process. Brownian CPP
-Talk about markov functions/
-do the proof of the $k$-spine change of measure in the noninteracting setting using \cite{rogers_markov_1981}.
+The scaling limits of genealogies of Galton--Watson processes are well understood. For a critical single-type Galton--Watson tree with finite offspring variance, conditioned on survival or on large size, the rescaled tree converges to the Brownian continuum random tree. This process was introduced by Aldous~\cite{aldous_continuum_1991, aldous_continuum_1993} and is the universal scaling limit of Galton--Watson processes with finite variance. In the branching litterature, the convergence to the CRT is usually proved through the convergence of the contour or height process to a normalized Brownian excursion \cite{aldous_continuum_1991, le_gall_brownian_1991}. 
 
+This result extends to trees with a type structure. Indeed, for critical irreducible Galton--Watson trees with finitely many types and finite offspring variance, the rescaled tree converges again to the Brownian continuum random tree, up to a constant factor (see \citet{miermont_invariance_2008}). Moreover, \citet{miermont_invariance_2008} proved that the types observed along the tree equilibrate and decouple from the genealogy, being asymptotically distributed according to the stationary distribution of the mean offspring matrix (that is, $\tilde h$ in our notations).
 
-The genealogy of a critical Galton--Watson process: 
-
-When conditioning branching Markov population model to survive up to a large time $T$ and then sample $k$ individuals uniformly among those alive at that same time, the resulting genealogy is naturally an ultrametric space, equipped with the genetic distance (which we recall is the time to their most recent common ancestor). In this setting, Foutel-Rodier and Schertzer~\cite{Foutel_Schertzer}, used a many-to-few decomposition together with a size-biased change of measure to show that, after rescaling, the genealogy of such a same-time sample converges to a universal limit object called the Brownian coalescent point process (CPP). 
-The brownian CPP an ultrametric random measure space built from an i.i.d. sequence of coalescence heights rather than from an actual tree metric.
-
-In~\cite{Foutel_Schertzer}, the authors study large-time genealogies of finite samples using a many-to-few formula and moment methods within a general critical branching Markov processes. In particular, they prove convergence of the genealogies to coalescent-type limits described by a rescaling of the Brownian CPP. The mode of convergence is given the Gromov-weak topology. 
-
- This moment methodology was extended by Boenkost, Foutel-Rodier and Schertzer in~\cite{boenkost2022genealogy} to nearly critical branching processes in varying environment. In~\cite{boenkost2022genealogy}, they proved using similar spinal approaches and moments that the genealogies still converges, in the Gromov--Hausdorff--Prohorov topology, to a limiting metric space characteried as a time-changed version of the Brownian coalescent point process.
-
-If instead the sample is not pinned to a common time level, for instance if one keeps track of the actual birth times of the sampled individuals along with their genealogical distances, the ultrametric property is lost. In this setting, the natural limiting object is a genuine tree metric space rather than a coalescent point process. Just like the symmetric random walk, once rescaled, converges to Brownian motion (by Donsker's theorem), the critical Galton--Watson process with finite variance converges to a universal metric space under a suitable time scaling. This limiting tree is called the Continuous Random tree (CRT), and was introduced by~\cite{aldous_continuum_1991}.
-
-Moment methods to recover the CRT were also developed in Foutel-Rodier's work~\cite{foutelrodier2024momentapproachconvergencespatial}, where the population is encoded as a ``bi-metric'' measure space carrying both the tree distance and a birth-time mark, and convergence is established in a marked extension of the Gromov-weak topology built to handle exactly this richer, non-ultrametric structure. The limiting object corresponds to the genealogy of a critical Galton--Watson process with finite variance.
-
+When conditioning branching Markov population model to survive up to a large time $T$ and then sample $k$ individuals uniformly among those alive at that same time, the resulting genealogy is naturally an ultrametric space. For the ultrametric genealogy of the population alive at a fixed (large) generation, a different description is available. Conditional on survival to generation $N$, the genealogy of the extant population, with time rescaled by $N$, converges to the Brownian coalescent point process (CPP). The Brownian CPP is an ultrametric space built from a Poisson point process with intensity $dt\otimes x^{-2}dx$ (see the construction by \citet{popovic_asymptotic_2004}). 
+For the critical multitype Galton--Watson process, \citet*{popovic_coalescent_2014} proved that, conditionally on survival, the genealogy of individuals sampled uniformly at a large fixed time converges to the Brownian CPP. 
+The CPP is also the genealogy induced by the Feller diffusion, which is forward-in-time scaling limit of the multitype Galton--Watson process. \citet*{7_authors_paper} proved that it can be described as a Kingman coalescent run on a random time change. 
 
 \subsection{Extensions to continuous sets of types}
 
@@ -497,9 +511,38 @@ Moment methods to recover the CRT were also developed in Foutel-Rodier's work~\c
 As an example of how the branching approach can simplify an involved problem in population dynamics while still allowing to modeling and make predictions on what should be expected for the behavior of the structured interacting particle system, let us present briefly the spatially structured branching particle system of~\cite{julie_tourniaire_branching_2024}. 
 She studied a branching Brownian motion with a space-dependent branching rate, negative drift and absorption at the origin, in which the drift is tuned so that the number of particles stays roughly constant. This model serves as a toy model for front expansion dynamics. 
 
+\ma{also explain modelisation of allee effect, give a boost near the tip of the front with an ihomogeneous branching rate $f(u)=u(1-u)(1+Bu)$}
 
-\paragraph{Genealogies and universal limits.}
-For the critical multitype Galton--Watson process, it is well known that, conditionally on survival, the genealogy of individuals sampled uniformly at a large fixed time converges to the one induced by the Feller diffusion, which its forward-in-time scaling limit~\citep{7_authors_paper}. This limiting genealogy is called the \emph{Brownian coalescent point process} (or CPP), which can be described as a Kingman coalescent run on a random time change. More generally, when the forward dynamics converges to a continuous-state branching process, one expects the sampled genealogy to converge to the corresponding CPP.
+\paragraph{Genealogies in structured branching processes through moment methods.}
+
+\begin{itemize}
+\item  multiple spines: Construction à la \cite{Harris_Roberts} (growth fragmentation)
+\item faire une liste des constructions spinales dans différents contextes sans rentrer dans les details
+\item Spine in interacting populations:
+The interacting $\psi$-spine of \cite{Bansaye}.
+\cite{Bansaye}: Finite type, spine construction for interacting populations \cite{medous_spinal_2024}: General type spine construction à la Bansaye (also see \cite{kubasch2026empiricaldistributionancestrallineages})\cite{meleard-tran}: 1D model climate change, spine construction for the typical surviving lineage 
+\item Example of moment methods used to derive the genealogies of Branching processes with a set of types: \cite{Harris_Roberts}:  forward-in-time growth-fragmentation construction of the $k$-spine tree (the ancestral individual gets assigned a weight $k$, then at each branching event of the spine the weight gets distributed among the progeny); \cite{Foutel_Schertzer}: genealogy of a near-critical GW process with a type in the interval $[0,L]$ (length of a chromosome), construction such that the spinal change of measure is absolutely continuous with respect to the initial distribution (unlike in~\cite{Harris_Roberts}).
+\end{itemize}
+
+
+Moment methods give a route to the genealogies of branching processes whose individuals carry a type. 
+The principle of the methodology is the same as for real-valued random variables, where convergence in distribution follows from the convergence of all moments, provided the limit is determined by them. For genealogies, the role of the $k$-th moment is played by evaluating a bounded continuous functional of genealogies and the types over all $k$-tuples of individuals alive at sampling time. Convergence of the moments amounts to convergence in the Gromov-weak topology, under an additional moment growth condition (see \cite{Foutel_Schertzer}).
+From there, the many-to-few formula allows to express the  the $k$-moment (\ie a sum over the whole population) in terms of a single tree with $k$ leaves. Thus, the question of the convergence of the genealogies reduces to convergence of the $k$ underlying spines.
+
+The contour/height-function approach of Aldous~\cite{aldous_continuum_1991} and Le Gall~\cite{le_gall_brownian_1991} instead encodes the whole tree as an excursion and proves that this excursion converges. It works well when the reproduction law does not depend on types, since the encoding is then a nice (random-walk-like) process. However, it breaks down when it does. In the multitype setting no systematic approach is available \cite{popovic_coalescent_2014}, because the encoding process is no longer Markov or tractable. The moment method does not need such an encoding: it only requires the spinal decomposition, so types of a general (Polish) space enter only through the Markov chain along the spines, and it is well suited to near-critical regimes and to models with strong dependence between types and reproduction, such as the branching process with recombination \cite{Foutel_Schertzer}.
+
+
+
+
+The basic tool is the many-to-few formula of \cite{Harris_Roberts}: particles move in a general type space as Markov processes and branch at a type-dependent rate, and a $k$-spine construction places $k$ marks on the ancestral particle. At each branching event every mark independently and uniformly chooses one offspring to follow, so the integer $k$ is progressively fragmented among the progeny. Under the spine measure, a particle carrying $j$ marks reproduces according to the $j$-th size-biased offspring law, while unmarked particles are unchanged. This expresses $k$-fold sums over particles at time $t$ as an expectation over $k$ dependent spines. In this construction the spine tree depends only on the moments of the offspring law, and in many scaling regimes the bias degenerates in the limit (for instance, the first split of the spine tree stays of order $1$, whereas the most recent common ancestor of the population lives at a time of order $N$).
+\cite{Foutel_Schertzer} build the $k$-spine tree differently. Its shape is a coalescent point process (CPP) with i.i.d. branch-time distribution $\nu$ chosen a priori, types evolve along its branches as independent copies of the Doob $h$-transformed Markov chain, and the law of a sample of $k$ individuals from the same generation is recovered through an explicit bias factor. Since $\nu$ is free, it can be tuned as an ansatz for the limiting genealogy so that the bias converges to a non-degenerate limit. Combined with a method of moments in the (marked) Gromov-weak topology, this shows that, after rescaling, the genealogy of the extant population converges to the Brownian CPP, an ultrametric space built from i.i.d. coalescence heights rather than from an explicit tree. They apply it to a branching approximation of the Wright--Fisher model with recombination, where types are subintervals of $(0,R)$, and obtain the Brownian CPP after a logarithmic rescaling of time. The method was extended in \cite{boenkost2022genealogy} to near-critical branching processes in varying environment, where similar spinal and moment arguments give convergence, in the Gromov--Hausdorff--Prohorov topology, to a time-changed Brownian CPP.
+When the sample is not pinned to a single generation, for instance when birth times are recorded together with genealogical distances, the ultrametric structure is lost and the natural limit is the continuum random tree (CRT), the universal scaling limit of critical Galton--Watson trees with finite variance. A moment approach to this case was developed in \cite{foutelrodier2024momentapproachconvergencespatial}, where the population is encoded as a bi-metric measure space carrying the tree distance and a birth-time mark, with convergence in a marked extension of the Gromov-weak topology adapted to this non-ultrametric setting.
+
+
+
+
+
+More generally, when the forward dynamics converges to a continuous-state branching process, one expects the sampled genealogy to converge to the corresponding CPP.
 The model of~\cite{julie_tourniaire_branching_2024} falls into this class.
 Its forward limit is a CSBP: an $\alpha$-stable one with $\alpha\in(1,2)$ in the semi-pushed regime, on a timescale $N^{\alpha-1}$, and a Feller diffusion in the fully pushed regime. The genealogy of this particle model was proven to converge, in the fully-pushed regime, to the Brownian CPP by~\cite{schertzer2023spectral}, and in the semi-pushed regime to the genealogy of an $\alpha$-stable CSBP (stable CPP) by~\cite{foutel-rodier_convergence_2024}. Both articles rely on a moment-based methodology to derive convergence of the genealogies.
 
