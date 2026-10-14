@@ -145,7 +145,6 @@ values in the partitions encoding the forest spanned by the sample $(U_i)_{i \le
 
 \paragraph{Exchangeable coalescents.}
 In particular, the limiting genealogy of the Moran Model is described by a continuous-time Markov chain on the space of partitions of $\{1,\ldots,n\}$ called the Kingman coalescent. It was introduced by Kingman in 1982~\cite{Kingman:1982aa}.
-
 The Kingman coalescent with rate $r$ is the partition-valued process started from the singleton partition and such that each pair of blocks merge at rate $r$. 
 Thus, the block-counting process is the decreasing integer-valued process with transitions
 \[
@@ -178,22 +177,20 @@ independently of the other groups.  Taking $\Lambda = \delta_0$ in the above dis
 In particular, if the law of $\nu_1$ has a power tail with parameter $\alpha$, then the genealogies converge to a $\Lambda$-coalescent with measure $\Lambda=\mathrm{Beta}(1-\alpha, \alpha)$.
 Thereby, they classified the possible scaling limits of the genealogies in exchangeable populations with fixed size.
 
-\paragraph{Duality}
-The Wright--Fisher diffusion and the Kingman coalescent can be seen as being two sides of the same coin: both describe a scaling limit in the Moran and Wright--Fisher population models, respectively forward and backward-in-time. More generally, if the neutral fractions in a population model are shown to converge forward-in-time to the Wright--Fisher diffusion, it is expected for the genealogies to converge to the Kingman coalescent, and if they converge to a $\Lambda$-Fleming--Viot, then the genealogies should converge to exchangeable coalescent with multiple mergers. This heuristic has been rigorously established only within certain classes of models, such as Cannings models~\cite{mohle_convergence_1998,Mohle_Sagitov}.
+\paragraph{Duality} 
+Duality is a fundamental concept in mathematics and takes many forms. The underlying idea is to control a complex object through a simpler one, which may take values in a different space. In population models, Markov duality is a powerful tool for connecting two stochastic processes. It often relates the forward-in-time evolution of allele frequencies to a backward-in-time process describing genealogical quantities, such as the number of ancestral lineages.
 
-The forward and backward descriptions of neutral exchangeable populations are linked by a \emph{moment duality} formula. 
-Duality is a fundamental concept in mathematics and takes different forms. The underlying idea is to control a complex object by using a simpler one, which potentially takes values in a different space.  
+This forward-backward correspondence is reflected in the scaling limits of the classical population models that we described before. In particular, the Wright--Fisher diffusion and the Kingman coalescent can be seen as two sides of the same coin. They describe, respectively, the forward-in-time and backward-in-time scaling limits of the Wright--Fisher and Moran models. More generally, if the neutral allele frequencies in a population model converge forward in time to the Wright--Fisher diffusion, one expects the genealogies to converge to the Kingman coalescent. 
+Likewise, if they converge to a $\Lambda$-Fleming--Viot process, one expects the genealogies to converge to an exchangeable coalescent with multiple mergers.
 
-When it comes to population models, Markovian duality is a powerful tool to connect two stochastic processes. In particular, it often relates the forward-in-time evolution of allele frequencies  to a backward-in-time process describing genealogical quantities, for example the number of ancestral lineages. The moment duality between Wright-Fisher diffusion and Kingman's coalescent is certainly the most famous instance of duality in population genetics.
-Denote by 
-$X_t \in [0,1]$ the frequency of an allele at time $t$ in the Wright--Fisher diffusion, and by $N(t)$ the number of blocks in the Kingman coalescent
- Then, we have
+This heuristic has been rigorously established only within certain classes of models, such as Cannings models~\cite{mohle_convergence_1998,Mohle_Sagitov}. For neutral exchangeable populations, the forward and backward descriptions are linked by a \emph{moment duality} formula.
+The moment duality between the Wright--Fisher diffusion and the Kingman coalescent is arguably the most famous instance of duality in population genetics. Let $X_t \in [0,1]$ denote the frequency of an allele at time $t$ in the Wright--Fisher diffusion, and let $N(t)$ denote the number of blocks at time $t$ in the Kingman coalescent. Then
 \[
 \E_{x}\big[X_t^{n}\big]\ =\ \E_n\big[x^{ N(t)}\big].
 \]
- We refer to \cite{etheridge_mathematical_2011,ethier_1986, mohle_concept_1999, carinci_dualities_2015, cordero_bernstein_2026, blath_separation_2021,etheridge_coalescent_2010} for other forms of dualities in population genetics.
+We refer to \cite{etheridge_mathematical_2011,ethier_1986, mohle_concept_1999, carinci_dualities_2015, cordero_bernstein_2026, blath_separation_2021,etheridge_coalescent_2010} for other forms of duality in population genetics.
+Despite these links, there is no general method for deducing the distribution of the genealogy directly from the forward-in-time dynamics. For most models, as highlighted in~\cite{Julie_Zsofia}, this remains a technical challenge.
 
-However, there is no general method allowing us to deduce the formal distribution of the coalescent directly from the forward-in-time dynamics. For most models, as highlighted in~\cite{Julie_Zsofia}, it remains a technical challenge.
  
 \section{Central questions in applied population genetics}
 
@@ -202,7 +199,7 @@ However, there is no general method allowing us to deduce the formal distributio
 
 Genetic drift was demonstrated experimentally in the PhD thesis of Buri~\cite{buri_gene_1956}, who followed populations of \emph{Drosophila melanogaster}. Over just a few generations, allele frequencies drifted randomly, and many populations ended up fixed for one allele or the other. Importantly, the observed loss of heterozygosity was faster than predicted by the Wright--Fisher model. This means that the populations behaved as if they were smaller. This result illustrates a great paradox in population genetics.
 
-\paragraph{Lewontin's paradox of genetic diversity}
+
 Neutral theory and the class of unstructured exchangeable models assume that in a population of size $N$, diversity results from an equilibrium between new mutations arising at a constant rate $\mu$ and genetic drift that purge them at a rate $1/N$. Thus, according to neutral models, the predicted quantitative  value for genetic diversity at equilibrium should be proportional to $N\mu$. The discrepancy between the neutralist's expectation and the much lower observed levels of genetic diversity in real populations is known as the Lewontin paradox~\cite{lewontin_genetic_1974, leffler_revisiting_2012}.
 
 
@@ -236,15 +233,13 @@ r\ =\ \frac{1}{N_e}.
 Neutral models and the whole class of unstructured, exchangeable models presented in the last paragraphs all rest on idealizations, constant population size, panmixia and neutrality of reproduction. Essentially, no natural population satisfies these assumptions exactly.
 
 
-In applied population genetics, the neutral theory is the principal inferential tool.
+Despite this observation, neutral theory remains the default null model used in applied population genetics, because it yields explicit predictions that can be confronted with data.
 
-\paragraph{Inferring genealogies from data}
-\begin{itemize}
-\item Site-Frequency spectrum (SFS): tells something about the shape of the tree but not on the length of the branches
-\item \cite{griffiths_ancestral_2001} outlines statistical and coalescent methods to reconstruct the evolutionary history of DNA sequences.
-\end{itemize}
+For instance, under the Kingman coalescent with the infinite-sites mutation model (every new mutation occurs at a novel site, and there is no recombination), the expected number of mutations carried by $k$ of $n$ sampled individuals has an explicit form, which is the basis of classical neutrality tests such as the estimators of Watterson, Tajima~\cite{tajima_statistical_1989} and Fu and Li~\cite{Fu_Li_Neutrality_tests}.
+The site-frequency spectrum (SFS), which counts for each $k$ the mutations carried by exactly $k$ sampled individuals, is a widely used summary of genetic variation, since under the infinite-sites model its expectation is proportional to the total length of the branches supporting $k$ leaves~\cite{wakeley_coalescent_2009}. 
+ \citet{griffiths_ancestral_2001} outlines other statistical and coalescent methods to reconstruct the evolutionary history of DNA sequences.
 
-In particular, phylodynamics treats the Kingman coalescent as the default tree-generating model to reconstruct a phylogeny from sampled gene sequences. Inverting it allows to infer the demographic history of a population according to the following observation: 
+The Kingman coalescent model also allows to infer the demographic history of a population according to the following observation.
 Under the Kingman coalescent, if during the $i^{th}$ inter-coalescence interval, $n_i$ lineages are present, then the expected length of the interval is $N_e(t)/\binom{n_i}{2}$. The effective population size at time $t$ can be read directly off the observed branch lengths of the tree (see figure~\ref{fig:skyline_plot}). This method is called the \emph{skyline plot} and was introduced by \cite{pybus_integrated_2000}. This method, and its Bayesian variants, is used routinely to reconstruct the demographic history of viral epidemics and other rapidly evolving pathogens \citep{pybus_evolutionary_2009,ho_skyline-plot_2011}, none of which reproduce according to literal Wright-Fisher dynamics. It works because, as recalled above, the Kingman coalescent is the common scaling limit of every Cannings model with finite offspring variance, so the $N_e$ it returns remains a meaningful summary of genetic diversity regardless of the true, unknown reproduction mechanism within the population. 
 
 \begin{figure}[h!]
