@@ -280,7 +280,7 @@ Meta-population models are purely genetic and conservative models, with no demog
  We give a few examples of such celebrated models, and refer to~\citet{etheridge_mathematical_2011} for a broader review.
  
 \paragraph{Prospective picture: island models.}
-The first and most elementary representative of the class of meta-population models is Wright's island model of isolation by distance \cite{wright_isolation_1943}. Under this model, the population is modeled as a complete graph in which the vertices (the demes) are connected by edges. The population size is fixed and  spread across the demes. Inside each deme, the population reproduce according to a Wright--Fisher dynamic, except from a small proportion of pairs of migrants which are picked uniformly at random and exchange positions. 
+The first and most elementary representative of the class of meta-population models is Wright's island model \cite{wright_isolation_1943}. Under this model, the population is modeled as a complete graph in which the vertices (the demes) are connected by edges. The population size is fixed and  spread across the demes. Inside each deme, the population reproduce according to a Wright--Fisher dynamic, except from a small proportion of pairs of migrants which are picked uniformly at random and exchange positions. 
 We can think of more involved island models. For instance, a spatially structured population on a plane can be approximated by an island structure on the lattice.
 However, a feature shared by almost all of
 these models is that the population size is fixed, and the number of individuals of each type is given. 
@@ -321,26 +321,25 @@ Conversely, density-dependent branching processes
 is another well-studied class of models which seems suited to model such
 phenomena. In these models, individuals reproduce independently, but in a
 way that depends on the state of the population and which can model biological
-interactions \citep{Kurtz:1978aa, Fournier2004,
-champagnat2006microscopic, meleard-tran, etheridge2023looking}. The
-logistic branching process \citep{Lambert2005}, the Bolker--Pacala
-model \citep{bolker1997using} and the Brunet--Derrida model~\ are typical examples of density-dependent
-branching processes (with and without structure). This provides motivation for extending our knowledge
+interactions. For population without structure, the logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process. 
+
+When it comes to structured, interacting population models that allows for demography like density dependent branching particle systems, the picture for the ancestral lineages is less clear.
+ This provides motivation for extending our knowledge
 of genealogies to these processes, beyond models with fixed population
 structure.
+Two questions arise naturally.
+\begin{itemize}
+\item[(Q1)] First, how can the genealogy be described for a finite population?
+\item[(Q2)]  Second, when the population is large, what can we say about the limiting genealogy? Does a universal genealogy  arise at the limit? 
+\end{itemize}  
+In the next paragraphs describe a few examples of density-dependent population models with a type structure and what is known on the ancestral lineages.
 
+\paragraph{Density-dependent populations in finite and countable type spaces.}
+In Chapter~\cite{chp4:multitype}, we study the following structured density-dependent particle model in continuous time. Let $E$ be a finite type space and consider a set of particles, each of them being endowed with a type. 
+The state of the population is described through its \emph{density}, denoted by 
+ $z\in \R_+^E$. By ``density'', we mean the vector counting the number of particles in each type, divided by a large scaling parameter $K>0$. We think of the parameter $K$ as the typical number of individuals in the population, which we call \emph{carrying capacity} of the system. If the state of the population is given by $z$, each of the $Kz_x$ particles with type $x$ die at rate that depends on $x$ and on $z$ and is replaced upon death by a random vector of offspring, whose types at birth are distributed according to a random variable which distribution, again, depends on $x$ and $z$. This procedure describes a population model iteratively.
 
-
-When it comes to structured, interacting population models that allows for demography, the picture for the ancestral lineages is less clear. In the countable type space setting,~\cite{Bansaye} studied an individual-based model with density-dependent interaction, and retrieved 
-the empirical distribution of the types along a typical surviving lineage.
-The connection between neutral fractions and ancestral lineages was also used in \citet{forien_ancestral_2022} to study genealogies in a one dimensional PDE model with competition and selection, adapting to a moving environmental optimum.
-An individual-based model version of the SDE model of~\cite{forien_ancestral_2022} was studied in~\cite{meleard-tran}.
-
-\paragraph{Regulated populations in finite type spaces.}
-
-\ma{describe model and assumptions}
-
-In this framework,~\cite{Kurtz:1978aa} established a law of large number for the rescaled count of types in the population, under regularity assumptions 
+In this framework,~\cite{Kurtz:1978aa} established a law of large number for the rescaled count of types in the population, under some regularity assumptions 
 \begin{prop}{\citet[Theorem~2.2]{Kurtz:1978aa}}
   Assume that $\lim_{K\to\infty}Z_0\eqqcolon z_0$ exists almost-surely in $\R_+^E$ and denote by
   $(z_t)_{t\geq 0}$ the solution to the $E$-dimensional dynamical system 
@@ -360,23 +359,17 @@ holds in probability, for every $T>0$.
 \end{prop}
 Moreover, under additional assumptions on the offspring distribution, Kurtz also established a central limit theorem for the fluctuations of the rescaled count of types around the deterministic limit. In particular, he showed that these fluctuations converge to an Ornstein--Uhlenbeck process (see \cite[Theorem 4.4]{Kurtz:1978aa}), at a speed $\sqrt{K}$.
 
+ In the countable type space setting,~\citet{Bansaye} studied an individual-based model with density-dependent interaction, and retrieved 
+the empirical distribution of the types along a typical surviving lineage.
 
-\paragraph{Continuous models.}
+\paragraph{Regulated population on a continuum.}
 
 
-\begin{itemize}
-\item Wright-Malécot (models in $\R$ and $\R^2$)
-\cite{nagylaki_diffusion_1978}: Diffusion model on an unbounded linear type space, derived a relation for correlations between allele frequencies at different locations, but fails in $\R^2$
-\item 
-The spatial $\Lambda$-Flemning--Viot Process.
-\cite{barton_new_2010}: Genealogy to a sample can be described in
-terms of a spatial version of the $\Lambda$-coalescent. There is convergence of ancestral lineages to the Kingman coalescent or the non-spatial $\Lambda$-coalescent in some regime of parameters (detailed in \cite[Theorem 3.3]{barton_new_2010})
-\item Front expansions, FKPP\cite{hallatschek_gene_2008}
-\item  We also note the work of \cite{etheridge_genealogies_2022}, who considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
-\item One dimensional models: \cite{meleard-tran} (adaptation to a moving optimum, modelization of climate change)  They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
- \item Genealogies of interacting particle systems have been studied in many specific models using other methods, for instance we cite~\cite{alison_m_etheridge_looking_2024} where the authors used a lookdown construction to derive the genealogy of a birth-death process in a spatial structure, regulated by local interactions.
-\end{itemize}
+When one thinks about continuous type space, the epitomic class is that of spatially structured models. In these models, individuals occupy positions, disperse locally, and compete mainly with nearby individuals. In the Bolker--Pacala model~\cite{bolker1997using}, individuals move in space according to a random walk and die at a rate that depends on the local density, which models competition for resources around their location. Competition is thus nonlocal in space rather than proportional to the total population size. Such local regulation can stabilize the population and generate clustering phenomena. Fournier and Méléard~\cite{Fournier_2004}, followed by~\citet{Champagnat_2006}, developed rigorous microscopic frameworks for density-dependent branching populations in which individuals occupy spatial positions, disperse locally, and experience competition whose strength depends on nearby density. We also point out the work of~\citet{alison_m_etheridge_looking_2024}, who studied spatial population models on $\mathbb{R}^d$ with density-dependent birth and death rates and, using a lookdown construction, described the motion of ancestral lineages in the deterministic scaling limit.
 
+A different kind of spatial structure is found in the Brunet--Derrida $N$-particle model~\cite{brunet_shift_1997,brunet_effect_2007}, a branching--selection particle system in which particles branch and diffuse, but only the rightmost $N$ particles survive, so that the population forms a traveling front. Although its spatial structure is organized around a moving front rather than local ecological competition, it is a canonical example of how selection and finite population size reshape spatially expanding branching populations.
+
+Beyond spatial structure, other models use the continuous type to encode a trait under selection. \citet*{forien_ancestral_2022} used neutral fractions to study genealogies in a one-dimensional SDE model with competition and selection, in which the population adapts to a moving environmental optimum. An individual-based version of this model was studied in~\cite{meleard-tran}. Motivated by climate change, \citet{meleard-tran} considered a branching-diffusion model in which each individual carries a one-dimensional trait $x\in\mathbb{R}$. At time $t$, an individual with trait $x$ gives birth at rate 1 to a child who inherits the parent's trait, and dies at rate $(x-ct)^2/2 + Z_t$, where $Z_t$ is the density of the population (the population size rescaled by a carrying capacity $K$). The first part of the death rate reflects an optimal trait moving at constant speed $c$, modeling a gradual environmental change; the second is a logistic competition term. Between reproduction and death events, the traits of individuals diffuse as independent Brownian motions. As $K\to\infty$, the empirical measure converges to a nonlinear nonlocal PDE. Using a many-to-one formula, the authors' main result is that the ancestral trait path of an individual sampled uniformly at time $T$, read backwards in time, converges to an Ornstein--Uhlenbeck process. This process is independent of the speed $c$ of the environmental change and is centered at the optimum.
 
 \paragraph{Universality and collapse of the structure}
 
@@ -389,7 +382,6 @@ A similar collapse of the spatial structure occurs in models with a continuous s
 
 
 The universality class of the Kingman coalescent also contains some specific structured particle models with density-dependent interactions. In particular,~\cite{etheridge_genealogies_2022} considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (that is, a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
-We also note the work of \cite{alison_m_etheridge_looking_2024}, who used a lookdown construction \citep{donnelly1999particle} to derive the genealogy of a birth-death process in a spatial structure regulated by local interactions.
 
 \paragraph{Motivation for Chapter~\ref{chp4_multitype}}
 
