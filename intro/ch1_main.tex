@@ -143,11 +143,11 @@ Thus, the block-counting process is the decreasing integer-valued process with t
 n\ \longrightarrow\ n-1 \qquad \text{at rate}\quad r\binom{n}{2}.
 \]
 
-The pairwise merging rate is linked to the scaling limit of the variance of the forward in time Wright--Fisher model through the formula
+It was established in the work of~\citet{mohle_1998} and ~\citet{sagitov1999general} that the Kingman coalescent is also the limit of the genealogies in Cannings models, if the variance of the offspring distribution rescaled by the population size has a finite limit. That is if,
 \[
-r\ =\  \E\big[\nu_1(t)(\nu_1(t)-1)\big].
+\lim_{K\to\infty }\frac{1}{K}\E\big[\nu_1(t)(\nu_1(t)-1)\big]\ =\ m_2<\infty.
 \]
-The genetic diversity of the population is captured by this pairwise merging rate of the coalescent, and thus to the variance of the offspring distribution in the forward-in-time model. We will develop this notion of  \emph{effective population size} in the next section. 
+Under this assumption, the genealogies converge to the Kingman coalescent with merging rate $m_2$ on the timescale $K$. The genetic diversity of the population is captured by this pairwise merging rate of the coalescent, and thus to the variance of the offspring distribution in the forward-in-time model. We will develop this notion of  \emph{effective population size} in the next section. 
 
 
 However, if the variance of the offspring distribution is infinite, then the Kingman coalescent can no longer be a good estimate for the genealogies of the population. Notably, we say that a probability distribution $L$ with values in $\R_+$ is heavy-tailed if its tail probability $\Prob(L > x)$ decays slower than any exponential as $x\to\infty$
@@ -250,35 +250,30 @@ The approach breaks down when reproduction is itself strongly skewed, epidemic s
 Exchangeable coalescents (Kingman, $\Lambda$-coalescents) and neutral models are the standard null hypothesis for modeling complex populations.
 Yet, does it still make sense to use these processes to explain genetics diversity in the wild? The answer given by mathematics is broadly positive. 
 
-On the theoretical side, the Kingman's coalescent has been proved to be robust to modifications from the tight assumptions of the Wright--Fisher model, and arises as the genealogy of a broad class of forward-in-time population models. Beyond the purely neutral setting presented in Section~\ref{sec:neutral_models}, the Kingman coalescent process has served as the backbone onto which further biological ingredients are grafted. For instance, variation of population size over time is incorporated by a deterministic time change of the coalescent rate
+
+\paragraph{Motivation and overview of Chapter~\ref{chp1_single_type}}
+We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
+Besides, the Kingman coalescent has been proved to be robust to modifications from the tight assumptions of the Moran model and the Cannings model with variance. Indeed, it arises as the genealogy of a broad class of forward-in-time population models. Beyond the purely neutral setting presented in Section~\ref{sec:neutral_models}, the Kingman coalescent process has served as the backbone onto which further biological ingredients are grafted. For instance, variation of population size over time is incorporated by a deterministic time change of the coalescent rate
 \citep{griffiths_sampling_1994, Jagers2004ConvergenceTT}, or by a stochastic time change in models with stochastically varying population size~\cite{kaj_coalescent_2003}.
 Exchangeable coalescents also appear as the limiting genealogies of population models with selection \citep{kaplan_coalescent_1988, neuhauser_genealogy_1997}, recombination \citep{hudson_coalescent_1988}, diploid biparental models \citep{wakeley_gene_2012, koskela_robust_2019}, non-excheangeable models~\citep{siri-jegousse_exchangeable_2024}, etc. 
-We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Kingman coalescent.
+We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Kingman coalescent. 
 
-\paragraph{Motivation of the PhD thesis.}
-We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
+
 
 Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by Donsker's theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
 
-
 In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright-Fisher diffusion and $\Lambda$-coalescents.
 
-In light of the preceding paragraph, this thesis is motivated by a single conjecture about universality in population genetics:
-\\
+In Chapter~\ref{chp3_single_type}, \ma{todo}
 
-\emph{Large populations that are structured and regulated become indistinguishable from a well-mixed Wright--Fisher population, provided the parameters are suitably rescaled. Two quantities carry this rescaling: an effective population size $N_e$, and an effective selection coefficient $s_e$, which captures how the interplay of structure, regulation, and selection alters the fate of an allele.
-}
-\\
-
-Our aim in Chapter~\ref{chp3_singletype} and~\ref{chp4_multitype} is to move toward this statement and to identify general conditions under which the genetic diversity of a population can be described by a rescaling of neutral models, even when its ecology is complex. Specifically, we ask when a structured, interacting population still behaves on the coalescent timescale as though it were well mixed, with some effective size $N_e$.
-
-\section{Understanding the play of ecology in genetic diversity}
-A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. If ecology is not taken into account, a structured population can thus mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}). 
+\section{Universality in structured populations}
+A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. A structured population can mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}), so that understanding the play of the ecology is crucial to understanding the genetic diversity of a population. 
 
 Movement of population can take several forms across species. For example, one can think of the seasonal migrations observed in some populations, in particular within birds (barnacle geese, storks, but also salmons). Movement can also be initiated by density-denpendent competition and the need to explore new inhabitats in search of resources. 
 
 Within interacting populations, the homogeneization principle allowing to describe the population using neutral models and some effective parameters is only established in
 full generality for a very restricted class of models called \emph{meta-population} models. Extending these results to more involved structured models presents notable challenges.
+
 \subsection{State of the art: meta-populations models}
 Meta-population models refer to models of population with constant size (hence no demography) and a finite type structure. We give a few examples of such celebrated models, and refer to~\citet{etheridge_mathematical_2011} for a broader review.
  
@@ -288,6 +283,11 @@ Stepping-stone models:
 Diffusion approximation in each deme~\cite{kimura_stepping_1964}
 As in the monotype Cannings model, the population size is fixed on each site. Thus, a birth on one site has to coincide with a death on another
 site.
+
+
+However, a feature shared by almost all of
+these models is that the population size is fixed, and the number of individuals of each type is given. Thus, there is no demography the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death.
+
 \paragraph{Retrospective picture: the structured coalescent}
 The genealogical counterpart of the stepping-stone and island models is the
 structured coalescent: lineages ancestral to a sample coalesce, at rate
@@ -303,16 +303,25 @@ multitype exchangeable coalescents in which the deme sizes are themselves random
 \cite{huillet_asymptotic_2021,mohle_multi-type_2024}.
 
 
-
-\paragraph{Universality, collapse of the structure}
-\cite{nordborg_separation_2002}: effective coalescence rate in fast migration regime, decorellation of timescales.
-\cite{zahle_stepping_2005}
-\cite{nagylaki_strong-migration_1980}: strong migration regime
-\cite{wilkinson-herbots_coalescence_2003}: Conditions on the graph structure to guarantee convergence to the neutral coalescent independently of the migration pattern.
-\cite{Julie_Zsofia} (neutral fractions)
-
 \subsection{Density dependence and constrained populations}
-Meta-population models are very restrictive when it comes to describing real populations. In particular, we observe that there is no demography: the population size is fixed, and the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death.
+
+Despite their importance,
+meta-populations processes are very restrictive when it comes to describing real populations, and do not model appropriately ecological interactions as
+well as many important features of biological populations. For instance, the lack of demography implies that they can hardly model individuals spread across a spatial continuum or
+with a continuous age structure. 
+
+Conversely, density-dependent branching processes
+is another well-studied class of models which seems suited to model such
+phenomena. In these models, individuals reproduce independently, but in a
+way that depends on the state of the population and which can model biological
+interactions \citep{Kurtz:1978aa, Fournier2004,
+champagnat2006microscopic, meleard-tran, etheridge2023looking}. The
+logistic branching process \citep{Lambert2005} or the Bolker--Paccala
+model \citep{bolker1997using} are typical examples of density-dependent
+branching processes. This provides motivation for extending our knowledge
+of genealogies to these processes, beyond models with fixed population
+structure.
+
 
 
 When it comes to structured, interacting population models that allows for demography, the picture for the ancestral lineages is less clear. In the countable type space setting,~\cite{Bansaye} studied an individual-based model with density-dependent interaction, and retrieved 
@@ -346,6 +355,8 @@ Moreover, under additional assumptions on the offspring distribution, Kurtz also
 
 
 \paragraph{Continuous models.}
+
+
 \begin{itemize}
 \item Wright-Malécot (models in $\R$ and $\R^2$)
 \cite{nagylaki_diffusion_1978}: Diffusion model on an unbounded linear type space, derived a relation for correlations between allele frequencies at different locations, but fails in $\R^2$
@@ -355,11 +366,38 @@ The spatial $\Lambda$-Flemning--Viot Process.
 terms of a spatial version of the $\Lambda$-coalescent. There is convergence of ancestral lineages to the Kingman coalescent or the non-spatial $\Lambda$-coalescent in some regime of parameters (detailed in \cite[Theorem 3.3]{barton_new_2010})
 \item Front expansions, FKPP\cite{hallatschek_gene_2008}
 \item  We also note the work of \cite{etheridge_genealogies_2022}, who considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
-\item One dimensional models: \cite{meleard-tran} (adaptation to a moving optimum, modelization of climate change)  They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
+\item One dimensional models: \cite{meleard-trsan} (adaptation to a moving optimum, modelization of climate change)  They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
  \item Genealogies of interacting particle systems have been studied in many specific models using other methods, for instance we cite~\cite{alison_m_etheridge_looking_2024} where the authors used a lookdown construction to derive the genealogy of a birth-death process in a spatial structure, regulated by local interactions.
 \end{itemize}
 
-\section{The branching approach}
+
+\paragraph{Universality and collapse of the structure}
+
+In continuity of the work established in Chapter~\ref{chp3_single_type} to extend the robustness of the Kingman coalescent to, our goal in Chapter~\ref{chp4_multitype} is to extend the universality class of the Kingman coalescent to a broad class of structured density-dependent individual-based models. In particular, we investigate the play of structure on the genetic diversity through the pairwise merging rate of the limiting Kingman coalescent.
+
+ The universality class of the Kingman coalescent is already known to contain several families of structured models, which we briefly review below.
+
+In meta-population models, \cite{nordborg_separation_2002} proved that when migration events occur on a much faster timescale than coalescences, there is a separation of timescales leading to a \emph{slow--fast principle}: on the slow evolutionary timescale, genealogies are given by the Kingman coalescent with a rescaled effective population size (see also \cite{nagylaki_strong-migration_1980, wilkinson-herbots_coalescence_2003}). The spatial structure therefore collapses, and the subdivision into demes affects diversity only through this effective population size. We recover the same behavior in our main result for regulated populations on finite type spaces (see Theorem~\ref{thm:main_multitype}).
+A similar collapse of the spatial structure occurs in models with a continuous space. The spatial $\Lambda$-Fleming--Viot process is not a particle system but a measure-valued model, obtained as the infinite-intensity limit of an individual-based model driven by a Poisson point process of reproduction events. \cite{barton_new_2010} proved that, in the regime where reproduction events affect only a negligible fraction of the habitat, the genealogy of a sample converges to the Kingman coalescent. This model therefore also belongs to the universality class of the Kingman coalescent.
+
+
+The universality class of the Kingman coalescent also contains some specific structured particle models with density-dependent interactions. In particular,~\cite{etheridge_genealogies_2022} considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (that is, a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
+We also note the work of \cite{alison_m_etheridge_looking_2024}, who used a lookdown construction \citep{donnelly1999particle} to derive the genealogy of a birth-death process in a spatial structure regulated by local interactions.
+
+\medskip
+
+In light of the preceding paragraph, this thesis is motivated by a single conjecture about universality in population genetics:
+\\
+
+\emph{Large populations that are structured and regulated become indistinguishable from a well-mixed Wright--Fisher population, provided the parameters are suitably rescaled. Two quantities carry this rescaling: an effective population size $N_e$, and an effective selection coefficient $s_e$, which captures how the interplay of structure, regulation, and selection alters the fate of an allele.
+}
+\\
+
+Our aim in~\ref{chp4_multitype} is to move toward this statement and to identify general conditions under which the genetic diversity of a population can be described by a rescaling of neutral models, even when its ecology is complex. Specifically, we ask when a structured, interacting population still behaves on the coalescent timescale as though it were well mixed, with some effective size $N_e$.
+
+
+
+\section{Universality in branching processes}
 As we emphasized so far, little is known about the genealogies of most regulated, individual-based models used in population dynamics, except in particular cases where the ecology is trivial or when a duality formula links the forward and backward dynamics.
 
 The situation is much better for branching models, such as the multitype Galton--Watson process and continuous-time branching processes. In these branching models, individuals reproduce and move in the type space independently of one another. From the mathematicians' point of view, neglecting all interactions between individuals offers a great simplification that allows to derive precise results for the large population behavior, forward and backwards in times. We briefly introduce some of the branching models that will be used throughout this thesis. We also recall some important limit theorems for branching processes and their genealogies, as well as  methodologies used to derived them, and that will be extended in the next three chapters of this work. 
@@ -533,7 +571,7 @@ From there, the so-called \emph{many-to-few} formula allows to express the  the 
 
 The contour function and height function approach of Aldous~\cite{aldous_continuum_1991} and Le Gall~\cite{le_gall_brownian_1991} instead encodes the whole tree as an excursion and proves that this excursion converges. It works well when the reproduction distribution does not depend on types, since in this setting, the encoding is a tractable process (a random walk). However, it breaks down when there is a dependency on the type structure, which makes it inconvenient when studying biology-inspired structured populations. 
 
-% In the multitype setting no systematic approach is available \cite{popovic_coalescent_2014}, because the encoding process is no longer Markov or tractable. The moment method does not need such an encoding: it only requires the spinal decomposition, so types of a general (Polish) space enter only through the Markov chain along the spines, and it is well suited to near-critical regimes and to models with strong dependence between types and reproduction, such as the branching process with recombination \cite{Foutel_Schertzer}.
+In the multitype setting no systematic approach is available \cite{popovic_coalescent_2014}, because the encoding process is no longer Markov or tractable. The moment method does not need such an encoding: it only requires the spinal decomposition, so types of a general (Polish) space enter only through the Markov chain along the spines, and it is well suited to near-critical regimes and to models with strong dependence between types and reproduction, such as the branching process with recombination \cite{Foutel_Schertzer}.
 
 
 
