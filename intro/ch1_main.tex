@@ -269,11 +269,9 @@ In Chapter~\ref{chp3_single_type}, we extend the universality class of the Kingm
 
 \section{Universality in structured populations}
 A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. A structured population can mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}), so that understanding the play of the ecology is crucial to understanding the genetic diversity of a population. 
+Movement of population can take several forms across species. For example, one can think of the seasonal migrations observed in some populations, in particular within birds (barnacle geese, storks, etc.). Movement can also be initiated by density-denpendent competition and the need to explore new inhabitats in search of resources. 
 
-Movement of population can take several forms across species. For example, one can think of the seasonal migrations observed in some populations, in particular within birds (barnacle geese, storks, but also salmons). Movement can also be initiated by density-denpendent competition and the need to explore new inhabitats in search of resources. 
-
-Within interacting populations, the genealogies of structured populations is only established in
-full generality for a very restricted class of models called \emph{meta-population} models. Extending these results to more involved structured models presents notable challenges.
+Within interacting populations, the genealogies of structured populations is established in full generality only for a very restricted class of models called \emph{meta-population} models. Extending these results to more involved structured models presents notable challenges.
 
 \subsection{State of the art: meta-populations models}
 Meta-population refer to models where individuals are partitioned into a finite size of fixed size islands ({\it no demographic fluctuations}), which are connected through migration. 
@@ -281,42 +279,43 @@ Meta-population models are purely genetic and conservative models, with no demog
  It extends the class of monotype fixed size models such as the class of Cannings models and the Moran model. 
  We give a few examples of such celebrated models, and refer to~\citet{etheridge_mathematical_2011} for a broader review.
  
-\paragraph{Prospective picture: island models}
-
-The most celebrated examples of meta-population models are the island model and the stepping stone model (see~\cite{Etheridge:2011vm}). These models consider a fixed size population subdivised into a finite number of islands (or demes), each of them having a fixed number of inhabitants. 
-
-
-Wright-Fisher with migration: Wright's island model \cite{wright_isolation_1943} (migration on the complete graph or $\Z^2$, discrete approximation of spatially structured models)
-Stepping-stone models:
-Diffusion approximation in each deme~\cite{kimura_stepping_1964}
-As in the monotype Cannings model, the population size is fixed on each site. Thus, a birth on one site has to coincide with a death on another
-site.
-
-
+\paragraph{Prospective picture: island models.}
+The first and most elementary representative of the class of meta-population models is Wright's island model of isolation by distance \cite{wright_isolation_1943}. Under this model, the population is modeled as a complete graph in which the vertices (the demes) are connected by edges. The population size is fixed and  spread across the demes. Inside each deme, the population reproduce according to a Wright--Fisher dynamic, except from a small proportion of pairs of migrants which are picked uniformly at random and exchange positions. 
+We can think of more involved island models. For instance, a spatially structured population on a plane can be approximated by an island structure on the lattice.
 However, a feature shared by almost all of
-these models is that the population size is fixed, and the number of individuals of each type is given. Thus, there is no demography the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death.
+these models is that the population size is fixed, and the number of individuals of each type is given. 
+
+Taking the infinite population limit, we obtain the \emph{stepping-stone} model of~\citet*{kimura_stepping_1964}, which is a diffusion approximation of metapopulations. This model assume a population partitioned into a finite number of islands, each of them having inhabitants subdivided into two allelic types $a$ and $A$. Individuals from island $i$ migrate to island $j$ with rate $m_{ij}$, under the further condition that $\sum_{j\neq i}m_{ji}=\sum_{j\neq i}m_{ij}$, so that population within demes is constant.
+The proportion of individuals with allele $a$ in a given island is solution to a SDE called the Wright--Fisher diffusion with migration.
+
 
 \paragraph{Retrospective picture: the structured coalescent}
-The genealogical counterpart of the stepping-stone and island models is the
-structured coalescent: lineages ancestral to a sample coalesce, at rate
-depending on the local deme size, only when they occupy the same deme, and
-migrate between demes according to the time-reversal of the forward migration
-mechanism. Nordborg and Krone \cite{nordborg_separation_2002} study the
-conditions under which this process, once demes and migration rates are held
-fixed and time is suitably rescaled, converges to an unstructured coalescent.
-The structured coalescent is dual, in the sense of Section 1.2, to the
+
+The genealogies of meta-population models are given by the  \emph{structured coalescent}
+\citet{takahata_coalescent_1988,notohara_coalescent_1990}, which extends the classical Kingman coalescent~\cite{Kingman:1982aa} by adding a finite type structure to lineages. Lineages migrate between demes and within-demes coalescence occurs at rate given by the inverse of the local population size. 
+
+More precisely, let $D,k\geq 1$. For $j\neq i\in \{1,\ldots,D\}$, let and $N_j$ be the local population size in deme $j$ and $m_{ij}$ the (backward in time) migration rate of a lineage from $i$ to $j$. From there, the structured $k$-coalescent with $D$ demes has the following dynamics.
+Each sampled lineage $p\in\{1,\ldots, k\}$ is assigned an initial deme $d_p \in [D]$. 
+Then for all $i,j\in\{1,\ldots, D\}$ each pair of lineages in deme $i$ coalesces at rate $\lambda_i=1/N_i$ and each lineage in deme $i$ jumps to deme $j$ at rate $m_{ij}$. We can encode this process as a process on the set of marked partitions of $\{1,\ldots,k\}$, that is, a partition of $\{1,\ldots,k\}$ in which every block carry an additional type (here deme label).
+The block-counting process of the structured coalescent with $D$ demes is the process taking values in $\N^D$ and such that if $n_i$ counts the number of lineages in deme $i$, the transitions are given by
+\begin{align*}
+n_i\ &\longmapsto\ n_i-1\qquad \text{at rate }\binom{n_i}{2}\lambda_i,\\
+n_i\ &\longmapsto\ n_i+1  \qquad\text{and}\qquad n_j\ \longmapsto\ n_j-1 \qquad \text{at rate }m_{ji} n_j.\\
+\end{align*}
+
+The structured coalescent is dual, in the sense introduce before, to the
 forward-in-time stepping-stone model \cite[Chapter~4]{etheridge_mathematical_2011}.
 This duality extends to Cannings-type reproduction within each deme, yielding
 multitype exchangeable coalescents in which the deme sizes are themselves random
-\cite{huillet_asymptotic_2021,mohle_multi-type_2024}.
+(see~\citet*{huillet_asymptotic_2021,mohle_multi-type_2024}).
 
 
 \subsection{Density dependence and constrained populations}
 
-Despite their importance,
-meta-populations processes are very restrictive when it comes to describing real populations, and do not model appropriately ecological interactions as
-well as many important features of biological populations. For instance, the lack of demography implies that they can hardly model individuals spread across a spatial continuum or
-with a continuous age structure. 
+Despite being tractable, the lack of demographic fluctuations in meta-populations do not model appropriately ecological interactions as well as many important features of biological populations. For instance,
+they can hardly model individuals invading a spatial continuum or
+with a continuous age structure.
+
 
 Conversely, density-dependent branching processes
 is another well-studied class of models which seems suited to model such
