@@ -384,7 +384,20 @@ A similar collapse of the spatial structure occurs in models with a continuous s
 The universality class of the Kingman coalescent also contains some specific structured particle models with density-dependent interactions. In particular,~\cite{etheridge_genealogies_2022} considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (that is, a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
 We also note the work of \cite{alison_m_etheridge_looking_2024}, who used a lookdown construction \citep{donnelly1999particle} to derive the genealogy of a birth-death process in a spatial structure regulated by local interactions.
 
-\medskip
+\paragraph{Motivation for Chapter~\ref{chp4_multitype}}
+
+More generally, it is conjectured that the genealogies of many population models converge to exchangeable coalescents, such as the $\Lambda$-coalescents \citep{Pitman:1999aa,sagitov1999general}.
+
+Our motivation in Chapter~\ref{chp4_multitype} came from formalizing this conjecture for a broader class of density-dependent individual-based models. In particular, we were motivated by spatially structured populations described by reaction-diffusion equations, such as the stochastic Fisher--KPP equation. Reaction-diffusion PDEs take the form
+\[
+\partial_t u \ =\ \frac{1}{2}\nabla^2 u + f(u),
+\]
+where the reaction term $f(u)$ models local interactions between individuals. In the F--KPP equation, $f(u)=u(1-u)$ accounts for local competition for resources (density dependence). Other choices of $f$ model other interactions. For instance, an Allee effect (cooperation between individuals) is obtained with $f(u)=u(1-u)(1+Bu)$, where $B>0$ reflects the strength of the Allee effect.
+To study the genealogies of such populations, \cite{hallatschek_gene_2008} introduced neutral fractions, \ie heritable neutral markers whose frequencies evolve with the population. The nature of the genealogies depends strongly on the type of front.
+ For $f(u)=u(1-u)(1+Bu)$, the front is pulled for $B\le 2$ and pushed for $B>2$ (see \cite{birzu_fluctuations_2018}). In pulled fronts, which are driven by the few individuals at the tip of the expanding front wave, the genealogies are expected to be given by the Bolthausen--Sznitman $\Lambda$-coalescent. This result was predicted for the Brunet--Derrida $N$-particle system of \cite{brunet_effect_2007} and proved for branching Brownian motion with absorption in \cite{berestycki_genealogy_2013}. 
+In pushed fronts, which are driven by the bulk of the population, one expects Kingman-type genealogies, as proved for a bistable wave by \cite{etheridge_genealogies_2022}.
+
+
 
 In light of the preceding paragraph, this thesis is motivated by a single conjecture about universality in population genetics:
 \\
