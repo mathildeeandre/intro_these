@@ -78,13 +78,18 @@ More generally, if we track the frequency of $k\geq 2$ neutral alleles in a popu
 
 Adding selection to Cannings model with finite variance leads to a drift term in the Wright-Fisher diffusion, while modifying the variance of the offspring distribution changes the diffusion coefficient. 
 \paragraph{Retrospective limit: neutral coalescent theory.}
-An alternative way to describe the allelic composition of a population is to
-sample individuals uniformly from the population at some fixed ``present'' time $t$, and to trace their ancestral relationships backward in time, locating the most recent common ancestor. 
-This backward-in-time approach is called coalescent theory.
-Tracking the ancestral lineages yields an (ultra)metric structure on the space of individuals alive at time $t$, equipped with the following \emph{genetic distance}
-Fix $t>0$ and $k\geq 1$. We recall that ${\cal N}_t$ denotes the set of individuals alive at time $t$.
-For any pair $u,v \in{\cal N}_t$ with $u\neq v$, we denote
-by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time to the death of their most recent common ancestor, see Figure~\ref{fig:distance_gen_intro}.
+An alternative way to describe the allelic composition of a population is to determine its genealogy. A genealogy is a forest structure that represents the degree of kinship
+between individuals in a population. It is a central notion in population genetics, in particular because genealogies are instrumental in studying
+patterns of neutral genetic diversity \citep{wakeley_coalescent_2009,
+tellier2014coalescence}. Genealogies are a powerful inference tool to reconstruct a population's life history and genetic diversity. 
+Indeed, in neutral models of population genetics, the standard statement is the following:
+conditional on a genealogy, neutral mutations are superimposed independently on its branches according to Poisson processes with rate proportional to the branches' length~\cite{donnelly_coalescents_1995, griffiths_genealogy_2003}. 
+
+Thus, the shape of the genealogies determines how many mutations we see and how frequent they are. Long branches imply more diversity, while shallow branching points imply that many individuals share a recent common ancestor, which in turn means that there is low diversity in the population. 
+
+If we are interested in the genealogy of individuals sampled at a fixed ``present'' time, tracking the ancestral lineages backwards-in-time yields an (ultra)metric structure on the space of individuals alive at time $t$, equipped with the following \emph{genetic distance}
+Fix $t>0$ and $k\geq 1$. We recall that ${\cal N}_t$ denotes the set of individuals alive at time $t$ in the forward-in-time population model.
+For any pair $u,v \in{\cal N}_t$ with $u\neq v$, we denote by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time to the death of their most recent common ancestor, see Figure~\ref{fig:distance_gen_intro}.
 
 \begin{figure}[h!]
     \centering
@@ -109,13 +114,19 @@ by $D_{t}(u, v)$  the genetic distance between $u$ and $v$,  defined as the time
 \draw (595,150.4) node [anchor=north west][inner sep=0.75pt]    {\Large $w$};
 
 \end{tikzpicture}}
-    \caption{Genealogical distances between individuals $u,v,w\in {\cal N}_t$. The pink particle is the most recent common ancestor of $u$ and $v$.}
+    \caption{Genetic distances between individuals $u,v,w\in {\cal N}_t$. The pink particle is the most recent common ancestor of $u$ and $v$.}
     \label{fig:distance_gen_intro}
 \end{figure}
 
-%In the case  
-%$u=v$, we set $D_{KT}(u, u) = 0$. 
-Conditional on the event $\{|{\cal N}_t|\geq k\}$, let 
+The mathematical theory of genealogies has been
+mostly developed around the notion of coalescents, following the
+seminal work of \cite{Kingman:1982aa} and its
+subsequent generalizations \citep{Pitman:1999aa,
+sagitov1999general, donnelly1999particle, schweinsberg2001coalescents}. 
+A coalescent is a stochastic process obtained by sampling a finite number
+of individuals at some reference generation, and following backward in
+time their ancestral lineages until they merge (coalesce).
+More precisely, conditional on the event $\{|{\cal N}_t|\geq k\}$, let 
 $(U_1, \dots, U_k)$ be $k\geq 1$ individuals
 sampled uniformly \emph{without replacement} from ${\cal N}_t$.
 
@@ -126,12 +137,10 @@ $\{1,\dots, k\}$ satisfying that
     \forall \tau\leq t, \ \ i \sim_{{\cal C}^{k}_{s,t}} j\ \iff\
   D_{t}(U_i, U_j)\ \leq\  s.
 \]
-This partition-valued process encodes the subforest spanned by the sample $(U_i)_{i \leq k}$. 
+This procedure
+constructs a stochastic process with
+values in the partitions encoding the forest spanned by the sample $(U_i)_{i \leq k}$. 
 
-
-In neutral models of population genetics, the standard statement is the following:
-conditional on a genealogy, neutral mutations are superimposed independently on its branches according to Poisson processes with rate proportional to the branches' length~\cite{donnelly_coalescents_1995, griffiths_genealogy_2003}. 
-Thus, the shape of the genealogies determines how many mutations we see and how frequent they are. Long branches imply more diversity, while shallow branching points imply that many individuals share a recent common ancestor, which in turn means that there is low diversity in the population. 
 \medskip
 
 \paragraph{Exchangeable coalescents.}
@@ -251,7 +260,7 @@ Exchangeable coalescents (Kingman, $\Lambda$-coalescents) and neutral models are
 Yet, does it still make sense to use these processes to explain genetics diversity in the wild? The answer given by mathematics is broadly positive. 
 
 
-\paragraph{Motivation and overview of Chapter~\ref{chp1_single_type}}
+\paragraph{Robustness of the Kingman coalescent within single type populations: motivation for Chapter~\ref{chp1_single_type}}
 We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
 Besides, the Kingman coalescent has been proved to be robust to modifications from the tight assumptions of the Moran model and the Cannings model with variance. Indeed, it arises as the genealogy of a broad class of forward-in-time population models. Beyond the purely neutral setting presented in Section~\ref{sec:neutral_models}, the Kingman coalescent process has served as the backbone onto which further biological ingredients are grafted. For instance, variation of population size over time is incorporated by a deterministic time change of the coalescent rate
 \citep{griffiths_sampling_1994, Jagers2004ConvergenceTT}, or by a stochastic time change in models with stochastically varying population size~\cite{kaj_coalescent_2003}.
@@ -259,12 +268,11 @@ Exchangeable coalescents also appear as the limiting genealogies of population m
 We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Kingman coalescent. 
 
 
-
 Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by Donsker's theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
 
 In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright-Fisher diffusion and $\Lambda$-coalescents.
 
-In Chapter~\ref{chp3_single_type}, \ma{todo}
+In Chapter~\ref{chp3_single_type}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models.
 
 \section{Universality in structured populations}
 A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. A structured population can mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}), so that understanding the play of the ecology is crucial to understanding the genetic diversity of a population. 
@@ -316,9 +324,9 @@ phenomena. In these models, individuals reproduce independently, but in a
 way that depends on the state of the population and which can model biological
 interactions \citep{Kurtz:1978aa, Fournier2004,
 champagnat2006microscopic, meleard-tran, etheridge2023looking}. The
-logistic branching process \citep{Lambert2005} or the Bolker--Paccala
-model \citep{bolker1997using} are typical examples of density-dependent
-branching processes. This provides motivation for extending our knowledge
+logistic branching process \citep{Lambert2005}, the Bolker--Pacala
+model \citep{bolker1997using} and the Brunet--Derrida model~\ are typical examples of density-dependent
+branching processes (with and without structure). This provides motivation for extending our knowledge
 of genealogies to these processes, beyond models with fixed population
 structure.
 
@@ -366,7 +374,7 @@ The spatial $\Lambda$-Flemning--Viot Process.
 terms of a spatial version of the $\Lambda$-coalescent. There is convergence of ancestral lineages to the Kingman coalescent or the non-spatial $\Lambda$-coalescent in some regime of parameters (detailed in \cite[Theorem 3.3]{barton_new_2010})
 \item Front expansions, FKPP\cite{hallatschek_gene_2008}
 \item  We also note the work of \cite{etheridge_genealogies_2022}, who considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
-\item One dimensional models: \cite{meleard-trsan} (adaptation to a moving optimum, modelization of climate change)  They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
+\item One dimensional models: \cite{meleard-tran} (adaptation to a moving optimum, modelization of climate change)  They obtained the convergence of the typical ancestral type trajectory to an Ornstein--Uhlenbeck process, using a many-to-one formula. 
  \item Genealogies of interacting particle systems have been studied in many specific models using other methods, for instance we cite~\cite{alison_m_etheridge_looking_2024} where the authors used a lookdown construction to derive the genealogy of a birth-death process in a spatial structure, regulated by local interactions.
 \end{itemize}
 
