@@ -1,9 +1,5 @@
   \chapter{Introduction}\label{chp1_intro}
-\objectif{On universality in population genetics}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \section{Modeling complex populations with simple objects}
 
 Population genetics studies how the genetic composition of a population changes
@@ -253,7 +249,7 @@ Exchangeable coalescents (Kingman, $\Lambda$-coalescents) and neutral models are
 Yet, does it still make sense to use these processes to explain genetics diversity in the wild? The answer given by mathematics is broadly positive. 
 
 
-\paragraph{Robustness of the Kingman coalescent within single type populations: motivation for Chapter~\ref{chp1_single_type}}
+\paragraph{Robustness of the Kingman coalescent within single type populations: motivation for Chapter~\ref{chp3_singletype}}
 We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
 Besides, the Kingman coalescent has been proved to be robust to modifications from the tight assumptions of the Moran model and the Cannings model with variance. Indeed, it arises as the genealogy of a broad class of forward-in-time population models. Beyond the purely neutral setting presented in Section~\ref{sec:neutral_models}, the Kingman coalescent process has served as the backbone onto which further biological ingredients are grafted. For instance, variation of population size over time is incorporated by a deterministic time change of the coalescent rate
 \citep{griffiths_sampling_1994, Jagers2004ConvergenceTT}, or by a stochastic time change in models with stochastically varying population size~\cite{kaj_coalescent_2003}.
@@ -265,7 +261,7 @@ Here, we can draw a parallel between the Wright-Fisher diffusion and other Gauss
 
 In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright-Fisher diffusion and $\Lambda$-coalescents.
 
-In Chapter~\ref{chp3_single_type}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models.
+In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models.
 
 \section{Universality in structured populations}
 A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. A structured population can mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}), so that understanding the play of the ecology is crucial to understanding the genetic diversity of a population. 
@@ -335,7 +331,7 @@ Two questions arise naturally.
 In the next paragraphs describe a few examples of density-dependent population models with a type structure and what is known on the ancestral lineages.
 
 \paragraph{Density-dependent populations in finite and countable type spaces.}
-In Chapter~\cite{chp4:multitype}, we study the following structured density-dependent particle model in continuous time. Let $E$ be a finite type space and consider a set of particles, each of them being endowed with a type. 
+In Chapter~\ref{chp4_multitype}, we study the following structured density-dependent particle model in continuous time. Let $E$ be a finite type space and consider a set of particles, each of them being endowed with a type. 
 The state of the population is described through its \emph{density}, denoted by 
  $z\in \R_+^E$. By ``density'', we mean the vector counting the number of particles in each type, divided by a large scaling parameter $K>0$. We think of the parameter $K$ as the typical number of individuals in the population, which we call \emph{carrying capacity} of the system. If the state of the population is given by $z$, each of the $Kz_x$ particles with type $x$ die at rate that depends on $x$ and on $z$ and is replaced upon death by a random vector of offspring, whose types at birth are distributed according to a random variable which distribution, again, depends on $x$ and $z$. This procedure describes a population model iteratively.
 
@@ -373,7 +369,7 @@ Beyond spatial structure, other models use the continuous type to encode a trait
 
 \paragraph{Universality and collapse of the structure}
 
-In continuity of the work established in Chapter~\ref{chp3_single_type} to extend the robustness of the Kingman coalescent to, our goal in Chapter~\ref{chp4_multitype} is to extend the universality class of the Kingman coalescent to a broad class of structured density-dependent individual-based models. In particular, we investigate the play of structure on the genetic diversity through the pairwise merging rate of the limiting Kingman coalescent.
+In continuity of the work established in Chapter~\ref{chp3_singletype} to extend the robustness of the Kingman coalescent to, our goal in Chapter~\ref{chp4_multitype} is to extend the universality class of the Kingman coalescent to a broad class of structured density-dependent individual-based models. In particular, we investigate the play of structure on the genetic diversity through the pairwise merging rate of the limiting Kingman coalescent.
 
  The universality class of the Kingman coalescent is already known to contain several families of structured models, which we briefly review below.
 
@@ -554,25 +550,7 @@ When conditioning branching Markov population model to survive up to a large tim
 For the critical multitype Galton--Watson process, \citet*{popovic_coalescent_2014} proved that, conditionally on survival, the genealogy of individuals sampled uniformly at a large fixed time converges to the Brownian CPP. 
 The CPP is also the genealogy induced by the Feller diffusion, which is forward-in-time scaling limit of the multitype Galton--Watson process. \citet*{7_authors_paper} proved that it can be described as a Kingman coalescent run on a random time change. 
 
-\subsection{Extensions to continuous sets of types}
-
-\paragraph{Continuous type branching models}
-
-As an example of how the branching approach can simplify an involved problem in population dynamics while still allowing to modeling and make predictions on what should be expected for the behavior of the structured interacting particle system, let us present briefly the spatially structured branching particle system of~\cite{julie_tourniaire_branching_2024}. 
-She studied a branching Brownian motion with a space-dependent branching rate, negative drift and absorption at the origin, in which the drift is tuned so that the number of particles stays roughly constant. This model serves as a toy model for front expansion dynamics. 
-
-\ma{also explain modelisation of density dependence + allee effect, give a boost near the tip of the front with an inhomogeneous branching rate $f(u)=u(1-u)(1+Bu)$}
-
-\paragraph{Genealogies in structured branching processes through moment methods.}
-
-\begin{itemize}
-\item  multiple spines: Construction à la \cite{Harris_Roberts} (growth fragmentation)
-\item faire une liste des constructions spinales dans différents contextes sans rentrer dans les details
-\item Spine in interacting populations:
-The interacting $\psi$-spine of \cite{Bansaye}.
-\cite{Bansaye}: Finite type, spine construction for interacting populations \cite{medous_spinal_2024}: General type spine construction à la Bansaye (also see \cite{kubasch2026empiricaldistributionancestrallineages})\cite{meleard-tran}: 1D model climate change, spine construction for the typical surviving lineage 
-\item Example of moment methods used to derive the genealogies of Branching processes with a set of types: \cite{Harris_Roberts}:  forward-in-time growth-fragmentation construction of the $k$-spine tree (the ancestral individual gets assigned a weight $k$, then at each branching event of the spine the weight gets distributed among the progeny); \cite{Foutel_Schertzer}: genealogy of a near-critical GW process with a type in the interval $[0,L]$ (length of a chromosome), construction such that the spinal change of measure is absolutely continuous with respect to the initial distribution (unlike in~\cite{Harris_Roberts}).
-\end{itemize}
+\subsection{Genealogies in structured branching processes through moment methods}
 
 
 Moment methods give a roadmap to the genealogies of multitype branching processes. 
@@ -608,4 +586,3 @@ In Chapter~\ref{chp4_multitype},
 
 In Chapter~\ref{chp2_ks_countable}, 
 Finally in Chapter~\ref{chp5_opening}, I give some open problems and perspectives with regard to future work.
-
