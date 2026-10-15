@@ -565,11 +565,9 @@ W_t\ \coloneqq\ \e^{-\rho t} \langle Z_t, h\rangle,
 where $\rho \in [-1, +\infty )$ is the principal eigenvalue of the matrix $R$.
 
 \paragraph{Limit theorems forward in time.}
-   
-Limit theorems for multitype Galton--Watson and multitype continuous-time branching processes rely strongly on the Perron--Frobenius theorem and the triplet of principal eigenvalue and eigenvectors provided by the limiting mean dynamics. 
-For structured branching processes with a more general set of types, 
-the existence of results extending the Perron--Frobenius theorem are also a useful ingredient to deriving the limit dynamics to more general types: Krein--Rutman, \citet{vere-jones_ergodic_1967} for infinite nonnegative matrices
-continuous-time structured branching processes, \ma{Développe un peu (p.e. détailler le cas countable)}
+Limit theorems for multitype Galton--Watson processes and for multitype continuous-time branching processes rely heavily on the Perron--Frobenius theorem, which provides the triplet of principal eigenvalue and eigenvectors of the mean dynamics. For structured branching processes with more general type spaces, extensions of the Perron--Frobenius theorem play the same role in describing the long-time behavior of the population. Examples include the Krein--Rutman theorem for compact positive
+operators and the theory of \citet{vere-jones_ergodic_1967} for infinite nonnegative matrices.
+
 
 
 As for Cannings models, the finiteness of the variance of the offspring distribution (or the speed at which it diverges) has a strong impact on the limiting behavior. For example, if the process is critical and the variance of the offspring distribution is finite, the Haldane formula gives that the probability of survival of the process is inversely proportional to time, and that on the set of nonextinction, the Yaglom entrance law theorem (see~\cite{Yaglom}) gives that the population grows linearly. 
@@ -617,6 +615,8 @@ We ran into this problem while studying the following general age-structured mod
 This links to a well-studied area in the literature of typical distances in random graphs (with and without with edge lengths, directed or not), see \cite{bhamidi_front_2014,vO18}.
 We call this framework the \emph{layered configuration model}.
 
+\medskip 
+
 Earlier Kesten--Stigum-type results for branching processes with a countable set of types exist in the literature \citep{asmussen_strong_1976, moy_extensions_1967, BBC25}. However, these results needed strong extra assumptions, such as bounded or uniformly controlled offspring numbers or finite second moments, in particular, they exclude populations that can be infinite in a single generation. Conversely, our results rely on very light assumptions (merely, that the result given by the Perron--Frobenius theorem holds).
 
 Using spinal decomposition methods extending those in~\cite{lyons_pemantle_peres_1995,kurtz_conceptual_1997}, 
@@ -625,7 +625,7 @@ Besides, when there is uniform integrability, we prove that the type distributio
 
 These results are presented in the article~\cite{andré2026sharpllogl}, which was accepted for publication in the \emph{Annals of Applied Probability}.
 
-\subsection{Genealogies in structured branching processes through moment methods}
+\subsection{Genealogies in structured branching processes via moment methods}
 
 \paragraph{Finite type setting.}
 The scaling limits of genealogies of Galton--Watson processes are well understood. For a critical single-type Galton--Watson tree with finite offspring variance, conditioned on survival or on large size, the rescaled tree converges to the Brownian continuum random tree. This process was introduced by Aldous~\cite{aldous_continuum_1991, aldous_continuum_1993} and is the universal scaling limit of Galton--Watson processes with finite variance. In the branching litterature, the convergence to the CRT is usually proved through the convergence of the contour or height process to a normalized Brownian excursion \cite{aldous_continuum_1991, le_gall_brownian_1991}. 
@@ -639,16 +639,15 @@ The CPP is also the genealogy induced by the Feller diffusion, which is forward-
 
 
 \paragraph{Moment methods in the general framework.}
-Moment methods give a roadmap to the genealogies of multitype branching processes. 
+The contour function and height function approach of Aldous~\cite{aldous_continuum_1991} and Le Gall~\cite{le_gall_brownian_1991} instead encodes the whole tree as an excursion and proves that this excursion converges. The approach is tractable when the reproduction distribution does not depend on types. However, in the multitype setting, the encoding process is no longer Markov or tractable~\cite{popovic_coalescent_2014}. It makes this approach inconvenient when studying biology-inspired structured populations. 
+
+ The moment method does not need such an encoding, so that the type space can be any Polish space.
 The principle of the methodology is the same as for real-valued random variables: convergence in distribution of a sequence of random variables follows from the convergence of its moments, provided the limit is determined by them. 
 
-For genealogies, the role of the $k$-th moment is played by evaluating a bounded continuous functional of genealogies and the types over all $k$-tuples of individuals alive at sampling time. Convergence of the moments amounts to convergence in the Gromov-weak topology, under an additional moment growth condition (see \citet*[Theorem~4]{Foutel_Schertzer}).
+For genealogies, the role of the $k$-th moment is played by evaluating a bounded continuous functional of genealogies and the types over all $k$-tuples of individuals alive at sampling time. Convergence of the moments amounts to convergence in the Gromov-weak topology, under an additional moment growth condition.
 From there, the so-called \emph{many-to-few} formula allows to express the  the $k$-moment (which is a sum over the whole population) in terms of a single tree with $k$ leaves and a biased offspring distribution called the $k$-spine. Thus, the question of the convergence of the genealogies reduces to convergence of the $k$ underlying spines.
 
-The contour function and height function approach of Aldous~\cite{aldous_continuum_1991} and Le Gall~\cite{le_gall_brownian_1991} instead encodes the whole tree as an excursion and proves that this excursion converges. It works well when the reproduction distribution does not depend on types, since in this setting, the encoding is a tractable process (a random walk). However, it breaks down when there is a dependency on the type structure, which makes it inconvenient when studying biology-inspired structured populations. 
-
-In the multitype setting no systematic approach is available \cite{popovic_coalescent_2014}, because the encoding process is no longer Markov or tractable. The moment method does not need such an encoding: it only requires the spinal decomposition, so types of a general (Polish) space enter only through the Markov chain along the spines, and it is well suited to near-critical regimes and to models with strong dependence between types and reproduction, such as the branching process with recombination \cite{Foutel_Schertzer}.
-
+ The method is well suited to (near-)critical regimes and to models with strong dependence between types and reproduction and for which we can provide a harmonic function. For example,~\cite{Foutel_Schertzer} applied the method to a branching process with recombination, in which individuals are chromosomes carrying a flagged portion of DNA, such that the set of types is an interval.
 
 
 
