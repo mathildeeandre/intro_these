@@ -259,20 +259,22 @@ Besides, the Kingman coalescent has been proved to be robust to modifications fr
 Exchangeable coalescents also appear as the limiting genealogies of population models with selection \citep{kaplan_coalescent_1988, neuhauser_genealogy_1997}, recombination \citep{hudson_coalescent_1988}, diploid biparental models \citep{wakeley_gene_2012, koskela_robust_2019}, non-excheangeable models~\citep{siri-jegousse_exchangeable_2024}, etc. 
 We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Kingman coalescent. 
 
+Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by the Donsker theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
 
-Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by Donsker's theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
+In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright--Fisher diffusion and $\Lambda$-coalescents.
 
-In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright-Fisher diffusion and $\Lambda$-coalescents.
+\paragraph{Motivation and overview of Chapter~\ref{chp3_singletype}}
 
-\medskip
-
-
-In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models. This result is presented in the article \cite{AFRS_2025}, which is accepted (providing revisions) in \emph{ALEA - Latin American Journal of Probability and Mathematical Statistics}.
-
+In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models. 
 In these models, individuals reproduce independently, but in a
-way that depends on the state of the population and which can model biological
-interactions. Density dependence can affect reproduction and survival either negatively, as when crowding intensifies competition for resources, or positively, as when individuals benefit from the presence of others at low densities (\emph{Allee effects}).
-For population without structure, the logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process. In the logistic process, rather than being fixed, the total population size fluctuates around an ecological equilibrium $K$. The parameter $K$ is classically called a \emph{carrying capacity}. It is large demographic parameter that represents the order of magnitude of the size of a population. 
+way that depends on the state of the population, modeling biological interactions. Density dependence can affect reproduction and survival either negatively, as when crowding intensifies competition for resources, or positively, as when individuals benefit from the presence of others at low densities (\emph{Allee effects}).
+For population without structure, the density is the population size, rescaled by a demographic parameter $K$, classically called a the \emph{carrying capacity}. The carrying capacity represents the order of magnitude of the size of a population which, rather than being fixed, fluctuates around the ecological equilibrium $K$.  The logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process.
+
+
+In Chapter~\ref{chp3_singletype}, we consider the following class of single-type density dependent model in continuous time.
+Consider a system of particles such that if the current density of the population is given by $z>0$, each particle dies at a rate $q(z)$ and are replaced upon death by a progeny distributed like a copy of a integer-valued random variable $L(z)$.
+This class of model is quite broad (within the restricted class of unstructured models), since we only assume local $\mathcal{C}^1$ regularity on the mean number of offspring per individual $z\mapsto \E[L(z)]$ and uniform integrability of the second moment. In particular, it encompasses the encompasses logistic branching process. Using a moment method (see the end of this section), we prove convergence of the genealogies to the Kingman coalescent on the timescale $K$.
+This result is presented in the article \cite{AFRS_2025}, which is accepted (providing revisions) in \emph{ALEA - Latin American Journal of Probability and Mathematical Statistics}.
 
 
 \section{Universality in structured populations}
