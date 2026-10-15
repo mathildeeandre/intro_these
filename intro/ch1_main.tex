@@ -251,19 +251,21 @@ The approach breaks down when reproduction is itself strongly skewed, epidemic s
 Exchangeable coalescents (Kingman, $\Lambda$-coalescents) and neutral models are the standard null hypothesis for modeling complex populations.
 Yet, does it still make sense to use these processes to explain genetics diversity in the wild? The answer given by mathematics is broadly positive. 
 
-
-\paragraph{Robustness of the Kingman coalescent within single type populations.}
+\subsection{Motivation and overview of Chapter~\ref{chp3_singletype}}
+\paragraph{Robustness of the Kingman coalescent in monotype populations}
 We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
 Besides, the Kingman coalescent has been proved to be robust to modifications from the tight assumptions of the Moran model and the Cannings model with variance. Indeed, it arises as the genealogy of a broad class of forward-in-time population models. Beyond the purely neutral setting presented in Section~\ref{sec:neutral_models}, the Kingman coalescent process has served as the backbone onto which further biological ingredients are grafted. For instance, variation of population size over time is incorporated by a deterministic time change of the coalescent rate
 \citep{griffiths_sampling_1994, Jagers2004ConvergenceTT}, or by a stochastic time change in models with stochastically varying population size~\cite{kaj_coalescent_2003}.
 Exchangeable coalescents also appear as the limiting genealogies of population models with selection \citep{kaplan_coalescent_1988, neuhauser_genealogy_1997}, recombination \citep{hudson_coalescent_1988}, diploid biparental models \citep{wakeley_gene_2012, koskela_robust_2019}, non-excheangeable models~\citep{siri-jegousse_exchangeable_2024}, etc. 
 We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Kingman coalescent. 
 
+\medskip 
+
 Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by the Donsker theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
 
 In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright--Fisher diffusion and $\Lambda$-coalescents.
 
-\paragraph{Motivation and overview of Chapter~\ref{chp3_singletype}}
+\paragraph{Overview of Chapter~\ref{chp3_singletype}.}
 
 In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models. 
 In these models, individuals reproduce independently, but in a
@@ -439,7 +441,7 @@ A similar collapse of the spatial structure occurs in models with a continuous s
 
 The universality class of the Kingman coalescent also contains some specific structured particle models with density-dependent interactions. In particular,~\cite{etheridge_genealogies_2022} considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (that is, a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
 
-\paragraph{Conjectures and motivation for Chapter~\ref{chp4_multitype}.}
+\subsection{Conjectures and motivation for Chapter~\ref{chp4_multitype}}
 
 Many recent results in the literature point toward a universality principle for the genealogies of complex populations.
 More precisely, it is believed that the genealogies of many
@@ -603,7 +605,7 @@ where $\lVert z \rVert$ denotes the $L^1$ norm.
 A short and elegant proof of this result was established in~\citet*{kurtz_conceptual_1997}, building on the spinal change of measure developed by the same authors for single type branching processes (see~\citet*{lyons_pemantle_peres_1995}).
 
 
-\paragraph{Motivation and overview of Chapter~\ref{chp2_ks_countable}.}
+\subsection{Motivation and overview of Chapter~\ref{chp2_ks_countable}}
 In Chapter~\ref{chp2_ks_countable}, we extend the Kesten--Stigum theorem to Galton--Watson population models, in which individuals can have countably many possible types. This includes for example age structures, discretized spatial structure, seed bank models, or stage of general models of infection.
 
 We ran into this problem while studying the following general age-structured model of epidemics in discrete time that required a more general theory. We encode an epidemic as a directed network. The vertices of the network are the individuals (we assume a finite population of $N$ vertices) and an edge from $i$ to $j$ means that:
@@ -622,8 +624,10 @@ we prove a sharp $L\log L$ condition for the uniform integrability of the additi
 Besides, when there is uniform integrability, we prove that the type distribution always converges in probability to a fixed profile. Under extra conditions, we obtain that the convergence holds almost-surely. Finally, we apply these results the layered configuration model: we show that the early stages of such an epidemic can be approximated by a branching processes, and prove that the pattern of potential infectious contacts at a time of order $\log N$ converges to the stationary distribution of the types in the branching process.
 
 These results are presented in the article~\cite{andré2026sharpllogl}, which was accepted for publication in the \emph{Annals of Applied Probability}.
-\paragraph{Genealogies of multitype Galton--Watson processes.}
 
+\subsection{Genealogies in structured branching processes through moment methods}
+
+\paragraph{Finite type setting.}
 The scaling limits of genealogies of Galton--Watson processes are well understood. For a critical single-type Galton--Watson tree with finite offspring variance, conditioned on survival or on large size, the rescaled tree converges to the Brownian continuum random tree. This process was introduced by Aldous~\cite{aldous_continuum_1991, aldous_continuum_1993} and is the universal scaling limit of Galton--Watson processes with finite variance. In the branching litterature, the convergence to the CRT is usually proved through the convergence of the contour or height process to a normalized Brownian excursion \cite{aldous_continuum_1991, le_gall_brownian_1991}. 
 
 This result extends to trees with a type structure. Indeed, for critical irreducible Galton--Watson trees with finitely many types and finite offspring variance, the rescaled tree converges again to the Brownian continuum random tree, up to a constant factor (see \citet{miermont_invariance_2008}). Moreover, \citet{miermont_invariance_2008} proved that the types observed along the tree equilibrate and decouple from the genealogy, being asymptotically distributed according to the stationary distribution of the mean offspring matrix (that is, $\tilde h$ in our notations).
@@ -632,9 +636,9 @@ When conditioning branching Markov population model to survive up to a large tim
 For the critical multitype Galton--Watson process, \citet*{popovic_coalescent_2014} proved that, conditionally on survival, the genealogy of individuals sampled uniformly at a large fixed time converges to the Brownian CPP. 
 The CPP is also the genealogy induced by the Feller diffusion, which is forward-in-time scaling limit of the multitype Galton--Watson process. \citet*{7_authors_paper} proved that it can be described as a Kingman coalescent run on a random time change. 
 
-\subsection{Genealogies in structured branching processes through moment methods}
 
 
+\paragraph{Moment methods in the general framework.}
 Moment methods give a roadmap to the genealogies of multitype branching processes. 
 The principle of the methodology is the same as for real-valued random variables: convergence in distribution of a sequence of random variables follows from the convergence of its moments, provided the limit is determined by them. 
 
@@ -659,12 +663,3 @@ When the sample is not pinned to a single generation, for instance when birth ti
 More generally, when the forward dynamics converges to a continuous-state branching process, one expects the sampled genealogy to converge to the corresponding CPP.
 The model of~\cite{julie_tourniaire_branching_2024} falls into this class.
 Its forward limit is a CSBP: an $\alpha$-stable one with $\alpha\in(1,2)$ in the semi-pushed regime, on a timescale $N^{\alpha-1}$, and a Feller diffusion in the fully pushed regime. The genealogy of this particle model was proven to converge, in the fully-pushed regime, to the Brownian CPP by~\cite{schertzer2023spectral}, and in the semi-pushed regime to the genealogy of an $\alpha$-stable CSBP (stable CPP) by~\cite{FST_Semipushed_2024}. Both articles rely on a moment-based methodology to derive convergence of the genealogies.
-
-
-
-\section{Outline of the thesis}
-In Chapter~\ref{chp3_singletype}, 
-In Chapter~\ref{chp4_multitype},
-
-In Chapter~\ref{chp2_ks_countable}, 
-Finally in Chapter~\ref{chp5_opening}, I give some open problems and perspectives with regard to future work.
