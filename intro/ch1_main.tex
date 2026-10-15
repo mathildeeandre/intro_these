@@ -252,7 +252,7 @@ Exchangeable coalescents (Kingman, $\Lambda$-coalescents) and neutral models are
 Yet, does it still make sense to use these processes to explain genetics diversity in the wild? The answer given by mathematics is broadly positive. 
 
 
-\paragraph{Robustness of the Kingman coalescent within single type populations: motivation for Chapter~\ref{chp3_singletype}}
+\paragraph{Robustness of the Kingman coalescent within single type populations.}
 We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
 Besides, the Kingman coalescent has been proved to be robust to modifications from the tight assumptions of the Moran model and the Cannings model with variance. Indeed, it arises as the genealogy of a broad class of forward-in-time population models. Beyond the purely neutral setting presented in Section~\ref{sec:neutral_models}, the Kingman coalescent process has served as the backbone onto which further biological ingredients are grafted. For instance, variation of population size over time is incorporated by a deterministic time change of the coalescent rate
 \citep{griffiths_sampling_1994, Jagers2004ConvergenceTT}, or by a stochastic time change in models with stochastically varying population size~\cite{kaj_coalescent_2003}.
@@ -264,7 +264,16 @@ Here, we can draw a parallel between the Wright-Fisher diffusion and other Gauss
 
 In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright-Fisher diffusion and $\Lambda$-coalescents.
 
+\medskip
+
+
 In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models.
+
+In these models, individuals reproduce independently, but in a
+way that depends on the state of the population and which can model biological
+interactions. Density dependence can affect reproduction and survival either negatively, as when crowding intensifies competition for resources, or positively, as when individuals benefit from the presence of others at low densities (\emph{Allee effects}).
+For population without structure, the logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process. In the logistic process, rather than being fixed, the total population size fluctuates around an ecological equilibrium $K$. The parameter $K$ is classically called a \emph{carrying capacity}. It is large demographic parameter that represents the order of magnitude of the size of a population. 
+
 
 \section{Universality in structured populations}
 A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. A structured population can mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}), so that understanding the play of the ecology is crucial to understanding the genetic diversity of a population. 
@@ -309,7 +318,7 @@ multitype exchangeable coalescents in which the deme sizes are themselves random
 (see~\citet*{huillet_asymptotic_2021,mohle_multi-type_2024}).
 
 
-\subsection{Density dependence and constrained populations}
+\subsection{Density dependence in structured populations}
 
 Despite being tractable, the lack of demographic fluctuations in meta-populations do not model appropriately ecological interactions as well as many important features of biological populations. For instance,
 they can hardly model individuals invading a spatial continuum or
@@ -318,9 +327,17 @@ with a continuous age structure.
 
 Conversely, density-dependent branching processes
 is another well-studied class of models which seems suited to model such
-phenomena. In these models, individuals reproduce independently, but in a
-way that depends on the state of the population and which can model biological
-interactions. For population without structure, the logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process. In the logistic process, rather than being fixed, the total population size fluctuates around an ecological equilibrium $K$. The parameter $K$ is classically called a \emph{carrying capacity}. It is large demographic parameter that represents the order of magnitude of the size of a population. 
+phenomena. 
+In structured populations, density-dependent interactions can take several forms:
+\begin{itemize}
+\item \emph{Global density dependence.} The reproduction or survival of an individual depends on the total population size, regardless of how individuals are distributed among types. For example, when all individuals compete for a common resource, a larger population may lower the per-capita birth rate or raise the death rate of everyone.
+
+\item \emph{Local density dependence.} The  reproduction or survival of an individual depends on the number of individuals of its own type, or of related types in its neighborhood. This is the standard framework used to model spatially structured populations, where interactions are mediated by local dispersal and contact. Typical examples include competition for locally available resources (such as light, water or space), cooperation among neighbors, and the local transmission of infectious diseases, which spreads faster when susceptible and infected individuals are close together.
+
+\item \emph{Cross-type density dependence.} The fitness of individuals of one type depends on the density of another type. Examples include predation, where prey mortality increases with predator abundance. It also includes mutualistic or symbiotic interactions, where one species benefits reproductively from the presence of another. Pollinators, for instance, can increase the reproductive success of plants, while plants in turn provide resources for the pollinators.
+
+\item \emph{Frequency-dependent interactions.} In some settings, what matters is not only the absolute density of a type but also its relative frequency in the population. This occurs, for example, in host--pathogen systems with strain-specific immunity, in sexual populations where rare mating types have an advantage, and in evolutionary games where the payoff of a strategy depends on the strategies used by others.
+\end{itemize}
 
 When it comes to structured and interacting population models that allows for demographic fluctuations like density dependent branching particle systems, the picture for the ancestral lineages is less clear.
  This provides motivation for extending our knowledge
@@ -331,9 +348,9 @@ Two questions arise naturally.
 \item[(Q1)] First, how can the genealogy be described for a finite population?
 \item[(Q2)]  Second, when the population is large, what can we say about the limiting genealogy? Does a universal genealogy  arise at the limit? 
 \end{itemize}  
-In the next paragraphs describe a few examples of density-dependent population models with a type structure and what is known on the ancestral lineages.
+In the next paragraphs describe a few examples of density-dependent population models with a type structure, as well as what is known for the ancestral lineages of these models.
 
-\paragraph{Density-dependent populations in finite and countable type spaces.}
+\paragraph{Density-dependent populations in finite or countable type spaces.}
 In Chapter~\ref{chp4_multitype}, we study the following structured density-dependent particle model in continuous time. Let $E$ be a finite type space and consider a set of particles, each of them being endowed with a type. 
 The state of the population is described through its \emph{density}, denoted by 
  $z\in \R_+^E$. By ``density'', we mean the vector counting the number of particles in each type, divided by a large scaling parameter $K>0$. We think of the parameter $K$ as the typical number of individuals in the population, which we call \emph{carrying capacity} of the system. If the state of the population is given by $z$, each of the $Kz_x$ particles with type $x$ die at rate that depends on $x$ and on $z$ and is replaced upon death by a random vector of offspring, whose types at birth are distributed according to a random variable which distribution, again, depends on $x$ and $z$. This procedure describes a population model iteratively.
