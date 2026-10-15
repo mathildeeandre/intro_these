@@ -272,9 +272,9 @@ For population without structure, the density is the population size, rescaled b
 
 
 In Chapter~\ref{chp3_singletype}, we consider the following class of single-type density dependent model in continuous time.
-Consider a system of particles such that if the current density of the population is given by $z>0$, each particle dies at a rate $q(z)$ and are replaced upon death by a progeny distributed like a copy of a integer-valued random variable $L(z)$.
+Consider a system of particles such that if the current density of the population is given by $z>0$, each particle dies at a rate $q(z)$ and are replaced upon death by a progeny distributed like a copy of an integer-valued random variable $L(z)$.
 This class of model is quite broad (within the restricted class of unstructured models), since we only assume local $\mathcal{C}^1$ regularity on the mean number of offspring per individual $z\mapsto \E[L(z)]$ and uniform integrability of the second moment. In particular, it encompasses the encompasses logistic branching process. Using a moment method (see the end of this section), we prove convergence of the genealogies to the Kingman coalescent on the timescale $K$.
-This result is presented in the article \cite{AFRS_2025}, which is accepted (providing revisions) in \emph{ALEA - Latin American Journal of Probability and Mathematical Statistics}.
+This result is presented in the article~\cite{AFRS_2025}, which is accepted (providing revisions) in \emph{ALEA - Latin American Journal of Probability and Mathematical Statistics}.
 
 
 \section{Universality in structured populations}
@@ -605,22 +605,24 @@ A short and elegant proof of this result was established in~\citet*{kurtz_concep
 
 \paragraph{Motivation and overview of Chapter~\ref{chp2_ks_countable}.}
 In Chapter~\ref{chp2_ks_countable}, we extend the Kesten--Stigum theorem to Galton--Watson population models, in which individuals can have countably many possible types. This includes for example age structures, discretized spatial structure, seed bank models, or stage of general models of infection.
-We ran into this problem while studying a very general age-structured model of epidemics that required a more general theory. 
 
-\ma{Détailler un peu l'épidémio}
+We ran into this problem while studying the following general age-structured model of epidemics in discrete time that required a more general theory. We encode an epidemic as a directed network. The vertices of the network are the individuals (we assume a finite population of $N$ vertices) and an edge from $i$ to $j$ means that:
+\[
+\text{``If individual $i$ is infected, then $i$ could infect individual $j$''.}
+\]
+ The edge carries a length, which is the delay between the infection time of $i$ and that of $j$. 
+ In this picture, assume that the epidemic starts from a focal individual (patient zero). The time at which individual $i$ gets infected is the length of the shortest directed path from this focal vertex to $i$. In other words, the spread of the epidemic is a first-passage percolation problem on a random graph, and geodesics (the shortest paths) are the routes along which the infection effectively travels.
+This links to a well-studied area in the literature of typical distances in random graphs (with and without with edge lengths, directed or not), see \cite{bhamidi_front_2014,vO18}.
 We call this framework the \emph{layered configuration model}.
 
-
-
-Earlier Kesten--Stigum-type results for branching processes with a countable set of types exist in the literature \citep{asmussen_strong_1976, moy_extensions_1967, }. However, these results needed strong extra assumptions, such as bounded or uniformly controlled offspring numbers or finite second moments, in particular, they exclude populations that can be infinite in a single generation. Conversely, our results rely on very light assumptions (merely, that the result given by the Perron--Frobenius theorem holds).
+Earlier Kesten--Stigum-type results for branching processes with a countable set of types exist in the literature \citep{asmussen_strong_1976, moy_extensions_1967, BBC25}. However, these results needed strong extra assumptions, such as bounded or uniformly controlled offspring numbers or finite second moments, in particular, they exclude populations that can be infinite in a single generation. Conversely, our results rely on very light assumptions (merely, that the result given by the Perron--Frobenius theorem holds).
 
 Using spinal decomposition methods extending those in~\cite{lyons_pemantle_peres_1995,kurtz_conceptual_1997}, 
 we prove a sharp $L\log L$ condition for the uniform integrability of the additive martingale of the process. We also give a simpler and (we believe) easier to check sufficient condition. 
-Besides, when there is uniform integrability, we prove that the type distribution always converges in probability to a fixed profile. Under extra conditions, we obtain that the convergence holds almost-surely.
+Besides, when there is uniform integrability, we prove that the type distribution always converges in probability to a fixed profile. Under extra conditions, we obtain that the convergence holds almost-surely. Finally, we apply these results the layered configuration model: we show that the early stages of such an epidemic can be approximated by a branching processes, and prove that the pattern of potential infectious contacts at a time of order $\log N$ converges to the stationary distribution of the types in the branching process.
 
-These results are presented in the article~\cite{andré2026sharpllogl}, which was accepted for publication at the \emph{Annals of Applied Probability}.
-\paragraph{Genealogies of multitype Galton--Watson processes and universal limits.}
-
+These results are presented in the article~\cite{andré2026sharpllogl}, which was accepted for publication in the \emph{Annals of Applied Probability}.
+\paragraph{Genealogies of multitype Galton--Watson processes.}
 
 The scaling limits of genealogies of Galton--Watson processes are well understood. For a critical single-type Galton--Watson tree with finite offspring variance, conditioned on survival or on large size, the rescaled tree converges to the Brownian continuum random tree. This process was introduced by Aldous~\cite{aldous_continuum_1991, aldous_continuum_1993} and is the universal scaling limit of Galton--Watson processes with finite variance. In the branching litterature, the convergence to the CRT is usually proved through the convergence of the contour or height process to a normalized Brownian excursion \cite{aldous_continuum_1991, le_gall_brownian_1991}. 
 
