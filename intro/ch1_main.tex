@@ -279,16 +279,17 @@ For population without structure, the logistic process of~\citet{Lambert2005} is
 A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. A structured population can mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}), so that understanding the play of the ecology is crucial to understanding the genetic diversity of a population. 
 Movement of population can take several forms across species. For example, one can think of the seasonal migrations observed in some populations, in particular within birds (barnacle geese, storks, etc.). Movement can also be initiated by density-denpendent competition and the need to explore new inhabitats in search of resources. 
 
-Within interacting populations, the genealogies of structured populations is established in full generality only for a very restricted class of models called \emph{meta-population} models. Extending these results to more involved structured models presents notable challenges.
+Within interacting populations, the genealogies of structured populations is established in full generality only for a very restricted class of models called \emph{metapopulation} models. Extending these results to more involved structured models presents notable challenges.
 
-\subsection{State of the art: meta-populations models}
-Meta-population refer to models where individuals are partitioned into a finite size of fixed size islands ({\it no demographic fluctuations}), which are connected through migration. 
-Meta-population models are purely genetic and conservative models, with no demography: the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death. 
+\subsection{State of the art: metapopulation models}
+According to~\citet{levins1970extinction}, the concept of  a metapopulation can be though of as a ``population of populations''.
+Metapopulation models refer to models of strucured population where individuals are partitioned into a finite size of fixed size islands ({\it no demographic fluctuations}), which are connected through migration. 
+These models are purely genetic and conservative models, with no demographic fluctuations: the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death. 
  It extends the class of monotype fixed size models such as the class of Cannings models and the Moran model. 
  We give a few examples of such celebrated models, and refer to~\citet{etheridge_mathematical_2011} for a broader review.
  
 \paragraph{Prospective picture: island models.}
-The first and most elementary representative of the class of meta-population models is Wright's island model \cite{wright_isolation_1943}. Under this model, the population is modeled as a complete graph in which the vertices (the demes) are connected by edges. The population size is fixed and  spread across the demes. Inside each deme, the population reproduce according to a Wright--Fisher dynamic, except from a small proportion of pairs of migrants which are picked uniformly at random and exchange positions. 
+The first and most elementary representative of the class of metapopulation models is Wright's island model \cite{wright_isolation_1943}. Under this model, the population is modeled as a complete graph in which the vertices (the demes) are connected by edges. The population size is fixed and  spread across the demes. Inside each deme, the population reproduce according to a Wright--Fisher dynamic, except from a small proportion of pairs of migrants which are picked uniformly at random and exchange positions. 
 We can think of more involved island models. For instance, a spatially structured population on a plane can be approximated by an island structure on the lattice.
 However, a feature shared by almost all of
 these models is that the population size is fixed, and the number of individuals of each type is given. 
@@ -299,7 +300,7 @@ The proportion of individuals with allele $a$ in a given island is solution to a
 
 \paragraph{Retrospective picture: the structured coalescent}
 
-The genealogies of meta-population models are given by the  \emph{structured coalescent}
+The genealogies of metapopulation models are given by the  \emph{structured coalescent}
 \citet{takahata_coalescent_1988,notohara_coalescent_1990}, which extends the classical Kingman coalescent~\cite{Kingman:1982aa} by adding a finite type structure to lineages. Lineages migrate between demes and within-demes coalescence occurs at rate given by the inverse of the local population size. 
 
 More precisely, let $D,k\geq 1$. For $j\neq i\in \{1,\ldots,D\}$, let and $N_j$ be the local population size in deme $j$ and $m_{ij}$ the (backward in time) migration rate of a lineage from $i$ to $j$. From there, the structured $k$-coalescent with $D$ demes has the following dynamics.
@@ -320,7 +321,7 @@ multitype exchangeable coalescents in which the deme sizes are themselves random
 
 \subsection{Density dependence in structured populations}
 
-Despite being tractable, the lack of demographic fluctuations in meta-populations do not model appropriately ecological interactions as well as many important features of biological populations. For instance,
+Despite being tractable, the lack of demographic fluctuations in metapopulations do not model appropriately ecological interactions as well as many important features of biological populations. For instance,
 they can hardly model individuals invading a spatial continuum or
 with a continuous age structure.
 
@@ -336,7 +337,7 @@ In structured populations, density-dependent interactions can take several forms
 
 \item \emph{Cross-type density dependence.} The fitness of individuals of one type depends on the density of another type. Examples include predation, where prey mortality increases with predator abundance. It also includes mutualistic or symbiotic interactions, where one species benefits reproductively from the presence of another. Pollinators, for instance, can increase the reproductive success of plants, while plants in turn provide resources for the pollinators.
 
-\item \emph{Frequency-dependent interactions.} In some settings, what matters is not only the absolute density of a type but also its relative frequency in the population. This occurs, for example, in host--pathogen systems with strain-specific immunity, in sexual populations where rare mating types have an advantage, and in evolutionary games where the payoff of a strategy depends on the strategies used by others.
+\item \emph{Frequency-dependent interactions.} In some settings, what matters is not only the absolute density of a type but also its relative frequency in the population. This occurs, for example, in host-pathogen systems with strain-specific immunity, in sexual populations where rare mating types have an advantage, and in evolutionary games where the payoff of a strategy depends on the strategies used by others.
 \end{itemize}
 
 When it comes to structured and interacting population models that allows for demographic fluctuations like density dependent branching particle systems, the picture for the ancestral lineages is less clear.
@@ -383,7 +384,7 @@ the empirical distribution of the types along a typical surviving lineage.
 
 When one thinks about continuous type space, the epitomic class is that of spatially structured models. In these models, individuals occupy positions, disperse locally, and compete mainly with nearby individuals. In the Bolker--Pacala model~\cite{bolker1997using}, individuals move in space according to a random walk and die at a rate that depends on the local density, which models competition for resources around their location. Competition is thus nonlocal in space rather than proportional to the total population size. Such local regulation can stabilize the population and generate clustering phenomena. Fournier and Méléard~\cite{Fournier_2004}, followed by~\citet{Champagnat_2006}, developed rigorous microscopic frameworks for density-dependent branching populations in which individuals occupy spatial positions, disperse locally, and experience competition whose strength depends on nearby density. We also point out the work of~\citet{alison_m_etheridge_looking_2024}, who studied spatial population models on $\mathbb{R}^d$ with density-dependent birth and death rates and, using a lookdown construction, described the motion of ancestral lineages in the deterministic scaling limit.
 
-A different kind of spatial structure is found in the Brunet--Derrida $N$-particle model~\cite{brunet_shift_1997,brunet_effect_2007}, a branching--selection particle system in which particles branch and diffuse, but only the rightmost $N$ particles survive, so that the population forms a traveling front. Although its spatial structure is organized around a moving front rather than local ecological competition, it is a canonical example of how selection and finite population size reshape spatially expanding branching populations.
+A different kind of spatial structure is found in the Brunet--Derrida $N$-particle model~\cite{brunet_shift_1997,brunet_effect_2007}, a branching-selection particle system in which particles branch and diffuse, but only the rightmost $N$ particles survive, so that the population forms a traveling front. Although its spatial structure is organized around a moving front rather than local ecological competition, it is a canonical example of how selection and finite population size reshape spatially expanding branching populations.
 
 Beyond spatial structure, other models use the continuous type to encode a trait under selection. \citet*{forien_ancestral_2022} used neutral fractions to study genealogies in a one-dimensional SDE model with competition and selection, in which the population adapts to a moving environmental optimum. An individual-based version of this model was studied in~\cite{meleard-tran}. Motivated by climate change, \citet{meleard-tran} considered a branching-diffusion model in which each individual carries a one-dimensional trait $x\in\mathbb{R}$. At time $t$, an individual with trait $x$ gives birth at rate 1 to a child who inherits the parent's trait, and dies at rate $(x-ct)^2/2 + Z_t$, where $Z_t$ is the density of the population (the population size rescaled by a carrying capacity $K$). The first part of the death rate reflects an optimal trait moving at constant speed $c$, modeling a gradual environmental change; the second is a logistic competition term. Between reproduction and death events, the traits of individuals diffuse as independent Brownian motions. As $K\to\infty$, the empirical measure converges to a nonlinear nonlocal PDE. Using a many-to-one formula, the authors' main result is that the ancestral trait path of an individual sampled uniformly at time $T$, read backwards in time, converges to an Ornstein--Uhlenbeck process. This process is independent of the speed $c$ of the environmental change and is centered at the optimum.
 
@@ -393,7 +394,7 @@ In continuity of the work established in Chapter~\ref{chp3_singletype} to extend
 
  The universality class of the Kingman coalescent is already known to contain several families of structured models, which we briefly review below.
 
-In meta-population models, \cite{nordborg_separation_2002} proved that when migration events occur on a much faster timescale than coalescences, there is a separation of timescales leading to a \emph{slow--fast principle}: on the slow evolutionary timescale, genealogies are given by the Kingman coalescent with a rescaled effective population size (see also \cite{nagylaki_strong-migration_1980, wilkinson-herbots_coalescence_2003}). The spatial structure therefore collapses, and the subdivision into demes affects diversity only through this effective population size. We recover the same behavior in our main result for regulated populations on finite type spaces (see Theorem~\ref{thm:main_multitype}).
+In metapopulation models, \cite{nordborg_separation_2002} proved that when migration events occur on a much faster timescale than coalescences, there is a separation of timescales leading to a \emph{slow-fast principle}: on the slow evolutionary timescale, genealogies are given by the Kingman coalescent with a rescaled effective population size (see also \cite{nagylaki_strong-migration_1980, wilkinson-herbots_coalescence_2003}). The spatial structure therefore collapses, and the subdivision into demes affects diversity only through this effective population size. We recover the same behavior in our main result for regulated populations on finite type spaces (see Theorem~\ref{thm:main_multitype}).
 A similar collapse of the spatial structure occurs in models with a continuous space. The spatial $\Lambda$-Fleming--Viot process is not a particle system but a measure-valued model, obtained as the infinite-intensity limit of an individual-based model driven by a Poisson point process of reproduction events. \cite{barton_new_2010} proved that, in the regime where reproduction events affect only a negligible fraction of the habitat, the genealogy of a sample converges to the Kingman coalescent. This model therefore also belongs to the universality class of the Kingman coalescent.
 
 
@@ -403,7 +404,7 @@ The universality class of the Kingman coalescent also contains some specific str
 
 More generally, it is conjectured that the genealogies of many population models converge to exchangeable coalescents, such as the $\Lambda$-coalescents \citep{Pitman:1999aa,sagitov1999general}.
 
-Our motivation in Chapter~\ref{chp4_multitype} came from formalizing this conjecture for a broader class of density-dependent individual-based models. In particular, we were motivated by spatially structured populations described by reaction-diffusion equations, such as the stochastic Fisher--KPP equation. Reaction-diffusion PDEs take the form
+Our motivation in Chapter~\ref{chp4_multitype} came from formalizing this conjecture for a broader class of density-dependent individual-based models. In particular, we were motivated by spatially structured populations described by reaction-diffusion equations, such as the stochastic F--KPP equation. Reaction-diffusion PDEs take the form
 \[
 \partial_t u \ =\ \frac{1}{2}\nabla^2 u + f(u),
 \]
