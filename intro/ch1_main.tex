@@ -388,15 +388,52 @@ A different kind of spatial structure is found in the Brunet--Derrida $N$-partic
 
 Beyond spatial structure, other models use the continuous type to encode a trait under selection. \citet*{forien_ancestral_2022} used neutral fractions to study genealogies in a one-dimensional SDE model with competition and selection, in which the population adapts to a moving environmental optimum. An individual-based version of this model was studied in~\cite{meleard-tran}. Motivated by climate change, \citet{meleard-tran} considered a branching-diffusion model in which each individual carries a one-dimensional trait $x\in\mathbb{R}$. At time $t$, an individual with trait $x$ gives birth at rate 1 to a child who inherits the parent's trait, and dies at rate $(x-ct)^2/2 + Z_t$, where $Z_t$ is the density of the population (the population size rescaled by a carrying capacity $K$). The first part of the death rate reflects an optimal trait moving at constant speed $c$, modeling a gradual environmental change; the second is a logistic competition term. Between reproduction and death events, the traits of individuals diffuse as independent Brownian motions. As $K\to\infty$, the empirical measure converges to a nonlinear nonlocal PDE. Using a many-to-one formula, the authors' main result is that the ancestral trait path of an individual sampled uniformly at time $T$, read backwards in time, converges to an Ornstein--Uhlenbeck process. This process is independent of the speed $c$ of the environmental change and is centered at the optimum.
 
-\paragraph{Universality and collapse of the structure}
+\subsection{Universality and collapse of the structure}
 
 In continuity of the work established in Chapter~\ref{chp3_singletype} to extend the robustness of the Kingman coalescent to, our goal in Chapter~\ref{chp4_multitype} is to extend the universality class of the Kingman coalescent to a broad class of structured density-dependent individual-based models. In particular, we investigate the play of structure on the genetic diversity through the pairwise merging rate of the limiting Kingman coalescent.
 
  The universality class of the Kingman coalescent is already known to contain several families of structured models, which we briefly review below.
 
-In metapopulation models, \cite{nordborg_separation_2002} proved that when migration events occur on a much faster timescale than coalescences, there is a separation of timescales leading to a \emph{slow-fast principle}: on the slow evolutionary timescale, genealogies are given by the Kingman coalescent with a rescaled effective population size (see also \cite{nagylaki_strong-migration_1980, wilkinson-herbots_coalescence_2003}). The spatial structure therefore collapses, and the subdivision into demes affects diversity only through this effective population size. We recover the same behavior in our main result for regulated populations on finite type spaces (see Theorem~\ref{thm:main_multitype}).
-A similar collapse of the spatial structure occurs in models with a continuous space. The spatial $\Lambda$-Fleming--Viot process is not a particle system but a measure-valued model, obtained as the infinite-intensity limit of an individual-based model driven by a Poisson point process of reproduction events. \cite{barton_new_2010} proved that, in the regime where reproduction events affect only a negligible fraction of the habitat, the genealogy of a sample converges to the Kingman coalescent. This model therefore also belongs to the universality class of the Kingman coalescent.
+\paragraph{Collapse of the structure in metapopulations.}
+In the structured coalescent model introduced before, \citet*{nordborg_separation_2002} proved that when migration
+events occur on a much faster timescale than coalescences, there is a separation of
+timescales leading to a \emph{slow-fast principle}. 
 
+Recall the parameters of the model: the population is constituted of $D$ demes with a population size $N_i$ in deme $i$ and a migration rate $m_{ij}$ from deme $i$ to deme $j$.
+Let $N$ denote the total size of the population and for all $i\leq D$, let us set the  subpopulation size $N_i = a_i N$, with
+$\sum_i a_i = 1$. The regime of fast migration considered in~\cite{nordborg_separation_2002} consists into setting the backward migration rate to be 
+\[
+\forall\, 1\leq i,j\leq D,\qquad m_{ij}\ \coloneqq\ \frac{\mu_{ij}}{N^{\alpha}},\qquad \alpha\in[0,1),\, \mu_{ij}>0,
+\] 
+by contrast with the classical regime of \emph{small migrations}, which corresponds to setting $m_{ij} = \mu_{ij}/N$.
+
+Further, we assume that the backward migration chain is irreducible and aperiodic with stationary
+distribution $\pi = (\pi_1,\dots,\pi_D)$. Denoting by $M$ the matrix such that for $i\neq j$, $M_{ij}= \mu_{ij}$ and for all $i$, $M_{ii} = -\sum_{j\neq i}\mu_{ij}$, we have $\pi M=0$. 
+
+The regime $\alpha<1$ means that migration is fast compared to coalescence, which occurs at rate $O(1/N)$ per generation. Indeed, the number of migration events taking place between two successive
+coalescences is of the order $N^{1-\alpha}\to\infty$, so that the type configuration of the remaining  lineages reach their stationary distribution before the next coalescence. 
+
+In this regime and when time is measured in units of $N$ generations, the results of~\citet*{nordborg_separation_2002} are the following, taking the limit $N\to \infty$.
+\begin{itemize}
+\item The location of the lineages left in the process are independently distributed according to $\pi$.
+\item W the genealogy of a sample converges
+(weakly, as $N\to\infty$) to the Kingman coalescent with pairwise \emph{effective merging rate} $\bar m_2$, defined by averaging over the stationary distribution:
+\[
+  \bar m_2 \ \coloneqq\ \sum_{i=1}^{L} \frac{\pi_i^{2}}{a_i}.
+\]
+\end{itemize}
+Equivalently, the population behaves like a panmictic one with coalescent effective size $N_e = N/m_2$.  
+We note that the result of~\cite{nordborg_separation_2002} shows that the effective rate does not depend on the value of $\alpha$.  The shape of the genealogy thus evolves independently of the transient ecological
+fluctuations. The impact of the underlying structure affects diversity only through the effective
+population size. This phenomenon is called a \emph{collapse of the structure} (see also
+\cite{nagylaki_strong-migration_1980, wilkinson-herbots_coalescence_2003}).
+
+
+In Chapter~\ref{chp4_multitype}, we recover the same behavior in our main result for regulated populations on finite type
+spaces.
+
+\paragraph{More involved models.}
+A similar collapse of the spatial structure occurs in models with a continuous space. The spatial $\Lambda$-Fleming--Viot process is not a particle system but a measure-valued model, obtained as the infinite-intensity limit of an individual-based model driven by a Poisson point process of reproduction events. \cite{barton_new_2010} proved that, in the regime where reproduction events affect only a negligible fraction of the habitat, the genealogy of a sample converges to the Kingman coalescent. This model therefore also belongs to the universality class of the Kingman coalescent.
 
 The universality class of the Kingman coalescent also contains some specific structured particle models with density-dependent interactions. In particular,~\cite{etheridge_genealogies_2022} considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (that is, a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
 
@@ -404,13 +441,14 @@ The universality class of the Kingman coalescent also contains some specific str
 
 More generally, it is conjectured that the genealogies of many population models converge to exchangeable coalescents, such as the $\Lambda$-coalescents \citep{Pitman:1999aa,sagitov1999general}.
 
-Our motivation in Chapter~\ref{chp4_multitype} came from formalizing this conjecture for a broader class of density-dependent individual-based models. In particular, we were motivated by spatially structured populations described by reaction-diffusion equations, such as the stochastic F--KPP equation. Reaction-diffusion PDEs take the form
+In Chapter~\ref{chp4_multitype}, we tackle the questions $(Q1)$ and $(Q2)$ stated earlier for structured density dependent particle models on a finite set of types and a general offspring distribution (we only have a second moment moment assumption, which is the usual condition to observe a binary genealogy at the limit).
+Our motivation came from formalizing this conjecture for a broader class of density-dependent individual-based models. In particular, we were motivated by spatially structured populations described by reaction-diffusion equations, such as the stochastic F--KPP equation. Reaction-diffusion PDEs take the form
 \[
 \partial_t u \ =\ \frac{1}{2}\nabla^2 u + f(u),
 \]
-where the reaction term $f(u)$ models local interactions between individuals. In the F--KPP equation, $f(u)=u(1-u)$ accounts for local competition for resources (density dependence). Other choices of $f$ model other interactions. For instance, an Allee effect (cooperation between individuals) is obtained with $f(u)=u(1-u)(1+Bu)$, where $B>0$ reflects the strength of the Allee effect.
+where the reaction term $f(u)$ models local interactions between individuals. In the F--KPP equation, $f(u)=u(1-u)$ accounts for local competition for resources (density dependence). Other choices of $f$ model other interactions. For instance, an Allee effect (cooperation between individuals) is obtained with $f(u)=u(1-u)(1+Au)$, where $A>0$ reflects the strength of the Allee effect.
 To study the genealogies of such populations, \cite{hallatschek_gene_2008} introduced neutral fractions, \ie heritable neutral markers whose frequencies evolve with the population. The nature of the genealogies depends strongly on the type of front.
- For $f(u)=u(1-u)(1+Bu)$, the front is pulled for $B\le 2$ and pushed for $B>2$ (see \cite{birzu_fluctuations_2018}). In pulled fronts, which are driven by the few individuals at the tip of the expanding front wave, the genealogies are expected to be given by the Bolthausen--Sznitman $\Lambda$-coalescent. This result was predicted for the Brunet--Derrida $N$-particle system of \cite{brunet_effect_2007} and proved for branching Brownian motion with absorption in \cite{berestycki_genealogy_2013}. 
+ For $f(u)=u(1-u)(1+Au)$, the front is pulled for $A\le 2$ and pushed for $A>2$ (see \cite{birzu_fluctuations_2018}). In pulled fronts, which are driven by the few individuals at the tip of the expanding front wave, the genealogies are expected to be given by the Bolthausen--Sznitman $\Lambda$-coalescent. This result was predicted for the Brunet--Derrida $N$-particle system of \cite{brunet_effect_2007} and proved for branching Brownian motion with absorption in \cite{berestycki_genealogy_2013}. 
 In pushed fronts, which are driven by the bulk of the population, one expects Kingman-type genealogies, as proved for a bistable wave by \cite{etheridge_genealogies_2022}.
 
 
