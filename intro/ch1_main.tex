@@ -3,48 +3,51 @@
 \section{Modeling complex populations with simple objects}
 
 Population genetics studies how the genetic composition of a population changes
-over generations under the combined effect of reproduction, random sampling and selection. 
-The origins of discipline traces back to the early 19th century, when Jean-Baptiste Lamarck~\cite{de_monet_de_lamarck_philosophie_1809} proposed one of the first theories of evolution, based on the inheritance of characteristics acquired during an organism's lifetime. 20 years later, Charles Darwin developed a different explanation after an expedition in South America during which he observed the diversity of species and their geographical variation. In the late 1830s, he formulated the theory of natural selection as the main driver of the transformation and diversification of species~\cite{darwin_origin_1859}. 
+over generations, under the combined effect of reproduction, random sampling and selection. 
+The origins of discipline trace back to the early 19th century, when Jean-Baptiste Lamarck~\cite{de_monet_de_lamarck_philosophie_1809} proposed one of the first theories of evolution, based on the inheritance of characteristics acquired during an organism's lifetime. Twenty years later, Charles Darwin developed a different explanation, after an expedition in South America during which he observed the diversity of species and their geographical variation. In the late 1830s, he formulated the celebrated \emph{theory of natural selection} as the main driver of the transformation and diversification of species~\cite{darwin_origin_1859}. 
 
-In the 1960s, Motoo Kimura~\cite{kimura_evolutionary_1968} argued that the vast majority of mutations are neutral. According to this view, the genetic diversity observed in nature is shaped mainly by chance rather than by Darwinian natural selection. As a consequence, variation at the molecular level is governed by \emph{genetic drift}, which refers to the random change in the frequency of an allele in a population from one generation to the next.
-The central question, which sparked a big controversy at the time, was the following:\\
-\\
+In the 1960s, Motoo Kimura~\cite{kimura_evolutionary_1968} argued that the vast majority of mutations are, in fact, \emph{neutral} (\ie, they do not give a reproductive advantage). According to this view, the genetic diversity observed in nature is shaped mainly by chance, rather than by Darwinian natural selection. As a consequence, variation at the molecular level is governed by \emph{genetic drift}, which refers to the random change in the frequency of an allele in a population from one generation to the next.
+The central question, which sparked a big controversy at the time, was the following:
+
+\medskip
+
 \emph{Can we explain all the observed polymorphism in natural populations without needing to invoke natural selection?}
-\\
-\\
-This was the beginning of the so-call \textit{neutral theory of molecular evolution}, which provides the evolutionary framework on which many of the models used today are based.
 
+\medskip
+
+This question was the beginning of the so-call \textit{neutral theory of molecular evolution}, which provides the evolutionary framework on which many of the models used today are based.
 The simplest setting in which this question can be posed
-rigorously is that of a \emph{well-mixed} population with fixed size and in which every individual is, at each generation, equally likely to be the parent of any other individual. This model is called the Wright--Fisher model~\citep{wright_evolution_1931,fisher_genetical_1930} and serves as the basis to Kimura's neutral theory~\cite{kimura_evolutionary_1968}. 
+rigorously is that of a \emph{well-mixed} population with fixed size and in which every individual is, at each generation, equally likely to be the parent of any other individual. This model is called the Wright--Fisher model~\citep{wright_evolution_1931,fisher_genetical_1930}. It serves as the basis to Kimura's neutral theory~\cite{kimura_evolutionary_1968}. 
+
+\medskip
 
 This section recalls the classical descriptions of neutral, purely conservative population models, forward in time through models of reproduction, and backward in time through genealogies, and the universal objects, the Wright-Fisher diffusion
 and the Kingman coalescent, that these descriptions converge to in the large population limit.
-\paragraph{Notations.}
-Throughout this work, we denote by $K$ a large demographic parameter that represents the size (or the order of magnitude of the size) of a population. For both discrete and continuous time models, we will denote by $t$ the time index, which can be either discrete or continuous. We will denote by $\mathcal{N}_t$ the set of individuals in the population at time $t$. The letter $z$ will refer to a notion of density (either allele frequencies or population densities in regulated models). 
+
 \subsection{Discrete neutral population models}\label{sec:neutral_models}
 \paragraph{Exchangeable models in discrete time.} Tracing back to the 1930 with the work of Wright~\cite{wright_evolution_1931} and Fisher~\cite{fisher_genetical_1930},
- the Wright-Fisher model is a stochastic model used as a baseline in evolutionary biology, population genetics and phylogenetics. It models the development of genetic variability within a population, explaining the genetic drift. In its simplest form, consider a population of $K$ individuals labeled $1,\dots,K$, each carrying one of two alleles, $A$ or $a$. The population is assumed to be well-mixed, meaning that every individual is equally likely to mate with any other individual. The model assumes discrete generations, where each generation is formed by sampling uniformly at random and with replacement a parent from the previous generation.
+ the Wright-Fisher model is a stochastic model used as a baseline in evolutionary biology, population genetics and phylogenetics. It models the development of genetic variability within a population, explaining the genetic drift. In its simplest form, consider a population of $N$ individuals labeled $1,\dots,N$, each carrying one of two alleles, $A$ or $a$. The population is assumed to be well-mixed, meaning that every individual is equally likely to mate with any other individual. The model assumes discrete generations, where each generation is formed by sampling uniformly at random and with replacement a parent from the previous generation.
 
  An important assumption made here is the notion of \emph{exchangeability}: the law of the model vector is invariant under permutation of the labels of the individuals. Moreover, it is independent and identically distributed
 across generations. 
 
 
  More generally, Cannings models~\cite{cannings_latent_1974,cannings_latent_1975} denote the family of discrete-generation, exchangeable population frameworks that generalize classical genetic models.
-Fix $K \ge 2$. In the Cannings model, generations are indexed by $t \in \N$,
-and each generation consists of $K$ individuals, labelled $1,\dots,K$. Individual
-$i$ in generation $t$ produces $\nu_i(t) \ge 0$ offspring in generation $t+1$, and the progeny inherit the allele of their parent.
+Fix $N \ge 2$. In the Cannings model, generations are indexed by $n \in \N$,
+and each generation consists of $N$ individuals, labelled $1,\dots,N$. Individual
+$i$ in generation $n$ produces $\nu_i(n) \ge 0$ offspring in generation $n+1$, and the progeny inherit the allele of their parent.
 
 The offspring vector is denoted by
 \[
-\nu(t)\ \coloneqq\ (\nu_1(t),\dots,\nu_K(t)),\quad \text{such that}\quad \sum_{i=1}^K \nu_i(t)\ =\ K.
+\nu(n)\ \coloneqq\ (\nu_1(n),\dots,\nu_N(n)),\quad \text{such that}\quad \sum_{i=1}^N \nu_i(n)\ =\ N.
 \] 
-Cannings models is the most general class of neutral, exchangeable reproduction schemes with
+Cannings models is the most general framework of neutral, exchangeable reproduction schemes with
 fixed population size and non-overlapping generations, in the sense that no
 further assumption is made on the offspring distribution beyond exchangeability
-and the constraint $\sum_i \nu_i(t) = K$. The Wright-Fisher model is a particular instance of Cannings models, which corresponds to choosing the vector 
-$\nu(t)$ to be distributed as a multinomial random vector:
+and the constraint that $\sum_i \nu_i(n) = N$. The Wright-Fisher model is a particular instance of Cannings models, which corresponds to choosing the vector 
+$\nu(n)$ to be distributed as a multinomial random vector:
 \[
-\forall t\in \N,\quad \nu(t)\ \sim\ \mathrm{multinom}(K; 1/K,\dots,1/K).
+\forall n\in \N,\quad \nu(n)\ \sim\ \mathrm{multinom}(N; 1/N,\dots,1/N).
 \]
 
 \paragraph{Continuous-time exchangeable models.} 
@@ -57,11 +60,11 @@ The Moran model extends naturally to non-binary reproduction events, in which a 
 \subsection{Universal scaling limits}
 We introduce the two universal objects that emerge as scaling limits of the idealized discrete-time models presented in the previous section, and that will be used throughout this thesis.
 \paragraph{Prospective limit: the Wright--Fisher diffusion.}
-When the population size goes to infinity, the evolution of the frequency of a given allele in the Wright-Fisher model converges to a continuous-time, Gaussian object called the Wright-Fisher diffusion. It is a diffusion process on the unit interval $[0,1]$ that is the weak solution to the stochastic differential equation
+When the population size goes to infinity, the evolution of the frequency of a given allele in the Wright-Fisher model converges to a continuous-time, Gaussian object called the Wright-Fisher diffusion. It is a diffusion process $(Z_t)_{t\geq 0}$ taking values on the unit interval $[0,1]$. The Wright--Fisher diffusion is the weak solution to the stochastic differential equation
 \[
 dZ_t\ =\ \sqrt{Z_t(1-Z_t)} dB_t,
 \]
-where $B_t$ is a standard Brownian motion. In an equivalent manner, the Wright--Fisher diffusion is described by its infinitesimal generator, which acts on twice continuously differentiable functions $f:[0,1]\to \R$ as
+where $(B_t)_{t\geq 0}$ is a standard Brownian motion. In an equivalent manner, the Wright--Fisher diffusion is described by its infinitesimal generator, which acts on twice continuously differentiable functions $f:[0,1]\to \R$ as
 \[
 \mathcal{G}_{WF} f(x)\ =\ \frac{1}{2} x(1-x) f''(x),\quad x\ \in\ [0,1].
 \]
@@ -317,9 +320,9 @@ Conversely, density-dependent branching processes
 is another well-studied class of models which seems suited to model such
 phenomena. In these models, individuals reproduce independently, but in a
 way that depends on the state of the population and which can model biological
-interactions. For population without structure, the logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process. 
+interactions. For population without structure, the logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process. In the logistic process, rather than being fixed, the total population size fluctuates around an ecological equilibrium $K$. The parameter $K$ is classically called a \emph{carrying capacity}. It is large demographic parameter that represents the order of magnitude of the size of a population. 
 
-When it comes to structured, interacting population models that allows for demography like density dependent branching particle systems, the picture for the ancestral lineages is less clear.
+When it comes to structured and interacting population models that allows for demographic fluctuations like density dependent branching particle systems, the picture for the ancestral lineages is less clear.
  This provides motivation for extending our knowledge
 of genealogies to these processes, beyond models with fixed population
 structure.
