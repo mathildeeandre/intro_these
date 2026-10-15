@@ -204,7 +204,7 @@ Neutral theory and the class of unstructured exchangeable models assume that in 
 
 \paragraph{The effective population size}
 Wright \cite{wright_evolution_1931} proposed to account for such discrepancies, and more generally for any departure from the idealized Wright-Fisher setting, by
-introducing an \emph{effective population size}, which is classically denoted by $N_e$ in the litterature.
+introducing an \emph{effective population size}, which is classically denoted by $N_e$ in the literature.
 The effective Population Size captures the number of individuals that effectively participates in producing the next generation. It reflects how much genetic drift a real population experiences, hence its rate of loss of genetic variability. It accounts for parameters such as demographic fluctuations, variance in reproductive success, population structure, sex ratio, linked selection, etc. These parameters greatly influence evolutionary processes.
  Generally, the effective size of a population is considerably less than its census size,  with a $1:1$ ratio only in the special case of an ``ideal'' panmictic population, in which variation among individuals in reproductive success is completely random. 
 
@@ -245,8 +245,9 @@ The Kingman coalescent model also allows to infer the demographic history of a p
 \caption{Reconstruction of the tree from the Skyline plot, figure from~\cite{ho_skyline-plot_2011}}
 \label{fig:skyline_plot}
 \end{figure}
-The approach breaks down when reproduction is itself strongly skewed, epidemic superspreading, selective sweeps, oversampling, which produce multifurcating genealogies that the almost surely binary Kingman coalescent cannot generate; here it is again a simple, exchangeable model, the $\Lambda$-coalescent, that is used to extend the skyline plot and recover the ability to infer demographic history \citep{hoscheit_multifurcating_2019}. 
+The approach breaks down when reproduction is itself strongly skewed (from \eg epidemic superspreading, selective sweeps, oversampling) which produce multifurcating genealogies that the almost surely binary Kingman coalescent cannot generate. In this framework~\cite{hoscheit_multifurcating_2019} extend the skyline plot to infer demographic history from the $\Lambda$-coalescent. 
 
+\medskip
 
 Exchangeable coalescents (Kingman, $\Lambda$-coalescents) and neutral models are the standard null hypothesis for modeling complex populations.
 Yet, does it still make sense to use these processes to explain genetics diversity in the wild? The answer given by mathematics is broadly positive. 
@@ -256,7 +257,7 @@ Yet, does it still make sense to use these processes to explain genetics diversi
 We saw that, after a suitable scaling, the Wright--Fisher diffusion and the Kingman coalescent appear as the (forward and backward) scaling limits of Cannings models with finite variance and selection. 
 Besides, the Kingman coalescent has been proved to be robust to modifications from the tight assumptions of the Moran model and the Cannings model with variance. Indeed, it arises as the genealogy of a broad class of forward-in-time population models. Beyond the purely neutral setting presented in Section~\ref{sec:neutral_models}, the Kingman coalescent process has served as the backbone onto which further biological ingredients are grafted. For instance, variation of population size over time is incorporated by a deterministic time change of the coalescent rate
 \citep{griffiths_sampling_1994, Jagers2004ConvergenceTT}, or by a stochastic time change in models with stochastically varying population size~\cite{kaj_coalescent_2003}.
-Exchangeable coalescents also appear as the limiting genealogies of population models with selection \citep{kaplan_coalescent_1988, neuhauser_genealogy_1997}, recombination \citep{hudson_coalescent_1988}, diploid biparental models \citep{wakeley_gene_2012, koskela_robust_2019}, non-excheangeable models~\citep{siri-jegousse_exchangeable_2024}, etc. 
+Exchangeable coalescents also appear as the limiting genealogies of population models with selection \citep{kaplan_coalescent_1988, neuhauser_genealogy_1997}, recombination \citep{hudson_coalescent_1988}, diploid biparental models \citep{wakeley_gene_2012, koskela_robust_2019}, non-exchangeable models~\citep{siri-jegousse_exchangeable_2024}, etc. 
 We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Kingman coalescent. 
 
 \medskip 
@@ -637,7 +638,7 @@ The CPP is also the genealogy induced by the Feller diffusion, which is forward-
 
 
 \paragraph{Moment methods in the general framework.}
-The contour function and height function approach of Aldous~\cite{aldous_continuum_1991} and Le Gall~\cite{le_gall_brownian_1991} encodes the whole tree as an excursion and proves that this excursion converges. The approach is tractable when the reproduction distribution does not depend on types. However, in the multitype setting, the encoding process is no longer Markov or tractable~\cite{popovic_coalescent_2014}. It makes this approach inconvenient when studying biology-inspired structured populations. 
+The contour function and height function approach of Aldous~\cite{aldous_continuum_1991} and Le Gall~\cite{le_gall_brownian_1991} encodes the whole tree. The approach is tractable when the reproduction distribution does not depend on types. However, in the multitype setting, the encoding process is no longer Markov or tractable~\cite{popovic_coalescent_2014}. It makes this approach inconvenient when studying biology-inspired structured populations. 
 
  The moment method does not need such an encoding, so that the type space can be any Polish space.
 The principle of the methodology is the same as for real-valued random variables: convergence in distribution of a sequence of random variables follows from the convergence of its moments, provided the limit is determined by them. 
