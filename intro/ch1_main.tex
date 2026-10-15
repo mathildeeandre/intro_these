@@ -399,7 +399,7 @@ When one thinks about continuous type space, the epitomic class is that of spati
 
 A different kind of spatial structure is found in the Brunet--Derrida $N$-branching Brownian motion ($N$-BBM) model~\cite{brunet_shift_1997,brunet_effect_2007}, a branching-selection particle system in which particles branch and diffuse, but only the rightmost $N$ particles survive, so that the population forms a traveling front. Although its spatial structure is organized around a moving front rather than local ecological competition, it is a canonical example of how selection and finite population size reshape spatially expanding branching populations.
 
-Beyond spatial structure, other models use the continuous type to encode a trait under selection. \citet*{forien_ancestral_2022} used neutral fractions to study genealogies in a one-dimensional SDE model with competition and selection, in which the population adapts to a moving environmental optimum. An individual-based version of this model was studied in~\cite{meleard-tran}. Motivated by climate change, \citet{meleard-tran} considered a branching-diffusion model in which each individual carries a one-dimensional trait $x\in\mathbb{R}$. At time $t$, an individual with trait $x$ gives birth at rate 1 to a child who inherits the parent's trait, and dies at rate $(x-ct)^2+ Z_t$, where $Z_t$ is the density of the population (the population size rescaled by a carrying capacity $K$). The first part of the death rate reflects an optimal trait moving at constant speed $c$, modeling a gradual environmental change; the second is a logistic competition term. Between reproduction and death events, the traits of individuals diffuse as independent Brownian motions. As $K\to\infty$, the empirical measure converges to a nonlinear nonlocal PDE. Using a many-to-one formula, the authors' main result is that the ancestral trait path of an individual sampled uniformly at time $T$, read backwards in time, converges to an Ornstein--Uhlenbeck process. This process is independent of the speed $c$ of the environmental change and is centered at the optimum.
+Beyond spatial structure, other models use a continuous type to encode a trait under selection. \citet*{forien_ancestral_2022} used neutral fractions to study genealogies in a one-dimensional SDE model with competition and selection, in which the population adapts to a moving environmental optimum. An individual-based version of this model was studied in~\cite{meleard-tran}. Motivated by climate change, \citet{meleard-tran} considered a branching-diffusion model in which each individual carries a one-dimensional trait $x\in\mathbb{R}$. At time $t$, an individual with trait $x$ gives birth at rate 1 to a child who inherits the parent's trait, and dies at rate $(x-ct)^2+ Z_t$, where $Z_t$ is the density of the population (the population size rescaled by a carrying capacity $K$). The first part of the death rate reflects an optimal trait moving at constant speed $c$, modeling a gradual environmental change; the second is a logistic competition term. Between reproduction and death events, the traits of individuals diffuse as independent Brownian motions. As $K\to\infty$, the empirical measure converges to a nonlinear nonlocal PDE. Using a many-to-one formula, the authors' main result is that the ancestral trait path of an individual sampled uniformly at time $T$, read backwards in time, converges to an Ornstein--Uhlenbeck process. This process is independent of the speed $c$ of the environmental change and is centered at the optimum.
 
 \subsection{Universality and collapse of the structure}
 
@@ -527,7 +527,7 @@ The random variable $Z_n(x)$ models the number of type-$y$
   variable $L_x$. 
 
 Once again, we assume that the first moment
-  $M_{xy}\coloneqq\mathbb{E}[L_{xy}]$ is finite,
+  $\mathbb{E}[L_{xy}]$ is finite,
 so that the \emph{mean matrix} defined coordinate-wise by
 \begin{equation}\label{eq:mean_matrix_intro}
 \forall x,y\in E\quad\ M_{xy}\ \coloneqq\  \E\big[L_{xy}\big] 
@@ -536,7 +536,12 @@ is well-defined.
 
 
 
-The mean matrix $M$ introduced in~\eqref{eq:mean_matrix_intro} is nonnegative. It can be seen as the transition matrix of a discrete time Markov chain with finite states. It is said to be \emph{irreducible} and \emph{aperiodic} if the Markov chain with transitions $M$ is. Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
+The mean matrix $M$ introduced in~\eqref{eq:mean_matrix_intro} is nonnegative. 
+% It can be seen as the transition matrix of a discrete time Markov chain with finite states. 
+It is said to be \emph{irreducible} and \emph{aperiodic}
+if one can find a $n\in\N$ such that $M^n > 0$ coordinate-wise.
+% if the Markov chain with transitions $M$ is.
+ Under these two assumptions, the mean asymptotic behavior of multitype Galton--Watson processes is governed by the Perron--Frobenius theorem.
 
 \begin{thm}[Perron--Frobenius]
  If $M$ is a nonnegative, irreducible and aperiodic matrix, then there exists a principal eigenvalue $\rho>0$, and a unique couple of associated left and right eigenvectors denoted by $h$ and $\tilde h$ such that
