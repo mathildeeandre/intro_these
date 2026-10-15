@@ -6,7 +6,7 @@ Population genetics studies how the genetic composition of a population changes
 over generations, under the combined effect of reproduction, random sampling and selection. 
 The origins of discipline trace back to the early 19th century, when Jean-Baptiste Lamarck~\cite{de_monet_de_lamarck_philosophie_1809} proposed one of the first theories of evolution, based on the inheritance of characteristics acquired during an organism's lifetime. Twenty years later, Charles Darwin developed a different explanation, after an expedition in South America during which he observed the diversity of species and their geographical variation. In the late 1830s, he formulated the celebrated \emph{theory of natural selection} as the main driver of the transformation and diversification of species~\cite{darwin_origin_1859}. 
 
-In the 1960s, Motoo Kimura~\cite{kimura_evolutionary_1968} argued that the vast majority of mutations are, in fact, \emph{neutral} (\ie, they do not give a reproductive advantage). According to this view, the genetic diversity observed in nature is shaped mainly by chance, rather than by Darwinian natural selection. As a consequence, variation at the molecular level is governed by \emph{genetic drift}, which refers to the random change in the frequency of an allele in a population from one generation to the next.
+In the 1960s, Motoo Kimura~\cite{kimura_evolutionary_1968} argued that the vast majority of mutations are, in fact, \emph{neutral} (\ie they do not give a reproductive advantage). According to this view, the genetic diversity observed in nature is shaped mainly by chance, rather than by Darwinian natural selection. As a consequence, variation at the molecular level is governed by \emph{genetic drift}, which refers to the random change in the frequency of an allele in a population from one generation to the next.
 The central question, which sparked a big controversy at the time, was the following:
 
 \medskip
@@ -21,12 +21,12 @@ rigorously is that of a \emph{well-mixed} population with fixed size and in whic
 
 \medskip
 
-This section recalls the classical descriptions of neutral, purely conservative population models, forward in time through models of reproduction, and backward in time through genealogies, and the universal objects, the Wright-Fisher diffusion
+This section recalls the classical descriptions of neutral, purely conservative population models, forward in time through models of reproduction, and backward in time through genealogies, and the universal objects, the Wright--Fisher diffusion
 and the Kingman coalescent, that these descriptions converge to in the large population limit.
 
 \subsection{Discrete neutral population models}\label{sec:neutral_models}
 \paragraph{Exchangeable models in discrete time.} Tracing back to the 1930 with the work of Wright~\cite{wright_evolution_1931} and Fisher~\cite{fisher_genetical_1930},
- the Wright-Fisher model is a stochastic model used as a baseline in evolutionary biology, population genetics and phylogenetics. It models the development of genetic variability within a population, explaining the genetic drift. In its simplest form, consider a population of $N$ individuals labeled $1,\dots,N$, each carrying one of two alleles, $A$ or $a$. The population is assumed to be well-mixed, meaning that every individual is equally likely to mate with any other individual. The model assumes discrete generations, where each generation is formed by sampling uniformly at random and with replacement a parent from the previous generation.
+ the Wright--Fisher model is a stochastic model used as a baseline in evolutionary biology, population genetics and phylogenetics. It models the development of genetic variability within a population, explaining the genetic drift. In its simplest form, consider a population of $N$ individuals labeled $1,\dots,N$, each carrying one of two alleles, $A$ or $a$. The population is assumed to be well-mixed, meaning that every individual is equally likely to mate with any other individual. The model assumes discrete generations, where each generation is formed by sampling uniformly at random and with replacement a parent from the previous generation.
 
  An important assumption made here is the notion of \emph{exchangeability}: the law of the model vector is invariant under permutation of the labels of the individuals. Moreover, it is independent and identically distributed
 across generations. 
@@ -44,7 +44,7 @@ The offspring vector is denoted by
 Cannings models is the most general framework of neutral, exchangeable reproduction schemes with
 fixed population size and non-overlapping generations, in the sense that no
 further assumption is made on the offspring distribution beyond exchangeability
-and the constraint that $\sum_i \nu_i(n) = N$. The Wright-Fisher model is a particular instance of Cannings models, which corresponds to choosing the vector 
+and the constraint that $\sum_i \nu_i(n) = N$. The Wright--Fisher model is a particular instance of Cannings models, which corresponds to choosing the vector 
 $\nu(n)$ to be distributed as a multinomial random vector:
 \[
 \forall n\in \N,\quad \nu(n)\ \sim\ \mathrm{multinom}(N; 1/N,\dots,1/N).
@@ -52,15 +52,15 @@ $\nu(n)$ to be distributed as a multinomial random vector:
 
 \paragraph{Continuous-time exchangeable models.} 
 Biological problems are usually modeled as continuous-time phenomena. 
-The continuous-time analogue of the Wright-Fisher model is the Moran model. This is a continuous-time Markov chain in which individuals reproduce at independent exponential times, and each offspring replaces a uniformly chosen individual in the population. 
+The continuous-time analogue of the Wright--Fisher model is the Moran model. This is a continuous-time Markov chain in which individuals reproduce at independent exponential times, and each offspring replaces a uniformly chosen individual in the population. 
 
 The Moran model extends naturally to non-binary reproduction events, in which a single individual can produce multiple offspring at once, replacing a random number of individuals in the population.  This model has been studied for instance in~\citet{etheridge_coalescent_2010,birkner_measure-valued_2009}. The evolution of the population is given by a resampling mechanism: each $d$-uplet of individuals dies after an exponential holding time with some positive rate $\lambda_d$. Upon death, one individual of the $d$-uplet is replaced by $d$ copies of themselves. This is called the $\Lambda$-Moran model.
 
 
 \subsection{Universal scaling limits}
 We introduce the two universal objects that emerge as scaling limits of the idealized discrete-time models presented in the previous section, and that will be used throughout this thesis.
-\paragraph{Prospective limit: the Wright--Fisher diffusion.}
-When the population size goes to infinity, the evolution of the frequency of a given allele in the Wright-Fisher model converges to a continuous-time, Gaussian object called the Wright-Fisher diffusion. It is a diffusion process $(Z_t)_{t\geq 0}$ taking values on the unit interval $[0,1]$. The Wright--Fisher diffusion is the weak solution to the stochastic differential equation
+\paragraph{Forward-in-time point of view: the Wright--Fisher diffusion.}
+When the population size goes to infinity, the evolution of the frequency of a given allele in the Wright--Fisher model converges to a continuous-time, Gaussian object called the Wright--Fisher diffusion. It is a diffusion process $(Z_t)_{t\geq 0}$ taking values on the unit interval $[0,1]$. The Wright--Fisher diffusion is the weak solution to the stochastic differential equation
 \[
 dZ_t\ =\ \sqrt{Z_t(1-Z_t)} dB_t,
 \]
@@ -68,15 +68,15 @@ where $(B_t)_{t\geq 0}$ is a standard Brownian motion. In an equivalent manner, 
 \[
 \mathcal{G}_{WF} f(x)\ =\ \frac{1}{2} x(1-x) f''(x),\quad x\ \in\ [0,1].
 \]
-The Wright-Fisher diffusion is the scaling limit of the Moran model as well, and more generally of any Cannings model with finite offspring variance.
+The Wright--Fisher diffusion is the scaling limit of the Moran model as well, and more generally of any Cannings model with finite offspring variance.
 
-More generally, if we track the frequency of $k\geq 2$ neutral alleles in a population, then the joint evolution of the frequencies of these alleles (which we will refer to as \emph{neutral fractions} in Chapter~\ref{chp4_multitype}) is described in the large population limit by a diffusion process on the $k$-dimensional simplex $\Delta^{k}=\{x\in[0,1]^{k}:\sum_{i=1}^{k}x_i = 1\}$ called the $k$-allele Wright-Fisher diffusion. It is characterized by its infinitesimal generator, which acts on twice continuously differentiable functions $f:\R^{k}\to \R$ as
+More generally, if we track the frequency of $k\geq 2$ neutral alleles in a population, then the joint evolution of the frequencies of these alleles (which we will refer to as \emph{neutral fractions} in Chapter~\ref{chp4_multitype}) is described in the large population limit by a diffusion process on the $k$-dimensional simplex $\Delta^{k}=\{x\in[0,1]^{k}:\sum_{i=1}^{k}x_i = 1\}$ called the $k$-allele Wright--Fisher diffusion. It is characterized by its infinitesimal generator, which acts on twice continuously differentiable functions $f:\R^{k}\to \R$ as
 \[
  \mathcal{G}^k_{WF} f(\bm x)\ =\ \frac{1}{2}\sum_{i,j=1}^k x_i(\delta_{ij}-x_j) \partial_{i,j}f(\bm x), \quad \bm x\ =\ (x_1,\dots,x_k)\ \in\ \Delta^k.
 \]
 
-Adding selection to Cannings model with finite variance leads to a drift term in the Wright-Fisher diffusion, while modifying the variance of the offspring distribution changes the diffusion coefficient. 
-\paragraph{Retrospective limit: neutral coalescent theory.}
+Adding selection to Cannings model with finite variance leads to a drift term in the Wright--Fisher diffusion, while modifying the variance of the offspring distribution changes the diffusion coefficient. 
+\paragraph{Backward-in-time point of view: neutral coalescent theory.}
 An alternative way to describe the allelic composition of a population is to determine its genealogy. A genealogy is a forest structure that represents the degree of kinship
 between individuals in a population. It is a central notion in population genetics, in particular because genealogies are instrumental in studying
 patterns of neutral genetic diversity \citep{wakeley_coalescent_2009,
@@ -150,7 +150,7 @@ Thus, the block-counting process is the decreasing integer-valued process with t
 n\ \longrightarrow\ n-1 \qquad \text{at rate}\quad r\binom{n}{2}.
 \]
 
-It was established in the work of~\citet{mohle_1998} and ~\citet{sagitov1999general} that the Kingman coalescent is also the limit of the genealogies in Cannings models, if the variance of the offspring distribution rescaled by the population size has a finite limit. That is if,
+It was established in the work of Möhle and Sagitov~\cite{mohle_1998,Mohle_Sagitov} that the Kingman coalescent is also the limit of the genealogies in Cannings models, if the variance of the offspring distribution rescaled by the population size has a finite limit. That is if,
 \[
 \lim_{K\to\infty }\frac{1}{K}\E\big[\nu_1(t)(\nu_1(t)-1)\big]\ =\ m_2<\infty.
 \]
@@ -167,16 +167,16 @@ In particular, it has a power-law tail if there exists $\alpha \in (1,2)$ such t
 If the offspring distribution per individual in a Cannings model is heavy-tailed, then a single individual can, with non-negligible probability, produce a positive fraction of the whole next generation.
 Zooming out, these large birth events create big families who persist in the large population limit. Looking at the genealogies, individuals at present are likely to descend from these large families, so that the diversity of the population is reduced and the genealogy of the population is no longer described by a binary tree like the Kingman coalescent, but rather by a tree with multiple mergers. 
 
-Pitman~\cite{Pitman:1999aa} and Sagitov~\cite{sagitov1999general} characterized the class of exchangeable coalescent processes admitting multiple mergers. That is, merging events involving several blocks, but at most one merger event at a time. Given a finite measure $\Lambda$ on $[0,1]$, the $\Lambda$-coalescent is the Markov chain on the space of partitions of $\{1,\ldots,n\}$ with the following dynamics:
+Pitman~\cite{Pitman:1999aa} and Sagitov~\cite{sagitov1999general} characterized the class of exchangeable coalescent processes admitting multiple mergers. That is, merging events involving several blocks, but at most one merger event at a time. Given a finite measure $\Lambda$ on $[0,1]$, the $\Lambda$-coalescent is the Markov chain on the space of partitions of $\{1,\ldots,n\}$ with the following dynamics.
  Starting from the singleton partition, if there are $b$ blocks present, any given group of $k$ of them $(2 \leq k \leq b)$ merges into one at rate
 \[
 \lambda_{b,k}\ =\ \int_0^1 x^{k-2} (1-x)^{b-k}\, \Lambda(dx),
 \]
-independently of the other groups.  Taking $\Lambda = \delta_0$ in the above display recovers the Kingman coalescent. In the beginning of the century, Möhle and Sagitov~\cite{mohle_classification_2001,Mohle_Sagitov} provided the exact conditions on the offspring distribution of a Cannings model under which its genealogy, once suitably rescaled, converges to a $\Lambda$-coalescent. 
+independently of the other groups. Taking $\Lambda = \delta_0$ in the above display recovers the Kingman coalescent. In the beginning of the century, Möhle and Sagitov~\cite{Mohle_Sagitov} provided the exact conditions on the offspring distribution of a Cannings model under which its genealogy, once suitably rescaled, converges to a $\Lambda$-coalescent. 
 In particular, if the law of $\nu_1$ has a power tail with parameter $\alpha$, then the genealogies converge to a $\Lambda$-coalescent with measure $\Lambda=\mathrm{Beta}(1-\alpha, \alpha)$.
 Thereby, they classified the possible scaling limits of the genealogies in exchangeable populations with fixed size.
 
-\paragraph{Duality} 
+\paragraph{Duality.} 
 Duality is a fundamental concept in mathematics and takes many forms. The underlying idea is to control a complex object through a simpler one, which may take values in a different space. In population models, Markov duality is a powerful tool for connecting two stochastic processes. It often relates the forward-in-time evolution of allele frequencies to a backward-in-time process describing genealogical quantities, such as the number of ancestral lineages.
 
 This forward-backward correspondence is reflected in the scaling limits of the classical population models that we described before. In particular, the Wright--Fisher diffusion and the Kingman coalescent can be seen as two sides of the same coin. They describe, respectively, the forward-in-time and backward-in-time scaling limits of the Wright--Fisher and Moran models. More generally, if the neutral allele frequencies in a population model converge forward in time to the Wright--Fisher diffusion, one expects the genealogies to converge to the Kingman coalescent. 
@@ -202,10 +202,10 @@ Genetic drift was demonstrated experimentally in the PhD thesis of Buri~\cite{bu
 Neutral theory and the class of unstructured exchangeable models assume that in a population of size $N$, diversity results from an equilibrium between new mutations arising at a constant rate $\mu$ and genetic drift that purge them at a rate $1/N$. Thus, according to neutral models, the predicted quantitative  value for genetic diversity at equilibrium should be proportional to $N\mu$. The discrepancy between the neutralist's expectation and the much lower observed levels of genetic diversity in real populations is known as the Lewontin paradox~\cite{lewontin_genetic_1974, leffler_revisiting_2012}.
 
 
-\paragraph{The effective population size}
-Wright \cite{wright_evolution_1931} proposed to account for such discrepancies, and more generally for any departure from the idealized Wright-Fisher setting, by
+\paragraph{The effective population size.}
+Wright \cite{wright_evolution_1931} proposed to account for such discrepancies, and more generally for any departure from the idealized Wright--Fisher setting, by
 introducing an \emph{effective population size}, which is classically denoted by $N_e$ in the literature.
-The effective Population Size captures the number of individuals that effectively participates in producing the next generation. It reflects how much genetic drift a real population experiences, hence its rate of loss of genetic variability. It accounts for parameters such as demographic fluctuations, variance in reproductive success, population structure, sex ratio, linked selection, etc. These parameters greatly influence evolutionary processes.
+The effective population size reflects how much genetic drift a real population experiences, hence its rate of loss of genetic variability. It accounts for parameters such as demographic fluctuations, variance in reproductive success, population structure, sex ratio, linked selection, etc. These parameters greatly influence evolutionary processes.
  Generally, the effective size of a population is considerably less than its census size,  with a $1:1$ ratio only in the special case of an ``ideal'' panmictic population, in which variation among individuals in reproductive success is completely random. 
 
 Lewontin's paradox illustrates why the effective population size, rather than the number of individuals, is the relevant quantity in evolutionary biology for understanding genetic diversity (even if it should be pointed out that $N_e$ is not sufficient to resolve the paradox, as can be seen \eg in~\citet{buffalo_quantifying_2021}). It has been widely used across scientific fields and has received considerable attention over the past decades. Estimating $N_e$ is crucial for conservation and biodiversity monitoring, \eg to classify and protect endangered species. Populations with low genetic diversity are more vulnerable to disease, climate change, and other stressors, and may be at risk of extinction even when their census size is large~\cite{mergeay_importance_2026, frankham_effective_1995}.
@@ -237,7 +237,7 @@ Despite this observation, neutral theory remains the default null model used in 
 For instance, under the Kingman coalescent with the infinite-sites mutation model (every new mutation occurs at a novel site, and there is no recombination), the expected number of mutations carried by $k$ of $n$ sampled individuals has an explicit form, which is the basis of classical estimator of the mutation rate of Watterson and of the neutrality tests such as the estimators of Tajima~\cite{tajima_statistical_1989} and Fu and Li~\cite{Fu_Li_Neutrality_tests}.
 The site-frequency spectrum (SFS) counts for each $k$ the mutations carried by exactly $k$ sampled individuals. It is a widely used summary of genetic variation whose expectation is proportional to the total length of the branches supporting $k$ leaves~\cite{wakeley_coalescent_2009}. Other statistical and coalescent-based methods for reconstructing the evolutionary history of DNA sequences are reviewed in~\citet{griffiths_ancestral_2001}.
 
-The Kingman coalescent model also allows to infer the demographic history of a population. Measuring time in generations under the Kingman coalescent, if during the $i^{th}$ inter-coalescence interval, $n_i$ lineages are present, the waiting time to the next coalescence is approximately exponential with mean $N_e(t)/\binom{n_i}{2}$. The effective population size at time $t$ can be read directly off the observed branch lengths of the tree (see figure~\ref{fig:skyline_plot}). This method is called the \emph{skyline plot} and was introduced by \cite{pybus_integrated_2000}. It is used routinely to reconstruct the demographic history of viral epidemics and other rapidly evolving pathogens \citep{pybus_evolutionary_2009,ho_skyline-plot_2011}, none of which reproduce according to literal Wright-Fisher dynamics. It works because, as recalled above, the Kingman coalescent is the common scaling limit of every Cannings model with finite offspring variance, so the $N_e$ it returns remains a meaningful summary of genetic diversity regardless of the true, unknown reproduction mechanism within the population. 
+The Kingman coalescent model also allows to infer the demographic history of a population. Measuring time in generations under the Kingman coalescent, if during the $i^{th}$ inter-coalescence interval, $n_i$ lineages are present, the waiting time to the next coalescence is approximately exponential with mean $N_e(t)/\binom{n_i}{2}$. The effective population size at time $t$ can be read directly off the observed branch lengths of the tree (see figure~\ref{fig:skyline_plot}). This method is called the \emph{skyline plot} and was introduced by \cite{pybus_integrated_2000}. It is used routinely to reconstruct the demographic history of viral epidemics and other rapidly evolving pathogens \citep{pybus_evolutionary_2009,ho_skyline-plot_2011}, none of which reproduce according to literal Wright--Fisher dynamics. It works because, as recalled above, the Kingman coalescent is the common scaling limit of every Cannings model with finite offspring variance, so the $N_e$ it returns remains a meaningful summary of genetic diversity regardless of the true, unknown reproduction mechanism within the population. 
 
 \begin{figure}[h!]
     \centering
@@ -262,13 +262,14 @@ We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Ki
 
 \medskip 
 
-Here, we can draw a parallel between the Wright-Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by the Donsker theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
+Here, we can draw a parallel between the Wright--Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by the Donsker theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
 
-In the same way, current research works show that the Wright-Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright--Fisher diffusion and $\Lambda$-coalescents.
+In the same way, current research works show that the Wright--Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright--Fisher diffusion and $\Lambda$-coalescents.
 
 \paragraph{Overview of Chapter~\ref{chp3_singletype}.}
 
-In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models. 
+In Chapter~\ref{chp3_singletype}, prove that single type density-dependent individual-based population models lie in the universality class of the Kingman coalescent.
+
 In these models, individuals reproduce independently, but in a
 way that depends on the state of the population, modeling biological interactions. Density dependence can affect reproduction and survival either negatively, as when crowding intensifies competition for resources, or positively, as when individuals benefit from the presence of others at low densities (\emph{Allee effects}).
 For population without structure, the density is the population size, rescaled by a demographic parameter $K$, classically called a the \emph{carrying capacity}. The carrying capacity represents the order of magnitude of the size of a population which, rather than being fixed, fluctuates around the ecological equilibrium $K$.  The logistic process of~\citet{Lambert2005} is the typical example of a density-dependent branching process.
@@ -287,14 +288,14 @@ Movement of population can take several forms across species. For example, one c
 
 Within interacting populations, the genealogies of structured populations is established in full generality only for a very restricted class of models called \emph{metapopulation} models. Extending these results to more involved structured models presents notable challenges.
 
-\subsection{State of the art: metapopulation models}
-According to~\citet{levins1970extinction}, the concept of  a metapopulation can be though of as a ``population of populations''.
-Metapopulation models refer to models of structured population where individuals are partitioned into a finite size of fixed size islands ({\it no demographic fluctuations}), which are connected through migration. 
+\subsection{What is known: metapopulation models}
+According to~\citet{levins1970extinction}, the concept of  a metapopulation can be thought of as a ``population of populations''.
+Metapopulation models refer to models of structured population where individuals are partitioned into a finite size of fixed size islands, which are connected through migration. 
 These models are purely genetic and conservative models, with no demographic fluctuations: the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death. 
  It extends the class of monotype fixed size models such as the class of Cannings models and the Moran model. 
  We give a few examples of such celebrated models, and refer to~\citet{etheridge_mathematical_2011} for a broader review.
  
-\paragraph{Prospective picture: island models.}
+\paragraph{Forward-in-time picture: island models.}
 The first and most elementary representative of the class of metapopulation models is Wright's island model \cite{wright_isolation_1943}. Under this model, the population is modeled as a complete graph in which the vertices (the demes) are connected by edges. The population size is fixed and  spread across the demes. Inside each deme, the population reproduce according to a Wright--Fisher dynamic, except from a small proportion of pairs of migrants which are picked uniformly at random and exchange positions. 
 We can think of more involved island models. For instance, a spatially structured population on a plane can be approximated by an island structure on the lattice.
 However, a feature shared by almost all of
@@ -304,7 +305,7 @@ Taking the infinite population limit, we obtain the \emph{stepping-stone} model 
 The proportion of individuals with allele $a$ in a given island is solution to a SDE called the Wright--Fisher diffusion with migration.
 
 
-\paragraph{Retrospective picture: the structured coalescent}
+\paragraph{Backward-in-time picture: the structured coalescent.}
 
 The genealogies of metapopulation models are given by the  \emph{structured coalescent}
 \citet{takahata_coalescent_1988,notohara_coalescent_1990}, which extends the classical Kingman coalescent~\cite{Kingman:1982aa} by adding a finite type structure to lineages. Lineages migrate between demes and within-demes coalescence occurs at rate given by the inverse of the local population size. 
@@ -360,7 +361,13 @@ In the next paragraphs describe a few examples of density-dependent population m
 \paragraph{Density-dependent populations in finite or countable type spaces.}
 In Chapter~\ref{chp4_multitype}, we study the following structured density-dependent particle model in continuous time. Let $E$ be a finite type space and consider a set of particles, each of them being endowed with a type. 
 The state of the population is described through its \emph{density}, denoted by 
- $z\in \R_+^E$. By ``density'', we mean the vector counting the number of particles in each type, divided by a large scaling parameter $K>0$. We think of the parameter $K$ as the typical number of individuals in the population, which we call \emph{carrying capacity} of the system. If the state of the population is given by $z$, each of the $Kz_x$ particles with type $x$ die at rate that depends on $x$ and on $z$ and is replaced upon death by a random vector of offspring, whose types at birth are distributed according to a random variable which distribution, again, depends on $x$ and $z$. This procedure describes a population model iteratively.
+ $z\in \R_+^E$. By ``density'', we mean the vector counting the number of particles in each type, divided by a large scaling parameter $K>0$. We think of the parameter $K$ as the typical number of individuals in the population, which we call \emph{carrying capacity} of the system. If the state of the population is given by $z$, each of the $Kz_x$ particles with type $x$ die at rate $q_x(z)$ that depends on $x$ and on $z$ and is replaced upon death by a random vector of offspring, whose types at birth are distributed according to a copy of a random variable $L_x(z)=(L_{xy}(z))_{y\in E}$ which, again, depends on $x$ and $z$. This procedure describes a population model iteratively. Let $(Z_t)_{t\geq 0}$ be the stochastic process recording the evolution of the density of this population model. We point out that it inmplicitly depends on the carrying capacity $K$.
+Denote by $M(z)$ the matrix with entries
+
+ \[
+ \forall\, x,y\in E,\quad M_{xy}(z)\ \coloneqq q_x(z)\E\big[L_{xy}(z)-\delta_{xy}\big],
+ \]
+that is, $M_{x}(z)= (M_{xy}(z))_{y\in E}$ is the generator of the first moment semigroup of a particle with type $x$ in a population with density $z$.
 
 In this framework,~\cite{Kurtz:1978aa} established a law of large number for the rescaled count of types in the population, under some regularity assumptions 
 \begin{prop}{\citet[Theorem~2.2]{Kurtz:1978aa}}
@@ -390,7 +397,7 @@ the empirical distribution of the types along a typical surviving lineage.
 
 When one thinks about continuous type space, the epitomic class is that of spatially structured models. In these models, individuals occupy positions, disperse locally, and compete mainly with nearby individuals. In the Bolker--Pacala model~\cite{bolker1997using}, individuals move in space according to a random walk and die at a rate that depends on the local density, which models competition for resources around their location. Competition is thus nonlocal in space rather than proportional to the total population size. Such local regulation can stabilize the population and generate clustering phenomena. Fournier and Méléard~\cite{Fournier_2004}, followed by~\citet{Champagnat_2006}, developed rigorous microscopic frameworks for density-dependent branching populations in which individuals occupy spatial positions, disperse locally, and experience competition whose strength depends on nearby density. We also point out the work of~\citet{alison_m_etheridge_looking_2024}, who studied spatial population models on $\mathbb{R}^d$ with density-dependent birth and death rates and, using a lookdown construction, described the motion of ancestral lineages in the deterministic scaling limit.
 
-A different kind of spatial structure is found in the Brunet--Derrida $N$-particle model~\cite{brunet_shift_1997,brunet_effect_2007}, a branching-selection particle system in which particles branch and diffuse, but only the rightmost $N$ particles survive, so that the population forms a traveling front. Although its spatial structure is organized around a moving front rather than local ecological competition, it is a canonical example of how selection and finite population size reshape spatially expanding branching populations.
+A different kind of spatial structure is found in the Brunet--Derrida $N$-branching Brownian motion ($N$-BBM) model~\cite{brunet_shift_1997,brunet_effect_2007}, a branching-selection particle system in which particles branch and diffuse, but only the rightmost $N$ particles survive, so that the population forms a traveling front. Although its spatial structure is organized around a moving front rather than local ecological competition, it is a canonical example of how selection and finite population size reshape spatially expanding branching populations.
 
 Beyond spatial structure, other models use the continuous type to encode a trait under selection. \citet*{forien_ancestral_2022} used neutral fractions to study genealogies in a one-dimensional SDE model with competition and selection, in which the population adapts to a moving environmental optimum. An individual-based version of this model was studied in~\cite{meleard-tran}. Motivated by climate change, \citet{meleard-tran} considered a branching-diffusion model in which each individual carries a one-dimensional trait $x\in\mathbb{R}$. At time $t$, an individual with trait $x$ gives birth at rate 1 to a child who inherits the parent's trait, and dies at rate $(x-ct)^2+ Z_t$, where $Z_t$ is the density of the population (the population size rescaled by a carrying capacity $K$). The first part of the death rate reflects an optimal trait moving at constant speed $c$, modeling a gradual environmental change; the second is a logistic competition term. Between reproduction and death events, the traits of individuals diffuse as independent Brownian motions. As $K\to\infty$, the empirical measure converges to a nonlinear nonlocal PDE. Using a many-to-one formula, the authors' main result is that the ancestral trait path of an individual sampled uniformly at time $T$, read backwards in time, converges to an Ornstein--Uhlenbeck process. This process is independent of the speed $c$ of the environmental change and is centered at the optimum.
 
