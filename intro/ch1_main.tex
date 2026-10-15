@@ -245,7 +245,7 @@ The Kingman coalescent model also allows to infer the demographic history of a p
 \caption{Reconstruction of the tree from the Skyline plot, figure from~\cite{ho_skyline-plot_2011}}
 \label{fig:skyline_plot}
 \end{figure}
-The approach breaks down when reproduction is itself strongly skewed (from \eg epidemic superspreading, selective sweeps, oversampling) which produce multifurcating genealogies that the almost surely binary Kingman coalescent cannot generate. In this framework~\cite{hoscheit_multifurcating_2019} extend the skyline plot to infer demographic history from the $\Lambda$-coalescent. 
+The approach breaks down when reproduction is itself strongly skewed (from \eg epidemic superspreading, selective sweeps, oversampling) which produce genealogies with mutlifurcations, that the almost surely binary Kingman coalescent cannot generate. In this framework~\cite{hoscheit_multifurcating_2019} extend the skyline plot to infer demographic history from the $\Lambda$-coalescent. 
 
 \medskip
 
@@ -277,18 +277,19 @@ For population without structure, the density is the population size, rescaled b
 In Chapter~\ref{chp3_singletype}, we consider the following class of single-type density dependent model in continuous time.
 Consider a system of particles such that if the current density of the population is given by $z>0$, each particle dies at a rate $q(z)$ and are replaced upon death by a progeny distributed like a copy of an integer-valued random variable $L(z)$.
 This class of model is quite broad (within the restricted class of unstructured models), since we only assume local $\mathcal{C}^1$ regularity on the mean number of offspring per individual $z\mapsto \E[L(z)]$ and uniform integrability of the second moment. In particular, it encompasses the encompasses logistic branching process. Using a moment method (see the end of this section), we prove convergence of the genealogies to the Kingman coalescent on the timescale $K$.
+
 This result is presented in the article~\cite{AFRS_2025}, which is accepted (providing revisions) in \emph{ALEA - Latin American Journal of Probability and Mathematical Statistics}.
 
 
 \section{Universality in structured populations}
 A lot of recent research works indicate that not taking into account the structure of a population seriously misrepresents the estimate of changes in effective population size over time, and thus of the population's genetic diversity. A structured population can mimic the genetic signature of a population decline (bottleneck) or a completely fictitious event of interbreeding (see~\citet{mazet_importance_2016}), so that understanding the play of the ecology is crucial to understanding the genetic diversity of a population. 
-Movement of population can take several forms across species. For example, one can think of the seasonal migrations observed in some populations, in particular within birds (barnacle geese, storks, etc.). Movement can also be initiated by density-denpendent competition and the need to explore new inhabitats in search of resources. 
+Movement of population can take several forms across species. For example, one can think of the seasonal migrations observed in some populations, in particular within birds (barnacle geese, storks, etc.). Movement can also be initiated by density-dependent competition and the need to explore new habitats in search of resources. 
 
 Within interacting populations, the genealogies of structured populations is established in full generality only for a very restricted class of models called \emph{metapopulation} models. Extending these results to more involved structured models presents notable challenges.
 
 \subsection{State of the art: metapopulation models}
 According to~\citet{levins1970extinction}, the concept of  a metapopulation can be though of as a ``population of populations''.
-Metapopulation models refer to models of strucured population where individuals are partitioned into a finite size of fixed size islands ({\it no demographic fluctuations}), which are connected through migration. 
+Metapopulation models refer to models of structured population where individuals are partitioned into a finite size of fixed size islands ({\it no demographic fluctuations}), which are connected through migration. 
 These models are purely genetic and conservative models, with no demographic fluctuations: the offspring numbers of different individuals are anti-correlated in the sense that every birth is compensated by a death. 
  It extends the class of monotype fixed size models such as the class of Cannings models and the Moran model. 
  We give a few examples of such celebrated models, and refer to~\citet{etheridge_mathematical_2011} for a broader review.
@@ -342,7 +343,7 @@ In structured populations, density-dependent interactions can take several forms
 
 \item \emph{Cross-type density dependence.} The fitness of individuals of one type depends on the density of another type. Examples include predation, where prey mortality increases with predator abundance. It also includes mutualistic or symbiotic interactions, where one species benefits reproductively from the presence of another. Pollinators, for instance, can increase the reproductive success of plants, while plants in turn provide resources for the pollinators.
 
-\item \emph{Frequency-dependent interactions.} In some settings, what matters is not only the absolute density of a type but also its relative frequency in the population. This occurs, for example, in host-pathogen systems with strain-specific immunity, in sexual populations where rare mating types have an advantage, and in evolutionary games where the payoff of a strategy depends on the strategies used by others.
+\item \emph{Frequency-dependent interactions.} In some biological settings, what matters is not only the absolute density of a type but also its relative frequency in the population. This occurs, for example, in host-pathogen systems with strain-specific immunity, in sexual populations where rare mating types have an advantage, and in evolutionary games where the payoff of a strategy depends on the strategies used by others.
 \end{itemize}
 
 When it comes to structured and interacting population models that allows for demographic fluctuations like density dependent branching particle systems, the picture for the ancestral lineages is less clear.
@@ -577,7 +578,7 @@ As for Cannings models, the finiteness of the variance of the offspring distribu
 When the structured Galton--Watson processes is supercritical, the large population behavior of the process is described precisely by the Kesten--Stigum theorem~\cite{kesten_limit_1966}. This theorem is a classical result in branching process theory.
 
 
-In monotype Galton--Watson processes, the Kesten--Stigum theorem aims at finding conditions for the non-degeneracy of the a.s.\ limit $W$ of the so-called additive martingale of the process introduced in~\eqref{eq:additive_mart}. There results also relate the non-denegeneracy of $W$ to the extinction event of the process, that is
+In monotype Galton--Watson processes, the Kesten--Stigum theorem aims at finding conditions for the non-degeneracy of the a.s.\ limit $W$ of the so-called additive martingale of the process introduced in~\eqref{eq:additive_mart}. There results also relate the non-degeneracy of $W$ to the extinction event of the process, that is
 \[
 \mathrm{Ext}\ \coloneqq\ \{\exists n \geq 0,\ Z_n \ =\ 0\}.
 \]
