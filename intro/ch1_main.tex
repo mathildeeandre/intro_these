@@ -267,7 +267,7 @@ In the same way, current research works show that the Wright-Fisher diffusion an
 \medskip
 
 
-In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models.
+In Chapter~\ref{chp3_singletype}, we extend the universality class of the Kingman coalescent to density-dependent individual-based population models. This result is presented in the article \cite{AFRS_2025}, which is accepted (providing revisions) in \emph{ALEA - Latin American Journal of Probability and Mathematical Statistics}.
 
 In these models, individuals reproduce independently, but in a
 way that depends on the state of the population and which can model biological
@@ -390,9 +390,9 @@ Beyond spatial structure, other models use the continuous type to encode a trait
 
 \subsection{Universality and collapse of the structure}
 
-In continuity of the work established in Chapter~\ref{chp3_singletype} to extend the robustness of the Kingman coalescent to, our goal in Chapter~\ref{chp4_multitype} is to extend the universality class of the Kingman coalescent to a broad class of structured density-dependent individual-based models. In particular, we investigate the play of structure on the genetic diversity through the pairwise merging rate of the limiting Kingman coalescent.
+In continuity of the work established in Chapter~\ref{chp3_singletype} to extend the robustness of the Kingman coalescent to, our goal in Chapter~\ref{chp4_multitype} is to extend the universality class of the Kingman coalescent to a broad class of structured density-dependent individual-based models. In particular, we investigate the role of structure on the genetic diversity through the pairwise merging rate of the limiting Kingman coalescent.
 
- The universality class of the Kingman coalescent is already known to contain several families of structured models, which we briefly review below.
+ The universality class of the Kingman coalescent (and more generally, that of exchangeable $\Lambda$-coalescents) is already known (or expected) to contain several families of structured models, which we briefly review below.
 
 \paragraph{Collapse of the structure in metapopulations.}
 In the structured coalescent model introduced before, \citet*{nordborg_separation_2002} proved that when migration
@@ -415,7 +415,7 @@ coalescences is of the order $N^{1-\alpha}\to\infty$, so that the type configura
 
 In this regime and when time is measured in units of $N$ generations, the results of~\citet*{nordborg_separation_2002} are the following, taking the limit $N\to \infty$.
 \begin{itemize}
-\item The location of the lineages left in the process are independently distributed according to $\pi$.
+\item The location of the lineages left in the process are independently distributed on $\{1,\ldots, D\}$ according to $\pi$.
 \item W the genealogy of a sample converges
 (weakly, as $N\to\infty$) to the Kingman coalescent with pairwise \emph{effective merging rate} $\bar m_2$, defined by averaging over the stationary distribution:
 \[
@@ -432,16 +432,18 @@ population size. This phenomenon is called a \emph{collapse of the structure} (s
 In Chapter~\ref{chp4_multitype}, we recover the same behavior in our main result for a large class of regulated populations on finite type
 spaces. In particular, in the main theorem of Chapter~\ref{chp4_multitype}, we describe the play of structure on genetic diversity by giving an explicit expression of the effective population size as a function of the parameters of the model.
 
-\paragraph{More involved models.}
+\paragraph{Universality of $\Lambda$-coalescents in more involved models.}
 A similar collapse of the spatial structure occurs in models with a continuous space. The spatial $\Lambda$-Fleming--Viot process is not a particle system but a measure-valued model, obtained as the infinite-intensity limit of an individual-based model driven by a Poisson point process of reproduction events. \cite{barton_new_2010} proved that, in the regime where reproduction events affect only a negligible fraction of the habitat, the genealogy of a sample converges to the Kingman coalescent. This model therefore also belongs to the universality class of the Kingman coalescent.
 
 The universality class of the Kingman coalescent also contains some specific structured particle models with density-dependent interactions. In particular,~\cite{etheridge_genealogies_2022} considered a spatial (one-dimensional) individual-based Moran model of a diploid population with selection against heterozygotes, which gives rise to a bistable wave (that is, a strong Allee effect in ecological terms). They rigorously proved, using a model-specific argument based on tracer dynamics, that the genealogy of a sample taken near the front of the wave converges to a Kingman coalescent.
 
-\paragraph{Motivation for Chapter~\ref{chp4_multitype}}
+\paragraph{Conjectures and motivation for Chapter~\ref{chp4_multitype}.}
 
-More generally, it is conjectured that the genealogies of many population models converge to exchangeable coalescents, such as the $\Lambda$-coalescents \citep{Pitman:1999aa,sagitov1999general}.
+Many recent results in the literature point toward a universality principle for the genealogies of complex populations.
+More precisely, it is believed that the genealogies of many
+population models converge to the family of $\Lambda$-coalescents \citep{Pitman:1999aa,sagitov1999general}. 
 
-In Chapter~\ref{chp4_multitype}, we tackle the questions $(Q1)$ and $(Q2)$ stated earlier for structured density dependent particle models on a finite set of types and a general offspring distribution (we only have a second moment moment assumption, which is the usual condition to observe a binary genealogy at the limit).
+In Chapter~\ref{chp4_multitype}, we tackle the questions $(Q1)$ and $(Q2)$ stated earlier for structured density dependent particle models on a finite set of types and a general offspring distribution (we only have a second moment assumption, which is the usual condition to observe a binary genealogy at the limit).
 Our motivation came from formalizing this conjecture for a broader class of density-dependent individual-based models. In particular, we were motivated by spatially structured populations described by reaction-diffusion equations, such as the stochastic F--KPP equation. Reaction-diffusion PDEs take the form
 \[
 \partial_t u \ =\ \frac{1}{2}\nabla^2 u + f(u),
@@ -562,15 +564,15 @@ where $\rho \in [-1, +\infty )$ is the principal eigenvalue of the matrix $R$.
    
 Limit theorems for multitype Galton--Watson and multitype continuous-time branching processes rely strongly on the Perron--Frobenius theorem and the triplet of principal eigenvalue and eigenvectors provided by the limiting mean dynamics. 
 For structured branching processes with a more general set of types, 
-the existence of results extending the Perron--Frobenius theorem are also a useful ingredient to deriving the limit dynamics to more general types: Krein--Rutman, \cite{vere-jones_ergodic_1967} for infinite nonnegative matrices
-continuous-time structured branching processes, 
+the existence of results extending the Perron--Frobenius theorem are also a useful ingredient to deriving the limit dynamics to more general types: Krein--Rutman, \citet{vere-jones_ergodic_1967} for infinite nonnegative matrices
+continuous-time structured branching processes, \ma{Développe un peu (p.e. détailler le cas countable)}
 
 
-As for Cannings models, the finiteness of the variance of the offspring distribution or its power-law divergence has a strong impact on the limiting behaviour. For example, if the process is critical and the variance of the offspring distribution is finite, the Haldane formula gives that the probability of survival of the process is inversely proportional to time, and that on the set of nonextinction, the Yaglom entrance law theorem (see~\cite{Yaglom}) gives that the population grows linearly.
+As for Cannings models, the finiteness of the variance of the offspring distribution (or the speed at which it diverges) has a strong impact on the limiting behavior. For example, if the process is critical and the variance of the offspring distribution is finite, the Haldane formula gives that the probability of survival of the process is inversely proportional to time, and that on the set of nonextinction, the Yaglom entrance law theorem (see~\cite{Yaglom}) gives that the population grows linearly. 
 
 \medskip
 
-When the structured Galton--Watson processes is supercritical, the large population behavior of the process is described precisely by the celebrated Kesten--Stigum theorem~\cite{kesten_limit_1966}.
+When the structured Galton--Watson processes is supercritical, the large population behavior of the process is described precisely by the Kesten--Stigum theorem~\cite{kesten_limit_1966}. This theorem is a classical result in branching process theory.
 
 
 In monotype Galton--Watson processes, the Kesten--Stigum theorem aims at finding conditions for the non-degeneracy of the a.s.\ limit $W$ of the so-called additive martingale of the process introduced in~\eqref{eq:additive_mart}. There results also relate the non-denegeneracy of $W$ to the extinction event of the process, that is
@@ -592,12 +594,29 @@ and the three items on the right-hand side are equivalent.
 
 Moreover, they showed that the normalized distribution of the types in the population satisfies almost-surely that
 \[
-\lim_{n\to\infty}\frac{Z_n}{\lVert Z_n\rVert}\ =\ W\tilde{h}.
+\lim_{n\to\infty}\frac{Z_n}{\lVert Z_n\rVert}\ =\ W\tilde{h},
 \]
+where $\lVert z \rVert$ denotes the $L^1$ norm.
 \end{thm}
 A short and elegant proof of this result was established in~\citet*{kurtz_conceptual_1997}, building on the spinal change of measure developed by the same authors for single type branching processes (see~\citet*{lyons_pemantle_peres_1995}).
 
-In Chapter~\ref{chp2_ks_countable}, we extend these results to Galton--Watson processes on a countable set of types.
+
+\paragraph{Motivation and overview of Chapter~\ref{chp2_ks_countable}.}
+In Chapter~\ref{chp2_ks_countable}, we extend the Kesten--Stigum theorem to Galton--Watson population models, in which individuals can have countably many possible types. This includes for example age structures, discretized spatial structure, seed bank models, or stage of general models of infection.
+We ran into this problem while studying a very general age-structured model of epidemics that required a more general theory. 
+
+\ma{Détailler un peu l'épidémio}
+We call this framework the \emph{layered configuration model}.
+
+
+
+Earlier Kesten--Stigum-type results for branching processes with a countable set of types exist in the literature \citep{asmussen_strong_1976, moy_extensions_1967, }. However, these results needed strong extra assumptions, such as bounded or uniformly controlled offspring numbers or finite second moments, in particular, they exclude populations that can be infinite in a single generation. Conversely, our results rely on very light assumptions (merely, that the result given by the Perron--Frobenius theorem holds).
+
+Using spinal decomposition methods extending those in~\cite{lyons_pemantle_peres_1995,kurtz_conceptual_1997}, 
+we prove a sharp $L\log L$ condition for the uniform integrability of the additive martingale of the process. We also give a simpler and (we believe) easier to check sufficient condition. 
+Besides, when there is uniform integrability, we prove that the type distribution always converges in probability to a fixed profile. Under extra conditions, we obtain that the convergence holds almost-surely.
+
+These results are presented in the article~\cite{andré2026sharpllogl}, which was accepted for publication at the \emph{Annals of Applied Probability}.
 \paragraph{Genealogies of multitype Galton--Watson processes and universal limits.}
 
 
@@ -635,7 +654,7 @@ When the sample is not pinned to a single generation, for instance when birth ti
 
 More generally, when the forward dynamics converges to a continuous-state branching process, one expects the sampled genealogy to converge to the corresponding CPP.
 The model of~\cite{julie_tourniaire_branching_2024} falls into this class.
-Its forward limit is a CSBP: an $\alpha$-stable one with $\alpha\in(1,2)$ in the semi-pushed regime, on a timescale $N^{\alpha-1}$, and a Feller diffusion in the fully pushed regime. The genealogy of this particle model was proven to converge, in the fully-pushed regime, to the Brownian CPP by~\cite{schertzer2023spectral}, and in the semi-pushed regime to the genealogy of an $\alpha$-stable CSBP (stable CPP) by~\cite{foutel-rodier_convergence_2024}. Both articles rely on a moment-based methodology to derive convergence of the genealogies.
+Its forward limit is a CSBP: an $\alpha$-stable one with $\alpha\in(1,2)$ in the semi-pushed regime, on a timescale $N^{\alpha-1}$, and a Feller diffusion in the fully pushed regime. The genealogy of this particle model was proven to converge, in the fully-pushed regime, to the Brownian CPP by~\cite{schertzer2023spectral}, and in the semi-pushed regime to the genealogy of an $\alpha$-stable CSBP (stable CPP) by~\cite{FST_Semipushed_2024}. Both articles rely on a moment-based methodology to derive convergence of the genealogies.
 
 
 
