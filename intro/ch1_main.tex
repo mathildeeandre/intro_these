@@ -262,8 +262,9 @@ We also refer to~\cite{Brown:2023aa} for non-neutral models converging to the Ki
 
 \medskip 
 
-Here, we can draw a parallel between the Wright--Fisher diffusion and other Gaussian objects that are universal scaling limits in probability. The simplest instance is that of \iid Bernoulli experiments. The rescaled number of heads in a sequence of perfect coin tosses converges to a Gaussian random variable. Variation of this experiment, for instance by adding a bias to the coin, leads to a re-scaling of the same object by a drift term. Likewise, it is well established by the Donsker theorem that the Brownian motion is the universal scaling limit of random walks with finite variance. The symmetric random walk converges to the standard Brownian motion, while other random walks with finite variance converge to a rescaling of this universal Gaussian object.
+Here, we can draw a parallel between the Wright--Fisher diffusion and other objects that are universal scaling limits in probability. 
 
+The simplest instance of universality is the central limit theorem (CLT): the rescaled sum of \iid random variables with finite variance converges to a Gaussian distribution. This is generalized to variables in the domain of attraction of stable laws, where heavy tails lead to a different scaling and a non-Gaussian stable limit. The same universality appears at the level of processes. By Donsker's theorem, random walks with finite variance converge (after rescaling) to the Brownian motion. In contrast, random walks whose increments lie in the domain of attraction of an $\alpha$-stable law, with $\alpha \in (0,2)$, converge to an $\alpha$-stable Lévy process. Both the Brownian motion and the stable Lévy processes are universal objects attracting a whole class of discrete models.
 In the same way, current research works show that the Wright--Fisher diffusion and the Kingman coalescent are the universal scaling limit of neutral populations with finite variance. Population with skewed reproduction, in which a single individual can produce a positive fraction of the next generation, converge to a different class of universal objects, the $\Lambda$-Wright--Fisher diffusion and $\Lambda$-coalescents.
 
 \paragraph{Overview of Chapter~\ref{chp3_singletype}.}
@@ -465,15 +466,11 @@ where the reaction term $f(u)$ models local interactions between individuals. In
 To study the genealogies of such populations, \cite{hallatschek_gene_2008} introduced neutral fractions, \ie heritable neutral markers whose frequencies evolve with the population. The nature of the genealogies depends strongly on the type of front.
  For $f(u)=u(1-u)(1+Au)$, the front is pulled for $A\le 2$ and pushed for $A>2$ (see \cite{birzu_fluctuations_2018}). In pulled fronts, which are driven by the few individuals at the tip of the expanding front wave, the genealogies are expected to be given by the Bolthausen--Sznitman $\Lambda$-coalescent. This result was predicted for the Brunet--Derrida $N$-particle system of \cite{brunet_effect_2007} and proved for branching Brownian motion with absorption in \cite{berestycki_genealogy_2013}. 
 In pushed fronts, which are driven by the bulk of the population, one expects Kingman-type genealogies, as proved for a bistable wave by \cite{etheridge_genealogies_2022}.
+Those results can generally be understood as a slow-fast principle, where the ecology (evolution of types) equilibrates on a fast time scale, and this equilibrium dictates the evolution of genetic types on the slower, evolutionary time scale. 
 
 
-
-In light of the preceding paragraph, this thesis is motivated by a single conjecture about universality in population genetics:
-\\
-
-\emph{Large populations that are structured and regulated become indistinguishable from a well-mixed Wright--Fisher population, provided the parameters are suitably rescaled. Two quantities carry this rescaling: an effective population size $N_e$, and an effective selection coefficient $s_e$, which captures how the interplay of structure, regulation, and selection alters the fate of an allele.
-}
-\\
+In light of the preceding paragraph, this thesis is motivated by the following universality conjecture in population genetics: large, structured and regulated populations become indistinguishable from a well-mixed model provided a suitable rescaling is applied. 
+Although this general principle seems reasonable, it is unclear how ecology dictates evolutionary time scales, and we believe that our approach could  provide a general framework  to tackle this question in a general state space (continuous or countable). 
 
 Our aim in~\ref{chp4_multitype} is to move toward this statement and to identify general conditions under which the genetic diversity of a population can be described by a rescaling of neutral models, even when its ecology is complex. Specifically, we ask when a structured, interacting population still behaves on the coalescent timescale as though it were well mixed, with some effective size $N_e$.
 
