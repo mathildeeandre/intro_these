@@ -564,7 +564,7 @@ is a nonnegative martingale for the filtration $\mathcal{F}_n=\sigma(Z_p,\ p\leq
 
 \medskip
 
-The continuous time version of the multitype Galton--Watson process introduced in Definition~\ref{def:GW} is called a multitype continuous time branching process. Its dynamic needs an additional parameter $q:E\to \R_+$, such that for every $x\in E$, $q_x$ denotes the branching rate of particles with type $x$. After a branching event, the branching particle with type $x$ is replaced, like in the multitype Galton--Watson process, by a vector of typed offsprings distributed according to $\mathcal{L}_x$. The concept of mean matrix is replaced by the rate matrix, with coordinates
+The continuous time version of the multitype Galton--Watson process introduced in Definition~\ref{def:GW} is called a multitype continuous time branching process. Its dynamic needs an additional parameter $q:E\to \R_+$, such that for every $x\in E$, $q_x$ denotes the branching rate of particles with type $x$. After a branching event, the branching particle with type $x$ is replaced, like in the multitype Galton--Watson process, by a vector of typed children distributed according to $\mathcal{L}_x$. The concept of mean matrix is replaced by the rate matrix, with coordinates
 \[
 R_{xy}\ \coloneqq\ q_x\big(\E[L_{xy}]- e_x\big).
 \]
@@ -646,7 +646,7 @@ The scaling limits of genealogies of Galton--Watson processes are well understoo
 This result extends to trees with a type structure. Indeed, for critical irreducible Galton--Watson trees with finitely many types and finite offspring variance, the rescaled tree converges again to the Brownian continuum random tree, up to a constant factor (see \citet{miermont_invariance_2008}). Moreover, \citet{miermont_invariance_2008} proved that the types observed along the tree equilibrate and decouple from the genealogy, being asymptotically distributed according to the stationary distribution of the mean offspring matrix (that is, $\tilde h$ in our notations).
 
 When conditioning the critical Galton--Watson to survive up to a large time $T$ and then sample $k$ individuals uniformly among those alive at that same time, the resulting genealogy is naturally an ultrametric space. \citet*{popovic_coalescent_2014} proved that, conditionally on survival, the genealogy of individuals sampled uniformly at a large fixed time converges to the so-called \emph{Brownian Coalescent Point Process}. This object is an ultrametric space built from a Poisson point process with intensity $dt\otimes x^{-2}dx$ (see the construction by \citet{popovic_asymptotic_2004}). 
-The CPP is also the genealogy induced by the Feller diffusion, which is forward-in-time scaling limit of the multitype Galton--Watson process. \citet*{7_authors_paper} proved that it can be described as a Kingman coalescent under a random time change. 
+The CPP is also the genealogy induced by the Feller diffusion, which is the forward-in-time scaling limit of the multitype Galton--Watson process. \citet*{7_authors_paper} proved that it can be described as a Kingman coalescent under a random time change. 
 
 
 
@@ -667,7 +667,6 @@ The moment methodology of~\citet*{Foutel_Schertzer} relies on:
 \end{enumerate}
 
 The construction of a $k$-spine tree and many-to-few formula was introduced by~\cite{Harris_Roberts} using a fragmentation process (one places $k$ marks at the root of the tree, and at each branching event every mark independently and uniformly chooses one offspring to follow). In this construction, in many scaling regimes the bias induced by the change of measure degenerates in the limit (for instance, the first split of the spine tree stays of order $1$, whereas the most recent common ancestor of a critical population lives at a time of order $N$).
-\cite{Foutel_Schertzer} build the $k$-spine tree differently from a random tree with $k$ leafs and \iid branch lengths that can be seen as a prior of the genealogies, types evolve along its branches as independent copies of the Doob $h$-transformed Markov chain, and the law of a sample of $k$ individuals from the same generation is recovered through an explicit bias factor.
-
+\citet*{Foutel_Schertzer} build the $k$-spine tree differently. Their construction starts from a random tree with $k$ leafs and \iid branch lengths that can be seen as a prior of the genealogies (there is a degree of freedom in the choice of this tree). Types evolve along its branches as independent copies of the Doob $h$-transformed Markov chain. The law of a sample of $k$ individuals from the same generation is recovered through an explicit bias factor, which depends on the choice made for the prior.
 
 Recently, the method of moments was extended in several other settings, and proved very successful for generalized branching processes (see~\cite{ harris_coalescent_2020,  boenkost2022genealogy,  Foutel_Schertzer, FST_Semipushed_2024, harris_coalescent_2024, harris_universality_2024, harris_many--few_2024,foutelrodier2024momentapproachconvergencespatial,schertzer2023spectral}). In Chapter~\ref{chp4_multitype}, we provide a generalization of this approach to the case where the branching mechanism is density-dependent.
